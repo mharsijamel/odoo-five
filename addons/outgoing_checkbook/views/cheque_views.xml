@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_account_check_form" model="ir.ui.view">
+            <field name="name">account.check.form</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="true" delete="false">
+                    <header>
+                        <button name="reserve_check" type="object" string="Reserver Chèque" attrs="{'invisible':[('state','!=','available')]}" />
+                        <button name="manual_use_check" type="object" string="Utiliser Chèque" attrs="{'invisible':[('state','!=','available')]}" help="Utilisation du chèque sans affectation à un paiement Odoo" />
+                        <button name="unreserve_check" type="object" string="Libérer Chèque" attrs="{'invisible':['&amp;', ('state','not in',('reserved','cancelled')), '|', ('state','!=', 'used'), ('payment_id', '!=', False)]}" />
+                        <button name="cancel_check" type="object" string="Annuler Chèque" attrs="{'invisible':[('state','!=','available')]}" />
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group>
+<!--                            <field name="number"/>-->
+                            <field name="composed_name" string="Numéro"/>
+                            <field name="checkbook_id" readonly="1" force_save="1"/>
+                            <field name="bank_id" readonly="1" force_save="1"/>
+                            <field name="payment_id" readonly="1" force_save="1" />
+                            <field name="payment_ids" readonly="1" force_save="1" />
+<!--                            <field name="treasury_id" readonly="1" force_save="1" />-->
+                            <field name="libelle" readonly="1" force_save="1" />
+<!--                            <field name="motif" string="Motif utilisation/annulation" attrs="{'invisible': [('payment_id', '!=', False)]}" />-->
+                        </group>
+                    </sheet>
+                    <!-- Add chatter and followers widget -->
+                <div class="oe_chatter">
+                    <!-- Followers view -->
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <!-- Chatter view -->
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+
+            </field>
+        </record>
+        <record id="view_account_check_tree" model="ir.ui.view">
+            <field name="name">account.check.tree</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <tree string="Chèques"
+                    decoration-muted="state == 'used'"
+                      decoration-info="state == 'reserved'"
+                    decoration-danger="state in ['cancelled']" >
+<!--                    <field name="number"/>-->
+                    <field name="composed_name" string="Numéro"/>
+                    <field name="checkbook_id"/>
+                    <field name="bank_id"/>
+<!--                    <field name="payment_id"/>-->
+<!--                    <field name="treasury_id"/>-->
+                    <field name="libelle"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+<!--                     search view -->
+        <record id="view_account_check_search" model="ir.ui.view">
+            <field name="name">account.check.search</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <search string="Account Checks">
+<!--                    <field name="number"/>-->
+<!--                    <field name="bank_id"/>-->
+                    <separator/>
+                    <filter name="available" string="Disponibles" domain="[('state', '=', 'available')]"/>
+                    <filter name="used" string="Utilisés" domain="[('state', '=', 'used')]"/>
+                    <filter name="reserved" string="Réservés" domain="[('state', '=', 'used')]"/>
+                    <filter name="cancelled" string="Annulés" domain="[('state', '=', 'cancelled')]"/>
+                    <separator/>
+                    <group expand="0" string="Grouper Par...">
+                        <filter
+                                name="checkbook_id"
+                                string="Carnet de chèques"
+                                icon="fa-user"
+                                domain="[]"
+                                context="{'group_by':'checkbook_id'}"
+                        />
+                        <filter
+                                name="bank_id"
+                                string="Banque"
+                                icon="fa-user"
+                                domain="[]"
+                                context="{'group_by':'bank_id'}"
+                        />
+                        <filter
+                                name="state"
+                                string="Statut"
+                                icon="fa-user"
+                                domain="[]"
+                                context="{'group_by':'state'}"
+                        />
+
+
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+       <record model="res.groups" id="after_sale_manager">
+        <field name="name">After Sale Manager </field>
+        <field name="comment">After Sale Manager</field>
+    </record>
+
+    <record model="res.groups" id="afer_sale_user">
+        <field name="name">After Sale User</field>
+        <field name="comment">After Sale User</field>
+    </record>
+</odoo>

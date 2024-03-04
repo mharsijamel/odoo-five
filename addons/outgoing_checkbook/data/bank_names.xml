@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+        <!--   Tunisien Bank Names  -->
+		<record id="res_bank_amenbank" model="res.bank">
+			<field name="name">Amen Bank</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">CFCTTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Avenue Mohamed V - 1002 Tunis</field>
+			<field eval="1" name="active"/>
+		</record>
+		<record id="res_bank_qnbank" model="res.bank">
+			<field name="name">Qatar National Bank-Tunis - QNB-Tunis</field>
+			<field name="zip">2080</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BTQITNTTXXX</field>
+			<field name="city">ARIANA</field>
+			<field name="street">RUE CITE DES SCIENCES</field>
+			<field eval="1" name="active"/>
+		</record>
+		<record id="res_bank_wifakbank" model="res.bank">
+			<field name="name">Al Wifak International Bank</field>
+			<field name="zip">2015</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">WKIBTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Zone d’activités Kheireddine, les berges du Lac 3</field>
+			<field eval="1" name="active"/>
+		</record>
+		<record id="res_bank_tsbank" model="res.bank">
+			<field name="name">Tunisian Saudi Bank - TSB </field>
+			<field name="zip">1082</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">TSIDTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">32, Rue Hédi Karray</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_alubafinternationalbankaib0" model="res.bank">
+			<field name="name">ALUBAF INTERNATIONAL BANK - AIB</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">ALUBTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Rue 8007 Montplaisir</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_arabbankingcorporationabc0" model="res.bank">
+			<field name="name">Arab Banking Corporation - ABC</field>
+			<field name="zip">2045</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">ABCOTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">ABC Building</field>
+			<field name="street2">Les Berges du Lac</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_arabtunisianbankatb0" model="res.bank">
+			<field name="name">Arab Tunisian Bank - ATB</field>
+			<field name="zip">1000</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">ATBKTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Avenue Jean Jaurès</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_attijaribank0" model="res.bank">
+			<field name="name">Attijari Bank</field>
+			<field name="zip">1000</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BSTUTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">95, Avenue de la Liberté</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquealbaraka0" model="res.bank">
+			<field name="name">Banque AL BARAKA</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BEITTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">88, Avenue Hedi Chaker</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquecentraledetunisiebct0" model="res.bank">
+			<field name="name">Banque Centrale de Tunisie - BCT</field>
+			<field name="zip">1001</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BCTNTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">25, Rue Hédi NOUIRA BP777</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquebfpme0" model="res.bank">
+			<field name="city">Tunis</field>
+			<field name="name">Banque de Financement des Petites et Moyennes Entreprises - BFPME</field>
+			<field name="zip">1004</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BFPMTNTTXXX</field>
+
+			<field name="street">34, Rue Hédi Karray Centre Urbain Nord</field>
+			<field name="street2">El Menzah IV</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquedelhabitatbh0" model="res.bank">
+			<field name="name">Banque de l’Habitat - BH</field>
+			<field name="zip">1000</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BHBKTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">18, Avenue Mohamed 5</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquedetunisiebt0" model="res.bank">
+			<field name="name">Banque de Tunisie - BT</field>
+			<field name="zip">1001</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BTBKTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Place 7 Novembre</field>
+			<field name="street2">2 Rue de Turquie</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquedetunisiedesmiratsbte0" model="res.bank">
+			<field name="name">Banque de Tunisie &amp; des Émirats - BTE</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BTEXTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">5 bis, Rue Mohamed BADRA</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquefrancotunisiennebft0" model="res.bank">
+			<field name="name">Banque Franco -Tunisienne - BFT</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BFTNTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">8600 Montplaisir</field>
+			<field name="street2">Belvédère</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banqueinternationalearabedetunisiebiat0" model="res.bank">
+			<field name="name">Banque Internationale Arabe de Tunisie - BIAT</field>
+			<field name="zip">1000</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BIATTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">70/72, Avenue Habib Bourguiba</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquenationaleagricolebna0" model="res.bank">
+			<field name="name">Banque  Nationale Agricole - BNA</field>
+			<field name="zip">1000</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BNTETNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Avenue Mohamed 5</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquetunisiennedesolidaritbts0" model="res.bank">
+			<field name="name">Banque Tunisienne de Solidarité - BTS</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">TUSOTNT1</field>
+			<field name="city">Tunis</field>
+			<field name="street">56, Avenue Mohamed 5</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquetunisokoweitiennebtk0" model="res.bank">
+			<field name="name">Banque Tuniso-Koweitienne - BTK</field>
+			<field name="zip">1001</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BTKOTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">10 Bis Avenue Mohamed 5 B.P 49</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquetunisolibyennebtl0" model="res.bank">
+			<field name="name">Banque Tuniso-Libyenne - BTL</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">ATLDTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">25, avenue Kheireddine Pacha</field>
+			<field name="street2">Belvédère</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_banquezitouna0" model="res.bank">
+			<field name="name">Banque Zitouna</field>
+			<field name="zip">2015</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BZITTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">2 Boulevard Qualité de la Vie</field>
+			<field name="street2">Le Kram</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_bestbank0" model="res.bank">
+			<field name="name">BEST BANK</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BEITTNTT</field>
+			<field name="city">Tunis</field>
+			<field name="street">88, Avenue Hédi CHAKER</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_citibank0" model="res.bank">
+			<field name="name">CITIBANK</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="street2">BELVEDERE</field>
+			<field name="bic">CITITNTXXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">55, Av. Jughurta</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_lapostetunisienne0" model="res.bank">
+			<field name="name">La Poste Tunisienne</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">LPTNTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_northafricainternationalbanknaib0" model="res.bank">
+			<field name="name">North Africa International Bank - NAIB</field>
+			<field name="zip">1080</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">NOAFTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Avenue Kheireddine Pacha Ennassim</field>
+			<field name="street2">Montplaisir</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_socittunisiennedebanquestb0" model="res.bank">
+			<field name="name">Société Tunisienne de Banque - STB</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">STBKTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Rue Hédi Nouira</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_stusid0" model="res.bank">
+			<field name="name">Société Tuniso-Séoudienne d’Investissement &amp; de Développement - STUSID</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">TSIDTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">32, Rue 7050 B.P2</field>
+			<field name="street2">Ancienne Route de la Soukra</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_tunisianqataribanktqb0" model="res.bank">
+			<field name="name">Tunisian Qatari Bank - TQB</field>
+			<field name="zip">1030</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">BTQITNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Centre Urbain Nord - BP.230</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_unionbancairepourlecommercelindustrieubci0" model="res.bank">
+			<field name="name">Union Bancaire pour le Commerce &amp; l’Industrie - UBCI</field>
+			<field name="zip">1002</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">UBCITNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">139, Avenue de la Liberté</field>
+			<field eval="1" name="active"/>
+		</record>
+
+		<record id="res_bank_unioninternationaledebanquesuib0" model="res.bank">
+			<field name="name">Union Internationale de Banques UIB</field>
+			<field name="zip">2035</field>
+			<field name="country" ref="base.tn"/>
+			<field name="bic">TUIBTNTTXXX</field>
+			<field name="city">Tunis</field>
+			<field name="street">Rue du Lac Turkana</field>
+			<field name="street2">les Berges du Lac</field>
+			<field eval="1" name="active"/>
+		</record>
+	</data>
+</odoo>

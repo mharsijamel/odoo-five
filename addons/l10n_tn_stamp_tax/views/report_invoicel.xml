@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_invoice_document" inherit_id="account.report_invoice_document">
+			<xpath expr="//div[@class='page']/p[position()=last()]" position="after">							
+   							<table border="0" style="width:100%;float:left;">
+                                <tr><td>
+                                    <br/>
+                                <strong><h6>Arrêté la présente Facture à la somme de : </h6></strong>
+                                <span style="font-size:12px" /> <!--t-esc="o.amount"-->
+                                <h6 t-esc="o.get_amount_letter()"/>
+                                <br/>
+                                <div style="width:50%;float:left;"><u><h5>Signature du client</h5></u></div>
+                                <div style="width:50%;float:left;"><span class="pull-right"><u><h5>Signature et Cachet</h5></u></span></div>
+                                </td></tr>
+                            </table>
+   			</xpath>
+<!--           <xpath expr="//div[@id='total']/div/table/tr[2]" position="before">-->
+<!--                <tr>-->
+<!--                    <td>Timbre Fiscal</td>-->
+<!--                    <td class="text-right">-->
+<!--                        <span t-field="o.tn_amount_global_tax"/>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--           </xpath>-->
+
+		</template>
+	</data>
+</odoo>

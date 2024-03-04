@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="net_to_pay_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">net.to.pay.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tax_totals_json']" position="after">
+                    <field name="net_to_pay" colspan="2"  widget="monetary"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

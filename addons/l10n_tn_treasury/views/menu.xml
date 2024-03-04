@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_treasury_root" name="Treasury" parent="account.menu_finance_entries" sequence="1"/>
+
+    <menuitem id="menu_treasury_documents" name="Treasury Documents" parent="menu_treasury_root" sequence="10"/>
+
+
+    <record model="ir.actions.act_window" id="account_action_form_vesement">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Installment Documents</field>
+            <field name="res_model">account.installment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    <menuitem name="Remise chèques" parent="l10n_tn_treasury.menu_treasury_root" id="vesement_document_menu"
+                  action="account_action_form_vesement"  sequence="1"/>
+
+
+    <record model="ir.actions.act_window" id="account_action_form_vesement_traite">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Vesement Traite</field>
+            <field name="res_model">account.installment.trait</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Remise Effets" parent="l10n_tn_treasury.menu_treasury_root" id="vesement_document_traite"
+                  action="account_action_form_vesement_traite"  sequence="2"/>
+
+    <record model="ir.actions.act_window" id="account_action_form_vesement_cash">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Cash Vesement Documents</field>
+            <field name="res_model">account.treasury.installment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Cash Vesement" parent="l10n_tn_treasury.menu_treasury_root" id="vesement_cash_document"
+                  action="account_action_form_vesement_cash"  sequence="3"/>
+
+
+
+
+    <record model="ir.actions.act_window" id="account_action_form_withdrawal_cash">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Cash withdrawal Documents</field>
+            <field name="res_model">account.withdrawal.cash</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Cash withdrawal" parent="l10n_tn_treasury.menu_treasury_root" id="withdrawal_cash_document"
+                  action="account_action_form_withdrawal_cash"  sequence="4"/>
+
+
+
+    <record model="ir.actions.act_window" id="account_action_form_exchange_costumer">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Exchange Documents</field>
+        <field name="res_model">account.exchange.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Exchange Documents" parent="l10n_tn_treasury.menu_treasury_root" id="exchange_document"
+                  action="account_action_form_exchange_costumer" sequence="5"/>
+
+
+    <record model="ir.actions.act_window" id="account_action_form_treasury">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Treasury Documents</field>
+            <field name="res_model">account.treasury</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Treasury Documents" parent="l10n_tn_treasury.menu_treasury_root"
+                  id="treasury_document_menu"
+                  action="account_action_form_treasury" sequence="6"/>
+
+
+</odoo>

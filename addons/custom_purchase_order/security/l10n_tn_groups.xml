@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_res_purchase_logistic" model="res.groups">
+        <field name="name">Purchase Administrator</field>
+        <field name="comment">Purchase Administrator </field>
+    </record>
+
+</odoo>

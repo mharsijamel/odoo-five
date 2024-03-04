@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_order_form_view_form_ih_view" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="cin_number" readonly="1" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')]}"/>
+                </xpath>
+                <xpath expr="//div[@name='steg_details']" position="attributes">
+                    <atribute name="attrs">{'invisible': [('installation_type', '!=', 'connected')]}</atribute>
+                </xpath>
+                <xpath expr="//page[@name='technical_files']" position="attributes">
+                   <attribute name="attrs">{'invisible': ['|', ('contract_signed', '!=', True), ('op_authorized', '!=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//page[@name='commercial_files']" position="replace">
+                   <page string="Commercial file" name="commercial_files" attrs="{'invisible': ['|', ('contract_signed', '!=', True), ('op_authorized', '!=', True)]}">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="filing_date"/>
+                            <field name="filing_date"/>
+                        </div>
+                        <div name="poip_details" attrs="{'invisible': [('installation_type', '!=', 'connected')]}" class="col-3">
+                            <label for="poip_fees"/>
+                            <field name="poip_fees"/>
+                        </div>
+                        <div name="steg_details"  attrs="{'invisible': [('installation_type', '!=', 'connected')]}" class="col-3">
+                            <label for="steg_credit" />
+                            <field name="steg_credit"/>
+                        </div>
+                        <div name="anme_details" class="col-3">
+                            <label for="sub_anme"/>
+                            <field name="sub_anme"/>
+                        </div>
+                        <div class="col-3">
+                            <label for="approbation_date"/>
+                            <field name="approbation_date"/>
+                        </div>
+                        <div class="col-12" attrs="{'invisible': [('installation_type', '!=', 'connected')]}">
+                            <label for="poip_attachement"/>
+                            <field name="poip_attachement" filename="poip_attachement_fname" attrs="{'readonly': [('approbation_date', '!=', False)]}"/>
+                            <field name="poip_attachement_fname" invisible="1"/>
+                        </div>
+                        <div class="col-12" attrs="{'invisible': [('installation_type', '!=', 'connected')]}">
+                            <label for="discharge_attachement"/>
+                            <field name="discharge_attachement" filename="discharge_attachement_fname" attrs="{'readonly': [('approbation_date', '!=', False)]}"/>
+                            <field name="discharge_attachement_fname" invisible="1"/>
+                        </div>
+                        <div class="col-12">
+                            <field name="opportunity_id" invisible="1" />
+                            <field name="op_authorized" invisible="1" />
+                            <field name="op_authorized_type" invisible="1"/>
+                            <br/>
+                            <label for="authorized_sondage" attrs="{'invisible':['|',('installation_type', '!=', 'pumping_project'),('op_authorized', '=', False)]}" />
+                            <field name="authorized_sondage" readonly="1" attrs="{'invisible':['|',('installation_type', '!=', 'pumping_project'),('op_authorized', '=', False)]}"/>
+                            <br/>
+                            <label for="preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('op_authorized', '=', False),('op_authorized_type', '!=', 'anme')]}" />
+                            <field name="preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('op_authorized', '=', False),('op_authorized_type', '!=', 'anme')]}"/>
+                            <br/>
+                            <label for="signed_preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('op_authorized', '=', False),('op_authorized_type', '!=', 'anme')]}" />
+                            <field name="signed_preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('op_authorized', '=', False),('op_authorized_type', '!=', 'anme')]}"/>
+
+                        </div>
+
+                    </div>
+
+                </page>
+                </xpath>
+            </field>
+        </record>
+</odoo>

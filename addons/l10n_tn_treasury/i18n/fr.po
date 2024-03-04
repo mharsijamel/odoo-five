@@ -1,0 +1,1150 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_tn_treasury
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-21 15:27+0000\n"
+"PO-Revision-Date: 2023-11-21 15:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__access_warning
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__access_warning
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__access_warning
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__access_warning
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__account_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__account_id
+msgid "Account"
+msgstr "Aompte"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__move_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__move_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__move_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__move_id
+msgid "Account Entry"
+msgstr "Pièce Comptable"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__move_id
+msgid "Account Move"
+msgstr "Pièce Comptable"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_needaction
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_needaction
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_needaction
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_needaction
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activité Exception Décoration"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__amount_in_word
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__amount_in_word
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__amount_in_word
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__amount_in_word
+msgid "Amount in Word"
+msgstr "Montant en Lettre"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__treasury_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__treasury_ids
+msgid "Associated Document"
+msgstr "Document Associé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_attachment_count
+msgid "Attachment Count"
+msgstr "Compteur de Pièces Jointes"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__bank_commission
+msgid "Bank Commission"
+msgstr "Commission Bancaire"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__bank_commission_account
+msgid "Bank Commission Account"
+msgstr "Compte de Commission Bancaire"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__bank_commission_total
+msgid "Bank Commission Total"
+msgstr "Total de Commission Bancaire"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__bank_origin
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__bank_origin
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__bank_origin
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__bank_origin
+msgid "Bank Origin"
+msgstr "Banque d'Origine"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__bank_source_ids
+msgid "Bank Source"
+msgstr "Banque Source"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__bank_target
+msgid "Bank Target"
+msgstr "Banque Cible"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_installment__state__cancel
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_installment_trait__state__cancel
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury_installment__state__cancel
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_withdrawal_cash__state__cancel
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_unpaid_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__state__cancel
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__cancel
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_treasury_installment
+#: model:ir.ui.menu,name:l10n_tn_treasury.vesement_cash_document
+msgid "Cash Vesement"
+msgstr "Versement en Espèce"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.act_window,name:l10n_tn_treasury.account_action_form_vesement_cash
+msgid "Cash Vesement Documents"
+msgstr "Documents de Versement en Espèce"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_withdrawal_cash
+msgid "Cash Withdrawal"
+msgstr "Retrait en Espèce"
+
+#. module: l10n_tn_treasury
+#: model:ir.ui.menu,name:l10n_tn_treasury.withdrawal_cash_document
+msgid "Cash withdrawal"
+msgstr "Retrait en Espèce"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.act_window,name:l10n_tn_treasury.account_action_form_withdrawal_cash
+msgid "Cash withdrawal Documents"
+msgstr "Documents de Retrait en Espèce"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_payment_register_form_inhiert_treasury_view
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_payment_treasury_inhiert_view
+msgid "Check Number"
+msgstr "Numéro de Chèque"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__num_cheque
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__num_cheque
+msgid "Cheque Number"
+msgstr "Numéro de Chèque"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
+msgid "Chèque/Traite Impayé"
+msgstr "Chèque/Traite Impayé"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
+msgid "Chèque/Traite Versé"
+msgstr "Chèque/Traite Versé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__company_currency_id
+msgid "Company Currency"
+msgstr "Devise de la Société"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_exchange_document__company_id
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_exchange_document_line__company_id
+msgid "Company related to this treasury"
+msgstr "Société liée à cette trésorerie"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__currency_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__access_url
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__access_url
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__access_url
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__access_url
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__access_url
+msgid "Customer Portal URL"
+msgstr "URL du portail client"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__date_start
+msgid "Date Start"
+msgstr "Date de Début"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__date_stop
+msgid "Date Stop"
+msgstr "Date de Fin"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_unpaid_wizard
+msgid "Detail"
+msgstr "Détail"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__currency_id
+msgid "Devise"
+msgstr "Devise"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__document_id
+msgid "Document"
+msgstr "Document"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__name
+msgid "Document ID"
+msgstr "Document ID"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__document_state
+msgid "Document State"
+msgstr "Etat du Document"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_installment.py:0
+#: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
+#, python-format
+msgid "Document number %s for %s is not in cash !"
+msgstr "Le numéro de document %s pour %s n'est pas en espèces !"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_installment.py:0
+#: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
+#, python-format
+msgid "Document number %s for %s is not versed !"
+msgstr "Le numéro de document %s pour %s n'est pas versé !"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__date_to
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__date_to
+msgid "End Date"
+msgstr "Date de Fin"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_exchange_document
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__exchange_document_id
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_tree
+msgid "Exchange Document"
+msgstr "Document de Change"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_exchange_document_line
+msgid "Exchange Document Line"
+msgstr "Ligne de Document de Change"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.act_window,name:l10n_tn_treasury.account_action_form_exchange_costumer
+#: model:ir.ui.menu,name:l10n_tn_treasury.exchange_document
+msgid "Exchange Documents"
+msgstr "Documents de Change"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__expected
+msgid "Expected effect"
+msgstr "Effet attendu"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__activity_type_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__activity_type_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__activity_type_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__activity_type_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__has_message
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__has_message
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__has_message
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__has_message
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__has_message
+msgid "Has Message"
+msgstr "A un Message"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__holder
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__holder
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__partner_id
+msgid "Holder"
+msgstr "Titulaire"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_exception_icon
+msgid "Icon"
+msgstr "Icône"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__activity_exception_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__activity_exception_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__activity_exception_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__activity_exception_icon
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_needaction
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_unread
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_needaction
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_unread
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_needaction
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_unread
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_needaction
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_unread
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_needaction
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, les nouveaux messages nécessitent votre attention."
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_has_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_has_sms_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_has_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_has_sms_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_has_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_has_sms_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_has_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_has_sms_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_has_error
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages ont une erreur de livraison."
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_exchange_document.py:0
+#, python-format
+msgid ""
+"If the amount of the bank commission is defined you must define the account "
+"for this move"
+msgstr ""
+"Si le montant de la commission bancaire est défini, vous devez définir le compte"
+"pour cette écriture"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__document_state__in_cash
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__in_cash
+msgid "In Cash"
+msgstr "En Caisse"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__incash_check
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__incash_check
+msgid "Incash Check"
+msgstr "Chèque en Espèce"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__incash_treaty
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__incash_treaty
+msgid "Incash Treaty"
+msgstr "Traite en Espèce"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_installment
+msgid "Installment"
+msgstr "Versement"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.act_window,name:l10n_tn_treasury.account_action_form_vesement
+msgid "Installment Documents"
+msgstr "Documents de versement"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__invoice_ids
+msgid "Invoice ref"
+msgstr "Référence de la Facture"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_is_follower
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_is_follower
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_is_follower
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_is_follower
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_journal
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__journal_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__journal_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__journal_id
+msgid "Journal"
+msgstr "Journal"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__move_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__move_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__move_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__move_ids
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+msgid "Journal Items"
+msgstr "Éléments de Journal"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__journal_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__journal_source
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__journal_source
+msgid "Journal Source"
+msgstr "Journal Source"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__journal_target
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__journal_target
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__journal_target
+msgid "Journal Target"
+msgstr "Journal Cible"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__write_uid
+msgid "Last Updated by"
+msgstr "Dernière Mise à Jour par"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_withdrawal_cash.py:0
+#, python-format
+msgid "Le Montant de retrait doit être supérieur à Zéro"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_treasury_installment.py:0
+#, python-format
+msgid "Le Montant de versement doit être supérieur à Zéro"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__line_ids
+msgid "Line"
+msgstr "Ligne"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_main_attachment_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_main_attachment_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_main_attachment_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_main_attachment_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce Jointe Principale"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__maturity_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__maturity_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__maturity_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__maturity_date
+msgid "Maturity Date"
+msgstr "Date d'Echéance"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_has_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_has_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_has_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_has_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_summary
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_summary
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_summary
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_summary
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_type_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_type_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_type_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_type_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__note
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__note
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__note
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__note
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__notice
+msgid "Notice"
+msgstr "Avis"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__number
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__number
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__number
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__number
+msgid "Number"
+msgstr "Numéro"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'Actions"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_needaction_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_needaction_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_needaction_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_needaction_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_has_error_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_has_error_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_has_error_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_has_error_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__message_unread_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__message_unread_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__message_unread_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__message_unread_counter
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__check_id
+msgid "Numéro Chèque/traite"
+msgstr "Numéro Chèque/traite"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__state__draft
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_installment__state__draft
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_installment_trait__state__draft
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury_installment__state__draft
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_withdrawal_cash__state__draft
+msgid "Open"
+msgstr "Ouvert"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__paid
+msgid "Paid"
+msgstr "Payé"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
+msgid "Payment"
+msgstr "Paiement"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__payment_date
+msgid "Payment Date"
+msgstr "Date de Paiement"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_payment_method
+msgid "Payment Methods"
+msgstr "Méthodes de paiements"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__payment_type
+msgid "Payment Type"
+msgstr "Type de Paiement"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__payment_id
+msgid "Payment ref"
+msgstr "Référence du Paiement"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_payment_register.py:0
+#: model:ir.model,name:l10n_tn_treasury.model_account_payment
+#, python-format
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__access_url
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__access_url
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__access_url
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__access_url
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__access_url
+msgid "Portal Access URL"
+msgstr "URL d'accès au portail"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__name
+msgid "Reference"
+msgstr "Référence"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_payment_register
+msgid "Register Payment"
+msgstr "Enregistrer un paiement"
+
+#. module: l10n_tn_treasury
+#: model:ir.ui.menu,name:l10n_tn_treasury.vesement_document_traite
+msgid "Remise Effets"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.ui.menu,name:l10n_tn_treasury.vesement_document_menu
+msgid "Remise chèques"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_user_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__activity_user_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__activity_user_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__activity_user_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur Responsable"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__access_token
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__access_token
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__access_token
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__access_token
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+msgid "Set to Draft"
+msgstr "Mettre en brouillon"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__date_from
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__date_from
+msgid "Start Date"
+msgstr "Date de Début"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__state
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__state
+msgid "State"
+msgstr "Statut"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__activity_state
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__activity_state
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__activity_state
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__activity_state
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__bank_target
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__bank_target
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__bank_target
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__bank_source
+msgid "Target Bank"
+msgstr "Banque Cible"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_bank_statement_import_journal_creation__temporary_bank_journal
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_journal__temporary_bank_journal
+msgid "Temporary Bank Journal"
+msgstr "Journal Bancaire Temporaire"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__amount
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__num_treaty
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__num_treaty
+msgid "Traite Number"
+msgstr "Numéro Traite"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_treasury
+#: model:ir.ui.menu,name:l10n_tn_treasury.menu_treasury_root
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+msgid "Treasury"
+msgstr "Trésorerie"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_tree
+msgid "Treasury Document"
+msgstr "Document de Trésorerie"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.act_window,name:l10n_tn_treasury.account_action_form_treasury
+#: model:ir.ui.menu,name:l10n_tn_treasury.menu_treasury_documents
+#: model:ir.ui.menu,name:l10n_tn_treasury.treasury_document_menu
+msgid "Treasury Documents"
+msgstr "Documents de Trésorerie"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__treasury_id
+msgid "Treasury ID"
+msgstr "Documents de Trésorerie"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
+msgid "Treasury information"
+msgstr "Info. Documents de Trésorerie"
+
+#. module: l10n_tn_treasury
+#: model:account.payment.method,name:l10n_tn_treasury.account_payment_method_treaty
+msgid "Treaty"
+msgstr "Traite"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d’activité exceptionnelle enregistrée."
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_unread
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_unread
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_unread
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_unread
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_unread_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_unread_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_unread_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__message_unread_counter
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__user_id
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__state__valid
+msgid "Valid"
+msgstr "Validé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_installment__state__valid
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_installment_trait__state__valid
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury_installment__state__valid
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_withdrawal_cash__state__valid
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__document_state__versed
+#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__versed
+msgid "Versed"
+msgstr "Versé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__date_vesement
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__date_vesement
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__date_vesement
+msgid "Vesement Date"
+msgstr "Date de Versement"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_cash_tree
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_tree
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_tree
+msgid "Vesement Document"
+msgstr "Document de Versement"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.act_window,name:l10n_tn_treasury.account_action_form_vesement_traite
+msgid "Vesement Traite"
+msgstr "Versement Traite"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_installment.py:0
+#: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
+#: code:addons/l10n_tn_treasury/models/account_treasury_installment.py:0
+#, python-format
+msgid "Vesement created"
+msgstr "Versement Créé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_installment_trait
+msgid "Vesement traite"
+msgstr "Versement traite"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__website_message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__website_message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__website_message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__website_message_ids
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__website_message_ids
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__website_message_ids
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__website_message_ids
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury_installment__website_message_ids
+#: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_bank_statement_import_journal_creation__withdrawal_account
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_journal__withdrawal_account
+msgid "Withdrawal Account"
+msgstr "Compte de Retrait"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__date_withdrawal
+msgid "Withdrawal Date"
+msgstr "Date de Retrait"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_tree
+msgid "Withdrawal Document"
+msgstr "Document de Retrait"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_withdrawal_cash.py:0
+#, python-format
+msgid "Withdrawal created"
+msgstr "Retrait créé"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_treasury_installment.py:0
+#, python-format
+msgid "You cannot delete this cash vesement !"
+msgstr "Vous ne pouvez pas supprimer ce versement !"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_withdrawal_cash.py:0
+#, python-format
+msgid "You cannot delete this cash withdrawal !"
+msgstr "Vous ne pouvez pas supprimer ce retrait !"
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_installment.py:0
+#: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
+#, python-format
+msgid "You cannot delete this vesement !"
+msgstr "Vous ne pouvez pas supprimer ce versement !"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_unpaid_wizard
+msgid "confirm"
+msgstr "Confirmer"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_document_treasury_unpaid
+msgid "document.treasury.unpaid"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_installment.py:0
+#: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
+#, python-format
+msgid "no treasury line !"
+msgstr "pas de ligne de trésorerie !"

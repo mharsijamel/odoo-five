@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_technical_folder_form_inherited" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="custom_crm_lead.view_order_form_inherited"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='preview_sale_order']" position="before">
+                    <button type="object" name="action_view_technical_folder_ids" class="oe_stat_button" icon="fa-puzzle-piece" attrs="{'invisible': [('technical_folder_id', '=', False)]}" groups="technical_team_sale_order.group_technical_folder_user">
+                        <field name="technical_folder_id" invisible="1"/>
+                        <field name="folder_count" widget="statinfo" string="Technical Folder"/>
+                    </button>
+                </xpath>
+                <xpath  expr="//page[@name='technical_files']"  position="replace">
+                    <page string="Technical file" name="technical_files" attrs="{'invisible': [('contract_signed', '!=', True)]}">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="lead_reception_date"/>
+                                <field name="lead_reception_date"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="lead_preparation_date"/>
+                                <field name="lead_preparation_date"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="lead_filling_date"/>
+                                <field name="lead_filling_date"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="lead_approbation_date"/>
+                                <field name="lead_approbation_date"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="technical_folder_id"/>
+                                <field name="technical_folder_id"/>
+                            </div>
+                            <div class="col-6">
+                                <label for="technical_team_id"/>
+                                <field name="technical_team_id"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="technical_order_line"/>
+                                <field name="technical_order_line">
+                                    <tree>
+                                        <field name="product_id"/>
+                                        <field name="product_uom_qty"/>
+                                        <field name="product_uom"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </div>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

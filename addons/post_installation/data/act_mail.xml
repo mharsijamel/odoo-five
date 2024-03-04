@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="mail_activity_post_installation" model="mail.activity.type">
+            <field name="name">Post Instalation</field>
+            <field name="icon">fa-file-text-o</field>
+            <field name="res_model">post.installation</field>
+            <field name="delay_count">30</field>
+        </record>
+
+        <record id="mail_activity_project_project" model="mail.activity.type">
+            <field name="name">Project</field>
+            <field name="icon">fa-file-text-o</field>
+            <field name="res_model">project.project</field>
+            <field name="delay_count">30</field>
+        </record>
+    </data>
+</odoo>

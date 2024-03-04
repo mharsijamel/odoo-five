@@ -1,0 +1,218 @@
+<odoo>
+    <data>
+        <!--Customer Withholding-->
+        <record id="account_withholding_customer_view_tree" model="ir.ui.view">
+            <field name="name">account.withholding.customer.tree</field>
+            <field name="model">account.withholding</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'">
+                    <field name="name"/>
+                    <field name="partner_id" string="Client"/>
+                    <field name="date"/>
+                    <field name="journal_id"/>
+                    <field name="state"/>
+                    <field name="tax"/>
+                    <field name="amount_advance"/>
+                    <field name="retenue_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_withholding_customer_view_form" model="ir.ui.view">
+            <field name="name">account.withholding.customer.form</field>
+            <field name="model">account.withholding</field>
+            <field name="arch" type="xml">
+                <form attrs="{'edit': [('state', 'in', ['draft'])]}">
+                    <header>
+                        <button name="button_validate_withholding" string="Valider" type="object"
+                                attrs="{'invisible':[('state','not in',('draft'))]}"
+                                class="oe_highlight o_invoice_validate"/>
+                        <button name="button_cancel" string="Remettre en Brouillon" class="btn-default" type="object"
+                                attrs="{'invisible':[('state','!=', 'cancel')]}"/>
+                        <button name="button_draft" string="Annuler" class="btn-default" type="object"
+                                attrs="{'invisible':[('state','in', ('draft', 'cancel'))]}"/>
+                        <field name="state" widget="statusbar" nolabel="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="button_account_move" string="Écritures comptables"
+                                    type="object" groups="account.group_account_user"
+                                    attrs="{'invisible':[('account_move_id','=',False)]}" icon="fa-bars"/>
+                            <field name="account_move_id" invisible="1"/>
+                        </div>
+                        <widget name="web_ribbon" title="Fait" attrs="{'invisible': [('state', 'in', ('cancel', 'draft'))]}"/>
+                        <widget name="web_ribbon" title="Annulée" bg_color="bg-danger" attrs="{'invisible': [('state', 'in', ('draft', 'done'))]}"/>
+                        <group>
+                            <group>
+                                <field name="partner_id" string="Client"
+                                       attrs="{'readonly': [('state', 'in', 'done')]}" widget="many2one"
+                                       context="{'show_address': 1, 'default_is_company': True, 'show_vat': True}"
+                                       options="{&quot;always_reload&quot;: True, &quot;no_quick_create&quot;: True}"/>
+                                <field name="account_withholding_tax_ids" widget="many2one"
+                                       attrs="{'readonly': [('state', 'in', 'done')]}"
+                                       domain="[('type_withholding','=','vente')]" />
+                                <field name="journal_id" attrs="{'readonly': [['state', 'in', ('done', 'cancel')]]}" domain="[('is_retenuvente','=',True)]"/>
+                            </group>
+                            <group>
+                                <field name="type" value='out_withholding' invisible="1"/>
+                                <field name="date" attrs="{'readonly': [('state', 'in', 'done')]}"/>
+                                <field name="amount_total_rs"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="account_invoice_ids" widget="many2many" nolabel="1"
+                                   domain="[('partner_id','=',partner_id),('payment_state', '=', 'not_paid'),('move_type','in',('out_refund','out_invoice')),('state','=', 'posted'),('withholding_id','=',False)]"
+                                   attrs="{'readonly': [('state', 'in', 'done')]}"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="withholding_advance"/>
+                                <field name="amount_advance"
+                                       attrs="{'invisible': [('withholding_advance', '=', False)]}"/>
+                            </group>
+                            <group>
+                                <field name="retenue_amount"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_withholding_customer_action" model="ir.actions.act_window">
+            <field name="name">RS Client</field>
+            <field name="res_model">account.withholding</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','out_withholding')]</field>
+            <field name="context">{'default_type': 'out_withholding'}</field>
+        </record>
+
+        <record id="account_withholding_customer_action_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="account_withholding_customer_view_tree"/>
+            <field name="act_window_id" ref="account_withholding_customer_action"/>
+        </record>
+
+        <record id="account_withholding_customer_action_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_withholding_customer_view_form"/>
+            <field name="act_window_id" ref="account_withholding_customer_action"/>
+        </record>
+
+        <menuitem id="account_withholding_customer_menu" name="RS Client"
+                  parent="account.menu_finance_receivables"
+                  action="account_withholding_customer_action"
+                  groups="account.group_account_user,account.group_account_manager,account.group_account_invoice"/>
+
+        <!--Vendor Withholding-->
+        <record id="account_withholding_vendor_view_tree" model="ir.ui.view">
+            <field name="name">account.withholding.vendor.tree</field>
+            <field name="model">account.withholding</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel' ">
+                    <field name="name"/>
+                    <field name="partner_id" string="Fournisseur"/>
+                    <field name="date"/>
+                    <field name="journal_id"/>
+                    <field name="state"/>
+                    <field name="tax"/>
+                    <field name="amount_advance"/>
+                    <field name="retenue_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_withholding_vendor_view_form" model="ir.ui.view">
+            <field name="name">account.withholding.vendor.form</field>
+            <field name="model">account.withholding</field>
+            <field name="arch" type="xml">
+                <form attrs="{'edit': [('state', 'in', ['draft'])]}">
+                    <header>
+                        <button name="button_validate_withholding" string="Valider" type="object"
+                                attrs="{'invisible':[('state','not in','draft')]}"
+                                class="oe_highlight o_invoice_validate"/>
+                        <button name="button_cancel" string="Remettre en Brouillon" class="btn-default" type="object"
+                                attrs="{'invisible':[('state','!=','cancel')]}"/>
+                        <button name="button_draft" string="Annuler" class="btn-default" type="object"
+                                attrs="{'invisible':[('state','in', ('draft', 'cancel'))]}"/>
+                        <field name="state" widget="statusbar" nolabel="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="button_account_move" string="Écritures comptables"
+                                    type="object" groups="account.group_account_user"
+                                    attrs="{'invisible':[('account_move_id','=',False)]}" icon="fa-bars"/>
+                            <field name="account_move_id" invisible="1"/>
+                        </div>
+                        <widget name="web_ribbon" title="Fait" attrs="{'invisible': [('state', 'in', ('draft', 'cancel'))]}"/>
+                        <widget name="web_ribbon" title="Annulée" bg_color="bg-danger" attrs="{'invisible': [('state', 'in', ('draft', 'done'))]}"/>
+                        <group>
+                            <group>
+                                <field name="type" value='in_withholding' invisible="1"/>
+                                <field name="partner_id" string="Fournisseur"
+                                       attrs="{'readonly': [('state', 'in', 'done')]}" widget="many2one"
+                                       context="{'show_address': 1, 'default_is_company': True, 'show_vat': True}"
+                                       options="{&quot;always_reload&quot;: True, &quot;no_quick_create&quot;: True}"/>
+                                <field name="account_withholding_tax_ids" widget="many2one"
+                                       attrs="{'readonly': [('state', 'in', 'done')]}"
+                                       domain="[('type_withholding','=','achat')]" />
+                                <field name="journal_id" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}" domain="[('is_retenuachat','=',True)]"/>
+                                <field name="account_withholding_tax_type" invisible="1" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="date" attrs="{'readonly': [('state', 'in', 'done')]}"/>
+                                <field name="amount_total_rs"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="account_invoice_ids" widget="many2many" nolabel="1"
+                                   domain="[('partner_id','=',partner_id),('payment_state', '=', 'not_paid'),('move_type','in',('in_refund','in_invoice')),('state', '=', 'posted'),('withholding_id','=',False)]"
+                                   attrs="{'readonly': [('state', 'in', 'done')]}"/>
+                        </group>
+                        <!--<field name="account_invoice_ids" position="inside">-->
+                        <!--<field name="reference"/>-->
+                        <!--</field>-->
+                        <group>
+
+                            <group>
+                                <field name="withholding_advance"/>
+                                <field name="amount_advance"
+                                       attrs="{'invisible': [('withholding_advance', '=', False)]}"/>
+                            </group>
+                            <group>
+                                <field name="retenue_amount"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_withholding_vendor_action" model="ir.actions.act_window">
+            <field name="name">Retenue du Fournisseur</field>
+            <field name="res_model">account.withholding</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','in_withholding')]</field>
+            <field name="context">{'default_type': 'in_withholding'}</field>
+        </record>
+
+        <record id="account_withholding_vendor_action_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="account_withholding_vendor_view_tree"/>
+            <field name="act_window_id" ref="account_withholding_vendor_action"/>
+        </record>
+
+        <record id="account_withholding_vendor_action_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_withholding_vendor_view_form"/>
+            <field name="act_window_id" ref="account_withholding_vendor_action"/>
+        </record>
+
+        <menuitem id="account_withholding_vendor_menu" name="RS Fournisseur"
+                  parent="account.menu_finance_payables"
+                  action="account_withholding_vendor_action"
+                  groups="account.group_account_user,account.group_account_manager,account.group_account_invoice"/>
+    </data>
+</odoo>

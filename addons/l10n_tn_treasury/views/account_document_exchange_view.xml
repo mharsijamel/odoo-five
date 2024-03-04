@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_exchange_form">
+            <field name="name">account.exchange.form</field>
+            <field name="model">account.exchange.document</field>
+            <field name="arch" type="xml">
+                <form string="Exchange Document">
+                    <header>
+                        <button name="button_validate" states="draft" string="Validate" type="object" icon="fa-check"/>
+                        <button name="button_cancel"   states="valid" string="Cancel" type="object" icon="fa-trash" groups="account.group_account_manager"/>
+                        <button name="button_draft"    states="cancel" string="Set to Draft" type="object" icon="fa-refresh" groups="account.group_account_manager"/>
+                        <field name="state" widget="statusbar" statusbar_colors='{"cancel":"red","cancel":"draft"}'/>
+                    </header>
+                    <sheet string="Exchange Document" >
+                        <h2><label for="name"/><field name="name" class="oe_inline"/></h2>
+                        <group>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="journal_id" invisible="0"/>
+                                <field name="journal_target" />
+                                <field name="document_state"/>
+                                <field name="bank_commission" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="bank_commission_account"/>
+                            </group>
+                            <group>
+                                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="move_id"/>
+                                <field name="bank_commission_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date_start"/>
+                            </group>
+                            <group>
+                                <field name="date_stop"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="bank_source_ids" widget="many2many_tags"/>
+                        </group>
+                        <field name="line_ids">
+                            <tree editable="bottom">
+                                <field name="document_id"/>
+<!--                                <field name="partner_id"/>-->
+                                <field name="holder"/>
+                                <field name="maturity_date"/>
+                                <field name="bank_origin"/>
+                                <field name="amount" sum="Total"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_exchange_tree">
+            <field name="name">account.exchange.tree</field>
+            <field name="model">account.exchange.document</field>
+            <field name="arch" type="xml">
+                <tree string='Exchange Document'>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_stop"/>
+                    <field name="journal_target"/>
+                    <field name="amount" sum="Total"/>
+                    <field name="journal_id" />
+                    <field name="company_id" />
+                </tree>
+            </field>
+        </record>
+	</data>
+</odoo>
+

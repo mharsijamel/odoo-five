@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_consumption_information
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-22 11:25+0000\n"
+"PO-Revision-Date: 2023-11-22 11:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_consumption_information
+#: model_terms:ir.ui.view,arch_db:project_consumption_information.view_project_project_form_inherited
+msgid "Add a product"
+msgstr "Ajouter un produit"
+
+#. module: project_consumption_information
+#: model_terms:ir.ui.view,arch_db:project_consumption_information.view_project_project_form_inherited
+msgid "Additional Information"
+msgstr "Informations complémentaires"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__product_uom_category_id
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: project_consumption_information
+#: model_terms:ir.ui.view,arch_db:project_consumption_information.view_project_project_form_inherited
+msgid "Comsumption"
+msgstr "Consommation"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,help:project_consumption_information.field_project_comsumption_line__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__name
+msgid "Description"
+msgstr "Description"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__display_name
+msgid "Display Name"
+msgstr "Nom à afficher"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_project__localisation
+msgid "Localisation"
+msgstr "Localisation"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__product_id
+#: model_terms:ir.ui.view,arch_db:project_consumption_information.view_project_project_form_inherited
+msgid "Product"
+msgstr "Produit"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__product_template_id
+msgid "Product Template"
+msgstr "Produit"
+
+#. module: project_consumption_information
+#: model:ir.model,name:project_consumption_information.model_project_project
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__project_id
+msgid "Project"
+msgstr "Projet"
+
+#. module: project_consumption_information
+#: model:ir.model,name:project_consumption_information.model_project_comsumption_line
+msgid "Project Comsumption Line"
+msgstr "Ligne de consommation de projet"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__product_uom_qty
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_comsumption_line__product_uom
+msgid "Unit of Measure"
+msgstr "Unité de mesure"
+
+#. module: project_consumption_information
+#: model_terms:ir.ui.view,arch_db:project_consumption_information.view_project_project_form_inherited
+msgid "UoM"
+msgstr "UoM"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_project__vehicle
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: project_consumption_information
+#: code:addons/project_consumption_information/models/project_comsumption.py:0
+#, python-format
+msgid "Warning for %s"
+msgstr "Avertissement pour %s"
+
+#. module: project_consumption_information
+#: model:ir.model.fields,field_description:project_consumption_information.field_project_project__project_comsumption_line
+msgid "comsumption"
+msgstr "Consommation"

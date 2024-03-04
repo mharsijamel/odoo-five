@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    tree view-->
+    <record id="technical_folder_view_list" model="ir.ui.view">
+        <field name="name">technical.folder.view.tree</field>
+        <field name="model">technical.folder</field>
+        <field name="arch" type="xml">
+            <tree create="false" default_order="lead_reception_date desc">
+                <field name="lead_reception_date"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="counter_id"/>
+                <field name="team_id"/>
+                <field name="order_id" />
+                <field name="order_line" widget="many2many_tags"/>
+                <field name="attachment_ids" widget="many2many_binary"/>
+                <field name="lead_preparation_date"/>
+                <field name="lead_filling_date"/>
+                <field name="lead_approbation_date"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+<!--    form view-->
+    <record id='technical_folder_view_form' model='ir.ui.view'>
+            <field name="name">technical.folder.view.form</field>
+            <field name="model">technical.folder</field>
+            <field name="arch" type="xml">
+               <form string="Technical Folder">
+                    <header>
+                        <button name="approve_technical_folder_dates" string="Approve" type="object" states="in_progress" class="oe_highlight" groups="technical_team_sale_order.group_technical_folder_user,technical_team_sale_order.group_technical_folder_manager" />
+                        <button name="button_cancel" string="Cancel complaint" type="object" states="draft,in_progress"  groups="technical_team_sale_order.group_technical_folder_manager"/>
+                        <button name="button_in_progress" string="Set to In progress" type="object" states="draft,done,cancel"  groups="technical_team_sale_order.group_technical_folder_manager"/>
+
+                        <field name="state" widget="statusbar" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                Order Information :
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="lead_reception_date"/>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="counter_id"/>
+                                <field name="team_id" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"/>
+                            </group>
+                            <group>
+                                <field name="order_id" readonly="True"/>
+                                <field name="lead_reception_date" force_save="1" readonly="1"/>
+                                <field name="lead_preparation_date" force_save="1" readonly="1" />
+                                <field name="lead_filling_date" force_save="1" readonly="1" invisible="1"/>
+                                <field name="lead_approbation_date" force_save="1" readonly="1"/>
+                            </group>
+                        </group>
+                        <div class="oe_title" >
+                            <h1>
+                                Technical Folder Details :
+                            </h1>
+                        </div>
+                       <group>
+                            <group >
+                                <div>
+                                    <h2>
+                                        Attachments:
+                                    </h2>
+                                </div>
+                                <field nolabel='1' name="attachment_ids" widget="many2many_binary" attrs="{'readonly': [('state', 'in', ('done','cancel'))], 'required': [('state', 'in', ('in_progress'))]}"/>
+                            </group>
+                       </group>
+                       <group>
+                            <group >
+                                <div>
+                                    <h1>
+                                        Technical Folder Lines / Sale Order Lines :
+                                    </h1>
+                                </div>
+
+                            </group>
+                       </group>
+                        <notebook>
+                            <page string="Order Lines" name="technical_order_lines">
+                                <field
+                                    name="technical_order_line"
+                                    mode="tree"
+                                    attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"
+                                >
+                                    <form>
+                                         <field name="sequence" invisible="1"/>
+                                        <field name="product_uom_category_id" invisible="1"/>
+                                        <group>
+                                            <group>
+                                                <field name="product_id"
+                                                    domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                                    context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'uom':product_uom, 'company_id': parent.company_id}"
+                                                    force_save="1"
+                                                    widget="many2one_barcode"
+                                                   />
+                                                <field name="product_uom_readonly" invisible="1"/>
+                                                <label for="product_uom_qty"/>
+                                                <div class="o_row" name="ordered_qty">
+                                                    <field
+                                                        context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty,'uom':product_uom, 'uom_qty_change':True, 'company_id': parent.company_id}"
+                                                        name="product_uom_qty"/>
+                                                    <field
+                                                        name="product_uom"
+                                                        force_save="1"
+                                                        groups="uom.group_uom"
+                                                        class="oe_no_button"
+                                                        attrs="{
+                                                            'readonly': [('product_uom_readonly', '=', True)],
+                                                        }"
+                                                    />
+                                                </div>
+                                                <field name="sequence" invisible="1"/>
+                                            </group>
+                                        </group>
+                                        <field name="state" invisible="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                    </form>
+                                    <tree
+                                        string="Sales Order Lines"
+                                        editable="bottom"
+                                    >
+                                        <control>
+                                            <create name="add_product_control" string="Add a product"/>
+                                        </control>
+
+                                        <field name="sequence" widget="handle" />
+                                        <!-- We do not display the type because we don't want the user to be bothered with that information if he has no section or note. -->
+                                        <field name="product_uom_category_id" invisible="1"/>
+                                        <field
+                                            name="product_id"
+                                            force_save="1"
+                                            context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom':product_uom,
+                                                'company_id': parent.company_id,
+                                            }"
+                                            domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                            widget="product_configurator"
+                                        />
+                                        <field name="product_template_id"
+                                          string="Product"
+                                          invisible="1"
+                                          context="{
+                                              'partner_id': parent.partner_id,
+                                              'quantity': product_uom_qty,
+                                              'uom':product_uom,
+                                              'company_id': parent.company_id,
+                                          }"
+                                          domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                          widget="product_configurator"/>
+                                        <field
+                                            name="product_uom_qty"
+                                            context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom': product_uom,
+                                                'company_id': parent.company_id
+                                            }"
+                                        />
+                                        <field name="product_uom_readonly" invisible="1"/>
+                                        <field
+                                            name="product_uom"
+                                            force_save="1"
+                                            string="UoM"
+                                            attrs="{
+                                                'readonly': [('product_uom_readonly', '=', True)],
+                                            }"
+                                            context="{'company_id': parent.company_id}"
+                                            groups="uom.group_uom"
+                                            options='{"no_open": True}'
+                                            optional="show"
+                                        />
+
+                                        <field name="state" invisible="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                    </tree>
+
+                                </field>
+                                <group name="note_group" col="6" class="mt-2 mt-md-0">
+
+                                    <div class="oe_clear"/>
+                                </group>
+                            </page>
+                            <page string="Sale Order Lines" name="technical_order_lines">
+                                <field
+                                    name="order_line"
+                                    mode="tree"
+
+                                >
+                                    <tree
+                                        string="Sales Order Lines"
+                                        editable="False"
+                                    >
+                                        <control>
+                                            <create name="add_product_control" string="Add a product"/>
+                                        </control>
+
+                                        <field name="sequence" widget="handle" />
+                                        <!-- We do not display the type because we don't want the user to be bothered with that information if he has no section or note. -->
+                                        <field name="product_uom_category_id" invisible="1"/>
+                                        <field
+                                            name="product_id"
+                                            force_save="1"
+                                            context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom':product_uom,
+                                                'company_id': parent.company_id,
+                                            }"
+                                            domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                            widget="product_configurator"
+                                        />
+                                        <field name="product_template_id"
+                                          string="Product"
+                                          invisible="1"
+                                          context="{
+                                              'partner_id': parent.partner_id,
+                                              'quantity': product_uom_qty,
+                                              'uom':product_uom,
+                                              'company_id': parent.company_id,
+                                          }"
+                                          domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                          widget="product_configurator"/>
+                                        <field
+                                            name="product_uom_qty"
+                                            context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom': product_uom,
+                                                'company_id': parent.company_id
+                                            }"
+                                        />
+                                        <field name="product_uom_readonly" invisible="1"/>
+                                        <field
+                                            name="product_uom"
+                                            force_save="1"
+                                            string="UoM"
+                                            attrs="{
+                                                'readonly': [('product_uom_readonly', '=', True)],
+                                            }"
+                                            context="{'company_id': parent.company_id}"
+                                            groups="uom.group_uom"
+                                            options='{"no_open": True}'
+                                            optional="show"
+                                        />
+
+                                        <field name="state" invisible="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                    </tree>
+
+                                </field>
+                                <group name="note_group" col="6" class="mt-2 mt-md-0">
+
+                                    <div class="oe_clear"/>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                   <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+
+            </field>
+    </record>
+<!--    search view-->
+    <record id="technical_folder_search_view" model="ir.ui.view">
+        <field name="name">technical.folder.view.search</field>
+        <field name="model">technical.folder</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="lead_reception_date"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="counter_id"/>
+                <field name="team_id"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="in_progress" string="In progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <filter name="cancel" string="Cancel" domain="[('state', '=', 'cancel')]"/>
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter name="counter_id" context="{'group_by' : 'counter_id'}" string="Customer Counter Reference"/>
+                    <filter name="partner_id" context="{'group_by' : 'partner_id'}" string="Customer"/>
+                    <filter name="order_id" context="{'group_by' : 'order_id'}" string="Sale Order refernce"/>
+                    <filter name="team_id" context="{'group_by' : 'team_id'}" string="Technical Team"/>
+                    <filter name="lead_reception_date" context="{'group_by' : 'lead_reception_date'}" string="Reception Date"/>
+                    <filter name="lead_preparation_date" context="{'group_by' : 'lead_preparation_date'}" string="Preparation Date"/>
+                    <filter name="lead_filling_date" context="{'group_by' : 'lead_filling_date'}" string="Filling Date"/>
+                    <filter name="lead_approbation_date" context="{'group_by' : 'lead_approbation_date'}" string="Approbation Date"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+        <record id="technical_forlder_action" model="ir.actions.act_window">
+        <field name="name">Technical Folder</field>
+        <field name="res_model">technical.folder</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new technical folder
+            </p><p>
+                Create a new Technical Folder.
+            </p>
+        </field>
+    </record>
+
+
+        <menuitem id="menu_sales_technical_folder"
+            name="Sales Technical Folder"
+            parent="sale.sale_menu_root"
+            sequence="30"
+            action="technical_forlder_action"
+            groups="technical_team_sale_order.group_technical_folder_manager,technical_team_sale_order.group_technical_folder_user"/>
+
+
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_post_installation,post_installation.post_installation,model_post_installation,base.group_user,1,1,1,1
+access_post_installation_consumption,post_installation.post_installation_consumption,model_post_installation_consumption,base.group_user,1,1,1,1

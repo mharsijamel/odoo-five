@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_complaint_to_supplier" model="mail.template">
+            <field name="name">Complaint to supplier:Product Complaint</field>
+            <field name="model_id" ref="complaint_to_supplier.model_purchase_complaint"/>
+            <field name="subject"> Product Complaint: Urgent Action Required</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 14px;">
+        Dear [${object.partner_id.name}],
+        <br/>
+        <br/>
+        I hope this email finds you well. I am writing to bring to your attention a concerning matter
+        regarding a recent product I received from your company.
+        <br/>
+        I am disappointed to inform you that the
+        product I received (Sale Order Ref. “${object.purchase_id.partner_ref}”), ${object.product_id.name}, does not meet my expectations, and I feel compelled to address this issue
+        promptly.
+        <br/>
+        The main issues I encountered with the product are as follows: “Complaint Information”
+        <br/>
+        Thank you for your attention to this matter. I look forward to your prompt response.
+    </p>
+
+    <p style="margin: 0px; padding: 0px; font-size: 14px;">
+        Sincerely,
+        <br/>
+        ${object.rquested_by.name}</p>
+</div></field>
+<!--            <field name="user_signature" eval="False"/>-->
+            <field name="auto_delete" eval="False"/>
+        </record>
+</data>
+</odoo>

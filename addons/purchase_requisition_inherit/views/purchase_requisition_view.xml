@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="purchase_requisition_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.requisition.form</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_in_progress']" position="before">
+                    <button name="create_purchase_order" string="Multi Vendors New Quotations" type="object" attrs="{'invisible': [('state', 'not in', ('ongoing', 'in_progress', 'open'))]}" class="btn-primary"/>
+                </xpath>
+                <xpath expr="//field[@name='vendor_id']" position="after">
+                    <field name="vendor_ids" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

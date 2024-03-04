@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_project_project_form_inherited" model="ir.ui.view">
+            <field name="name">project.project.form.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Additional Information" name="additional_information">
+                        <group>
+                            <field name="vehicle"/>
+                            <field name="localisation"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath  expr="//page[@name='description']"  position="after">
+                    <page name="comsumption" string="Comsumption" >
+                        <field name="project_comsumption_line" mode="tree">
+                          <tree string="Comsumption" editable="False">
+                              <control>
+                                  <create name="add_product_control" string="Add a product"/>
+                              </control>
+                              <field name="product_uom_category_id" invisible="1"/>
+                              <field name="product_id" force_save="1"
+                                            context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom':product_uom,
+                                                'company_id': parent.company_id,
+                                            }"
+                                            domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                            widget="product_configurator"/>
+                              <field name="product_template_id" string="Product" invisible="1"
+                                          context="{
+                                              'partner_id': parent.partner_id,
+                                              'quantity': product_uom_qty,
+                                              'uom':product_uom,
+                                              'company_id': parent.company_id,
+                                          }" domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" widget="product_configurator"/>
+                              <field name="product_uom_qty" context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom': product_uom,
+                                                'company_id': parent.company_id
+                                            }"
+                                        />
+                              <field name="product_uom" force_save="1" string="UoM" context="{'company_id': parent.company_id}" groups="uom.group_uom"
+                                            options='{"no_open": True}'
+                                            optional="show"/>
+                              <field name="company_id" invisible="1"/>
+                      </tree>
+                      </field>
+                    </page>
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+</odoo>

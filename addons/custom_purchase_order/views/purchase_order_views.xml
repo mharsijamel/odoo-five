@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_foreign_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.foreign.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_ref']" position="attributes">
+                    <attribute name="string">N° BC FRS</attribute>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                        <page string="Import Information" name="purchase_delivery_invoice_import"  attrs="{'invisible': [('partner_localization', '!=', 'foreign')]}">
+                            <group>
+                                <group name="planning_import">
+                                    <label for="date_import"/>
+                                    <div>
+                                        <field name="partner_localization" invisible="1"/>
+                                        <field name="date_import"/>
+                                    </div>
+                                    <field name="date_etd" attrs="{'required': [('partner_localization', '=', 'foreign'), ('state', '=', 'sent')]}"/>
+                                    <field name="date_eta" attrs="{'required': [('partner_localization', '=', 'foreign'), ('state', '=', 'sent')]}"/>
+                                    <field name="bc_number" attrs="{'required': [('partner_localization', '=', 'foreign'), ('state', '=', 'sent')]}"/>
+                                    <field name="ci_number"/>
+                                </group>
+                                <group name="other_info">
+                                    <field name="mt_declaration_do"/>
+                                    <field name="mt_fret"/>
+                                    <field name="reg_vendor"/>
+                                </group>
+                                <label for="observation"/>
+                                <field name="observation"/>
+                                <label for="advancement"/>
+                                <field name="advancement"/>
+                            </group>
+                        </page>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

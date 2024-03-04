@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="mail_activity_complaint" model="mail.activity.type">
+            <field name="name">complaint to supplier</field>
+            <field name="icon">fa-file-text-o</field>
+            <field name="res_model">purchase.complaint</field>
+            <field name="delay_count">30</field>
+        </record>
+    </data>
+</odoo>

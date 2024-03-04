@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_partner_counter_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.counter.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id"  ref="base.view_partner_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="nci" attrs="{'invisible': [('company_type', '!=', 'person')]}" placeholder="eg: 01852369"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('parent_id', '=', False)]}</attribute>
+                    <attribute name="placeholder">eg: 0123456KAM000</attribute>
+                    <attribute name="string">Tax registration number</attribute>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Counter References">
+                        <field name="customer_reference" mode="tree">
+                            <form>
+                                <field name="name" invisible="1"/>
+                                <field name="partner_id" invisible="1"/>
+                            </form>
+                            <tree string="Counter References" editable="bottom">
+                                <field name="name"/>
+                                <field name="partner_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Payment Information">
+                        <label for="payment_type"/>
+                        <field name="payment_type" invisible="0"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="res_partner_view_search_inherited" model="ir.ui.view">
+            <field name="name">res.partner.search.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name"
+                        filter_domain="['|', '|', '|','|', ('display_name', 'ilike', self), ('ref', '=', self),  ('nci', 'ilike', self),  ('vat', 'ilike', self), ('email', 'ilike', self)]"/>
+                   <separator/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

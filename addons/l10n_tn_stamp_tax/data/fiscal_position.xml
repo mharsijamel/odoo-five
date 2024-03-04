@@ -1,0 +1,21 @@
+<odoo>
+    <data noupdate="1">
+        <record model="account.fiscal.position" id="account_fiscal_position_vat_stamp">
+            <field name="name">TVA avec timbre</field>
+            <field name="stamp_tax_id" ref="l10n_tn.account_tax_sale_stamp"/>
+            <field name="stamp_tax_id2" ref="l10n_tn.account_tax_purchase_stamp"/>
+        </record>
+        <record model="account.fiscal.position" id="account_fiscal_position_vat_exo_stamp">
+            <field name="name">TVA Exonéré avec timbre</field>
+            <field name="stamp_tax_id" ref="l10n_tn.account_tax_sale_stamp"/>
+            <field name="stamp_tax_id2" ref="l10n_tn.account_tax_purchase_stamp"/>
+        </record>
+        <record model="account.fiscal.position" id="account_fiscal_position_vat_no_stamp">
+            <field name="name">TVA sans timbre</field>
+        </record>
+        <record model="account.fiscal.position" id="account_fiscal_position_no_vat_no_stamp">
+            <field name="name">Sans TVA sans timbre</field>
+        </record>
+
+    </data>
+</odoo>

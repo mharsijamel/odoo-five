@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+     <!--    tree view-->
+    <record id="pumping_config_view_list" model="ir.ui.view">
+        <field name="name">pumping.config.tree</field>
+        <field name="model">pumping.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="puissance"/>
+                <field name="nbre_pv"/>
+                <field name="puissance_pv"/>
+                <field name="puissance_to_install"/>
+            </tree>
+        </field>
+    </record>
+<!--    form view-->
+    <record id='pumping_config_view_form' model='ir.ui.view'>
+            <field name="name">pumping.config.form</field>
+            <field name="model">pumping.config</field>
+            <field name="arch" type="xml">
+               <form string="pumping configuration">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" invisible="1"/>
+                                <field name="puissance"/>
+                                <field name="nbre_pv"/>
+                            </group>
+                            <group>
+                                <field name="puissance_pv" />
+                                <field name="puissance_to_install"/>
+                                <field name="user_id" invisible="1"/>
+                                <field name="company_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+               <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+    </record>
+
+    <record id="pumping_config_view_search" model="ir.ui.view">
+        <field name="name">pumping.config.search</field>
+        <field name="model">pumping.config</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="puissance"/>
+                <field name="nbre_pv"/>
+                <field name="puissance_pv"/>
+                <field name="puissance_to_install"/>
+            </search>
+        </field>
+    </record>
+</odoo>
+

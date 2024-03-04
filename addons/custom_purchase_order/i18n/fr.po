@@ -1,0 +1,93 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_purchase_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-04 13:58+0000\n"
+"PO-Revision-Date: 2023-06-04 13:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__res_partner__localization__foreign
+msgid "Foreign"
+msgstr "Étranger"
+
+#. module: custom_purchase_order
+#: model:mail.activity.type,name:custom_purchase_order.mail_act_purchase_order_confirmed
+msgid "Import Date Has been Updated"
+msgstr "La date d'importation a été mise à jour"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_partner__is_customer
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_users__is_customer
+msgid "Is Customer"
+msgstr "Est le client"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_partner__is_supplier
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_users__is_supplier
+msgid "Is Supplier"
+msgstr "Est un fournisseur"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__res_partner__localization__local
+msgid "Local"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_partner__localization
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_users__localization
+msgid "Localization"
+msgstr "Localisation"
+
+#. module: custom_purchase_order
+#: model:res.groups,name:custom_purchase_order.group_res_purchase_logistic
+msgid "Purchase Administrator"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:res.groups,comment:custom_purchase_order.group_res_purchase_logistic
+msgid "Purchase Administrator "
+msgstr "Administrateur des achats"
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_purchase_order
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__date_import
+msgid "Receipt Date"
+msgstr "Date de réception"
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_res_partner
+msgid "Res Partner"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__partner_localization
+msgid "Supplier Localization"
+msgstr "Localisation des fournisseurs"
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/purchase_order.py:0
+#, python-format
+msgid ""
+"The Import Date of this purchase order has been updated by %s to %s"
+msgstr ""
+"La date d'importation de ce bon de commande a été mise à jour par %s au %s"
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/purchase_order.py:0
+#, python-format
+msgid "To confirm this order You must enter receipt Date !!!"
+msgstr "Pour confirmer cette commande, vous devez entrer la date de réception !!!"

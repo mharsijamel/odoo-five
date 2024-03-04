@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mail_act_purchase_order_confirmed" model="mail.activity.type">
+            <field name="name">Import Date Has been Updated</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">purchase.order</field>
+        </record>
+
+    </data>
+</odoo>

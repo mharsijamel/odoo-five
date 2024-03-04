@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Sequence for account withholding vente -->
+        <record id="seq_account_withholding" model="ir.sequence">
+            <field name="name">Account withholding</field>
+            <field name="code">account.withholding</field>
+            <field name="prefix">RETENUE-/</field>
+            <field name="padding">3</field>
+        </record>
+
+        <!-- Sequence for account withholding achat -->
+        <record id="seq_account_withholding_achat_type" model="ir.sequence">
+            <field name="name">Account withholding</field>
+            <field name="code">account.withholding.achat</field>
+            <field name="prefix">RETENUE-/</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    tree view-->
+    <record id="supplier_evaluation_tree_view" model="ir.ui.view">
+        <field name="name">purchase.supplier.evaluation.view.tree</field>
+        <field name="model">purchase.supplier.evaluation</field>
+        <field name="arch" type="xml">
+            <tree  decoration-success="classification == 'A'" decoration-warning="classification == 'B'" decoration-danger="classification in 'C,D'">
+                <field name="name"/>
+                <field name="supplier_id"/>
+                <field name="code"/>
+                <field name="final_score" />
+                <field name="classification"/>
+            </tree>
+        </field>
+    </record>
+<!--    form view-->
+    <record id='supplier_evaluation_form_fiew' model='ir.ui.view'>
+            <field name="name">purchase.supplier.evaluation.view.form</field>
+            <field name="model">purchase.supplier.evaluation</field>
+            <field name="arch" type="xml">
+
+               <form string="Supplier Evaluation">
+                    <header>
+                        <button string="Reset to Draft"
+                                name="button_draft" type="object"
+                                attrs="{'invisible': [('state', '=', 'draft')]}"
+                                groups="purchase.group_purchase_manager"/>
+                        <button string="Confirm" class="oe_highlight"
+                                name="button_confirm" type="object"
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"
+                                groups="purchase.group_purchase_manager"/>
+                        <button string="Cancel"
+                                name="button_cancel" type="object"
+                                attrs="{'invisible': [('state', '=', 'cancel')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                Supplier Evaluation Information :
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" string="Reference"/>
+                                <field name="supplier_id" />
+                            </group>
+                            <group>
+                                <field name="code"/>
+                                <field name="company_id" groups="base.group_multi_company" />
+                            </group>
+                        </group>
+                       <group >
+                            <group >
+                                <div>
+                                    <h2>
+                                        Evaluation criteria :
+                                    </h2>
+                                </div>
+                                <br/>
+                                <div>
+                                    <p style="color: red; font-weight: bold; font_size: 12px;">The Values Of Those Fields Must Be Between 1 and 4 :</p>
+                                </div>
+                                <field name="customer_service" help="Value Must be Between 1 and 4"/>
+                                <field name="guarantee" help="Value Must be Between 1 and 4"/>
+                                <field name="payment_method" help="Value Must be Between 1 and 4"/>
+                                <field name="quality" help="Value Must be Between 1 and 4"/>
+                                <field name="price" help="Value Must be Between 1 and 4"/>
+                                <field name="period" help="Value Must be Between 1 and 4"/>
+
+                            </group>
+                            <group >
+                                <h2 >
+                                    NB :
+                                </h2>
+                                <br/>
+                               <p style="color: grey; font-weight: bold; font_size: 12px;width:100%; border-right: solid 1px grey !important;">* Value = 1 => No impact, or very low impact: Customer satisfaction (internal and external) is ensured. Internal company, contractual (security or confidentiality), legal and regulatory and customer requirements are not impacted</p>
+                                <p style="color: grey; font-weight: bold; font_size: 12px;width:100%;padding-left:15px !important;">* Value = 2 => Low impact: Customers internal to the organization are dissatisfied with the products and/or services provided by the supplier; internal requirements, products and services are impacted, but this has no consequences for external customers</p>
+                               <p style="color: grey; font-weight: bold; font_size: 12px;width:100%; border-right: solid 1px grey !important;">* Value = 3 => Significant impact: Customers external to the organization are dissatisfied and make complaints and complaints about the products and services provided. Product and service, contractual, legal and regulatory requirements, customers and other interested parties are impacted/violated</p>
+                               <p style="color: grey; font-weight: bold; font_size: 12px;width:100%;padding-left:15px !important;">* Value = 4 => Major impact: Customer trust, including the product and service, and the reputation of the organization are at stake. The financial cost is high.</p>
+                            </group>
+                       </group>
+                        <group>
+                            <group >
+                                <field name="final_score" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="classification" force_save="1" decoration-success="classification == 'A'" decoration-warning="classification == 'B'" decoration-danger="classification in 'C,D'"/>
+                            </group>
+                        </group>
+                    </sheet>
+                   <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+    </record>
+<!--    search view-->
+    <record id="supplier_evaluation_search_view" model="ir.ui.view">
+        <field name="name">purchase.supplier.evaluation.view.search</field>
+        <field name="model">purchase.supplier.evaluation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="supplier_id"/>
+                <field name="code"/>
+                <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>

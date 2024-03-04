@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="withholding_button" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml"  >
+                    <xpath expr="//button[@name='button_draft']" position="after">
+<!--                        <field name="withholding_move_id" invisible="1"/>-->
+                        <field name="withholding_id" invisible="1"/>
+<!--                        <field name="type" invisible="1"/>-->
+                         <button name="action_rs"  type="object" class="oe_highlight" string="Retenue à la Source" attrs="{'invisible':['|',('state','not in',('posted','post')),('withholding_id','not in',['',None,False])]}"  />
+<!--                         <button name="action_rs"  type="object" class="oe_highlight" string="Retenue à la Source" attrs="{'invisible':['|',('amount','&lt;',1000),('has_withholding','!=',False)]}"   />-->
+                    </xpath>
+            </field>
+        </record>
+</odoo>

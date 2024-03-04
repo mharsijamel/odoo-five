@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="FieldCharColor">
+
+        <span t-if="widget.mode === 'readonly'"/>
+
+    </t>
+
+</templates>

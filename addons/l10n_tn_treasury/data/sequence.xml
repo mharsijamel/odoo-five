@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1" >
+        <record id="seq_vesement" model="ir.sequence">
+            <field name="name">Vesement</field>
+            <field name="code">account.installment</field>
+            <field name="prefix">VCHECK</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+         <record id="seq_vesement_cash" model="ir.sequence">
+            <field name="name">Account Treasury Installment</field>
+            <field name="code">account.treasury.installment</field>
+            <field name="prefix">VEsp</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+
+        <record id="seq_withdrawal_cash" model="ir.sequence">
+            <field name="name">Cash Withdrawal</field>
+            <field name="code">account.withdrawal.cash</field>
+            <field name="prefix">REsp</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

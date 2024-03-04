@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* document_treasury_menu
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-19 14:41+0000\n"
+"PO-Revision-Date: 2023-12-19 14:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: document_treasury_menu
+#: model:res.groups,comment:document_treasury_menu.admin_document_treasury_menu
+msgid "Administrateur Documents De Trésorerie"
+msgstr ""
+
+#. module: document_treasury_menu
+#: model:res.groups,name:document_treasury_menu.admin_document_treasury_menu
+msgid "Administrateur Documents De Trésorerie "
+msgstr ""
+
+#. module: document_treasury_menu
+#: model:ir.ui.menu,name:document_treasury_menu.menu_document_withdrawal_doc
+msgid "Cash withdrawal Documents"
+msgstr "Retrait d'espèces"
+
+#. module: document_treasury_menu
+#: model:ir.ui.menu,name:document_treasury_menu.menu_document_cession_doc
+msgid "Documents de cession de trésorerie"
+msgstr "Dépôt de trésorerie"
+
+#. module: document_treasury_menu
+#: model:ir.ui.menu,name:document_treasury_menu.menu_document_exchange_doc
+msgid "Exchange Documents"
+msgstr "Documents d'échange"
+
+#. module: document_treasury_menu
+#: model:ir.ui.menu,name:document_treasury_menu.menu_document_treasury_root
+msgid "Treasury Documents"
+msgstr "Documents De Trésorerie"
+
+#. module: document_treasury_menu
+#: model:res.groups,comment:document_treasury_menu.user_document_treasury_menu
+#: model:res.groups,name:document_treasury_menu.user_document_treasury_menu
+msgid "Utilisateur Documents De Trésorerie"
+msgstr ""
+
+#. module: document_treasury_menu
+#: model:ir.ui.menu,name:document_treasury_menu.menu_document_vesement_doc
+msgid "Vesement Documents"
+msgstr "Remise chèques"
+
+#. module: document_treasury_menu
+#: model:ir.ui.menu,name:document_treasury_menu.menu_document_traite_doc
+msgid "Vesement Traite"
+msgstr "Remise Effets"

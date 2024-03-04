@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--    tree view-->
+    <record id="after_sale_service_view_list" model="ir.ui.view">
+        <field name="name">after.sale.service.tree</field>
+        <field name="model">after.sale.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+<!--    form view-->
+    <record id='after_sale_service_view_form' model='ir.ui.view'>
+            <field name="name">after.sale.service.form</field>
+            <field name="model">after.sale.service</field>
+            <field name="arch" type="xml">
+               <form string="After.Sale Service">
+                   <header>
+                       <button name="action_done" string="Done" type="object" class="oe_highlight" groups="after_sale_service.after_sale_manager" states="draft"/>
+                       <button name="action_draft" string="Draft" type="object" class="o_form_button_cancel" groups="after_sale_service.after_sale_manager" states="done"/>
+                       <field name="state" widget="statusbar"/>
+                   </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+                                <field name="user_id" invisible="1" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+                                <field name="partner_id" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+                                <field name="company_id" invisible="1" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+<!--                                <field name="sale_order_id" attrs="{'readonly': [('from_post_installation', '=', True)]}" />-->
+                                <field name="from_post_installation" invisible="1" />
+                            </group>
+                            <group>
+                                <field name="tage_date" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+                                <field name="satisfaction" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+                                <field name="reclamtion" attrs="{'readonly': [('from_post_installation', '=', True)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="Complaint" string="Complaint" attrs="{'invisible': [('reclamtion', '=', False)]}">
+                                <field name="complaint_id" mode="tree" attrs="{'readonly': [('from_post_installation', '=', True)],'invisible': [('reclamtion', '=', False)]}">
+                                     <tree string="Complaint" editable="False">
+                                         <field name="partner_id"  context="{'default_partner_id': parent.partner_id}"/>
+                                         <field name="receipt_date" />
+                                         <field name="justification" />
+                                         <field name="effective_date" />
+                                         <field name="Telephone_retour"/>
+                                     </tree>
+                                </field>
+                            </page>
+                            <page name="happy_call" string="Happy Call" attrs="{'invisible': [('reclamtion', '!=', False)]}">
+                                <div class="raw">
+                                    <div clas="col-12">
+                                        <label for="call_date"/>
+                                        <field name="call_date" attrs="{'required': [('satisfaction', '!=', False)]}"/>
+                                    </div>
+                                    <div clas="col-12">
+                                        <label for="call_description"/>
+                                        <field name="call_description" attrs="{'required': [('satisfaction', '!=', False)]}"/>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+               <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+    </record>
+
+</odoo>

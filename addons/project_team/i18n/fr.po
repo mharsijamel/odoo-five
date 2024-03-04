@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-22 11:34+0000\n"
+"PO-Revision-Date: 2023-11-22 11:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_team
+#: model_terms:ir.ui.view,arch_db:project_team.project_project_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "<i class=\"fa fa-times\" title=\"Delete\"/>"
+msgstr "<i class=\"fa fa-times\" title=\"Supprimer\"/>"
+
+#. module: project_team
+#: model_terms:ir.ui.view,arch_db:project_team.project_project_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "Avatar"
+msgstr "Avatar"
+
+#. module: project_team
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "Company"
+msgstr "Société"
+
+#. module: project_team
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "More Info"
+msgstr "plus d'info"
+
+#. module: project_team
+#: model:ir.model,name:project_team.model_project_project
+#: model:ir.model.fields.selection,name:project_team.selection__crm_team__type_team__project
+msgid "Project"
+msgstr "Projet"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_crm_team__team_members_ids
+#: model:ir.model.fields,field_description:project_team.field_project_project__members_ids
+msgid "Project Members"
+msgstr "Membres du projet"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project__team_id
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_form_view
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_tree_view
+msgid "Project Team"
+msgstr "Équipe du projet"
+
+#. module: project_team
+#: model:ir.model.fields,help:project_team.field_project_project__members_ids
+msgid ""
+"Project's\n"
+"                               members are users who can have an access to\n"
+"                               the tasks related to this project."
+msgstr ""
+
+#. module: project_team
+#: model:ir.model.fields,help:project_team.field_crm_team__team_members_ids
+msgid ""
+"Project's members are users who\n"
+"                                     can have an access to the tasks related\n"
+"                                     to this project."
+msgstr ""
+
+#. module: project_team
+#: model:ir.actions.act_window,name:project_team.project_team_action_tree
+#: model:ir.ui.menu,name:project_team.project_team_menu
+msgid "Projects Team"
+msgstr "Équipe de projets"
+
+#. module: project_team
+#: model:ir.model.fields.selection,name:project_team.selection__crm_team__type_team__sale
+msgid "Sale"
+msgstr "Vente"
+
+#. module: project_team
+#: model:ir.model,name:project_team.model_crm_team
+msgid "Sales Team"
+msgstr "Équipe commerciale"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_crm_team__site_foreman_id
+msgid "Site Foreman"
+msgstr "Chef chantier"
+
+#. module: project_team
+#: model_terms:ir.ui.view,arch_db:project_team.project_project_inherit_form_view
+msgid "Team"
+msgstr "Team"
+
+#. module: project_team
+#: model_terms:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "Team Members"
+msgstr "Membres de l'équipe"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_crm_team__type_team
+msgid "Type"
+msgstr "Type"

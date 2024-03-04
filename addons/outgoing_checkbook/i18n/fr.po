@@ -1,0 +1,583 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* outgoing_checkbook
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-23 16:35+0000\n"
+"PO-Revision-Date: 2023-10-23 16:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: outgoing_checkbook
+#: model:ir.model,name:outgoing_checkbook.model_account_checkbook_wizard
+msgid "Account Checkbook Wizard"
+msgstr "Assistant de chéquier de compte"
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Account Checks"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_needaction
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.ui.menu,name:outgoing_checkbook.menu_add_checkbook
+msgid "Add Checkbook"
+msgstr "Ajouter un Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_wizard_form
+msgid "Annuler"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_form
+msgid "Annuler Chèque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check__state__cancelled
+msgid "Annulé"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Annulés"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_attachment_count
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__to_number
+msgid "Au Numèro"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__bank_id
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__bank_id
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__bank_id
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Banque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__checkbook_id
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Carnet de chèques"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_tree
+msgid "Carnets de chèques"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model,name:outgoing_checkbook.model_account_check_book
+msgid "CheckBook"
+msgstr "Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.ui.menu,name:outgoing_checkbook.menu_cheque_book
+msgid "Checkbook"
+msgstr "Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.ui.menu,name:outgoing_checkbook.menu_account_check_manager
+#: model:res.groups,name:outgoing_checkbook.group_account_check_manager
+msgid "Checkbook Manager"
+msgstr "Gestionnaire de Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.actions.act_window,name:outgoing_checkbook.action_account_checkbook
+#: model:ir.actions.act_window,name:outgoing_checkbook.action_account_checkbook_add
+msgid "Checkbooks"
+msgstr "Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model:res.groups,name:outgoing_checkbook.group_account_check_user
+msgid "Checkbooks User"
+msgstr "Utilisateur de Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.actions.act_window,name:outgoing_checkbook.action_account_check
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_payment__checkbook_id
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_payment_register__checkbook_id
+#: model:ir.ui.menu,name:outgoing_checkbook.menu_ckeques
+msgid "Cheque"
+msgstr "Chèque"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_payment__cheque_payment_date
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_payment_register__cheque_payment_date
+msgid "Cheque Payment Date"
+msgstr "Date de paiement du chèque"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__check_ids
+msgid "Cheques"
+msgstr "Chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.model,name:outgoing_checkbook.model_account_check
+msgid "Chèque"
+msgstr "Chèque"
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_tree
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_addd_form
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_form
+msgid "Chèques"
+msgstr "Chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check_book__emplacement__compta
+msgid "Comptabilité"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__create_uid
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__create_uid
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__create_date
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__create_date
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_wizard_form
+msgid "Créer des chèques"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__dernier_numero
+msgid "Dernier Chèque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check_book__emplacement__dir
+msgid "Direction"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__display_name
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__display_name
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check__state__available
+msgid "Disponible"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Disponibles"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__from_number
+msgid "Du Numèro"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__emplacement
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+msgid "Emplacement"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_form
+msgid "Emplacement Comptabilité"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+msgid "Emplacement Direction"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_form
+msgid "Emplacement Finance"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check_book__emplacement__fin
+msgid "Financier"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_follower_ids
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_partner_ids
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Grouper Par..."
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_wizard_form
+msgid "Générer Chèques"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__has_message
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__id
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__id
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_needaction
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_unread
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_needaction
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_has_error
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_has_sms_error
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_has_error
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_bank_statement_import_journal_creation__incash_check
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_journal__incash_check
+msgid "In Cash Check"
+msgstr "Chèque en caisse"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_bank_statement_import_journal_creation__incash_treaty
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_journal__incash_treaty
+msgid "In Cash Treaty"
+msgstr "Traite en caisse"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_bank_statement_import_journal_creation__inpayed_check
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_journal__inpayed_check
+msgid "In Payed Check"
+msgstr "Chèque Impayé"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_bank_statement_import_journal_creation__inpayed_treaty
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_journal__inpayed_treaty
+msgid "In Payed Treaty"
+msgstr "Traite Impayé"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_is_follower
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model,name:outgoing_checkbook.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check____last_update
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book____last_update
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__write_uid
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__write_uid
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__write_date
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__write_date
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_addd_form
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_form
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_tree
+msgid "Libellé"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__libelle
+msgid "Libellé Paiement"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_form
+msgid "Libérer Chèque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_main_attachment_id
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.module.category,name:outgoing_checkbook.module_category_checkbook
+msgid "Management of checkbooks"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.module.category,description:outgoing_checkbook.module_category_checkbook
+msgid "Management of cheque books"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_has_error
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_ids
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: code:addons/outgoing_checkbook/wizard/account_checkbook_wizard.py:0
+#, python-format
+msgid ""
+"Minimal number is greather than maximum number. Please check range of "
+"numbers."
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__motif
+msgid "Motif utilisation"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check_book__state__new
+msgid "New"
+msgstr "Nouveau"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__composed_name
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__composed_name
+msgid "Nom Composé"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_needaction_counter
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_has_error_counter
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_needaction_counter
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_has_error_counter
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__message_unread_counter
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__number
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_form
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_tree
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_addd_form
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_form
+msgid "Numéro"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__payment_ids
+msgid "Paiement"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__payment_id
+msgid "Paiement lié"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model,name:outgoing_checkbook.model_account_payment
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: outgoing_checkbook
+#: code:addons/outgoing_checkbook/wizard/account_checkbook_wizard.py:0
+#, python-format
+msgid "Please define a range of numbers before generating checks"
+msgstr "Veuillez définir une plage de nombres avant de générer des chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__premier_numero
+msgid "Premier Chèque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: code:addons/outgoing_checkbook/wizard/account_checkbook_wizard.py:0
+#, python-format
+msgid "Quantity seems inconsistent with range of numbers"
+msgstr "La quantité semble incompatible avec la plage de nombres"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_checkbook_wizard__quantity
+msgid "Quantité"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model,name:outgoing_checkbook.model_account_payment_register
+msgid "Register Payment"
+msgstr "Enregistrer un paiement"
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_form
+msgid "Reserver Chèque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_checkbook_form
+msgid "Retourner à la direction"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check__state__reserved
+msgid "Réservé"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Réservés"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_has_sms_error
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_payment__show_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_payment_register__show_checkbook
+msgid "Show Checkbook"
+msgstr "Afficher le Carnet de chèques"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__state
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__state
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_book_search
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Statut"
+msgstr "État"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_unread
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__message_unread_counter
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check_book__state__used
+msgid "Used"
+msgstr "Utilisé"
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check_book__state__using
+msgid "Using"
+msgstr "Utilisation"
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_form
+msgid "Utilisation du chèque sans affectation à un paiement Odoo"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_form
+msgid "Utiliser Chèque"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields.selection,name:outgoing_checkbook.selection__account_check__state__used
+msgid "Utilisé"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model_terms:ir.ui.view,arch_db:outgoing_checkbook.view_account_check_search
+msgid "Utilisés"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check__website_message_ids
+#: model:ir.model.fields,field_description:outgoing_checkbook.field_account_check_book__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: outgoing_checkbook
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check__website_message_ids
+#: model:ir.model.fields,help:outgoing_checkbook.field_account_check_book__website_message_ids
+msgid "Website communication history"
+msgstr ""

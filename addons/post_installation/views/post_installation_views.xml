@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--    tree view-->
+    <record id="post_installation_view_list" model="ir.ui.view">
+        <field name="name">post.installation.tree</field>
+        <field name="model">post.installation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="deposit_date"/>
+                <field name="quality_control_date"/>
+                <field name="reception_date"/>
+                <field name="sending_date"/>
+            </tree>
+        </field>
+    </record>
+<!--    form view-->
+    <record id='post_installation_view_form' model='ir.ui.view'>
+            <field name="name">post.installation.form</field>
+            <field name="model">post.installation</field>
+            <field name="arch" type="xml">
+               <form string="Post Installation">
+                   <header>
+                       <button name="action_close" string="Close" type="object" class="oe_highlight" groups="post_installation.post_installation_manager" states="open"/>
+                       <button name="action_open" string="Open" type="object" class="o_form_button_cancel" groups="post_installation.post_installation_manager" states="closed"/>
+                       <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="user_id" invisible="1" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="partner_id" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="company_id" invisible="1" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="deposit_date" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                            </group>
+                            <group>
+                                <field name="quality_control_date" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="reception_date" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="sending_date" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                                <field name="Respensable" attrs="{'readonly': [['state', '=', 'closed']]}" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="comsumption" string="Comsumption" >
+                                <field name="consumption_ids" mode="tree" attrs="{'readonly': [['state', '=', 'closed']]}" >
+                                     <tree string="Comsumption" editable="False">
+                              <control>
+                                  <create name="add_product_control" string="Add a product"/>
+                              </control>
+                              <field name="product_uom_category_id" invisible="1"/>
+                              <field name="product_id" force_save="1"
+                                            context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom':product_uom,
+                                                'company_id': parent.company_id,
+                                            }"
+                                            domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
+                                            widget="product_configurator"/>
+                              <field name="product_template_id" string="Product" invisible="1"
+                                          context="{
+                                              'partner_id': parent.partner_id,
+                                              'quantity': product_uom_qty,
+                                              'uom':product_uom,
+                                              'company_id': parent.company_id,
+                                          }" domain="[('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]" widget="product_configurator"/>
+                              <field name="product_uom_qty" context="{
+                                                'partner_id': parent.partner_id,
+                                                'quantity': product_uom_qty,
+                                                'uom': product_uom,
+                                                'company_id': parent.company_id
+                                            }"
+                                        />
+                              <field name="product_uom" force_save="1" string="UoM" context="{'company_id': parent.company_id}" groups="uom.group_uom"
+                                            options='{"no_open": True}'
+                                            optional="show"/>
+                              <field name="company_id" invisible="1"/>
+                      </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+               <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+    </record>
+
+    <record id="post_installation_view_search" model="ir.ui.view">
+        <field name="name">post.installationview.search</field>
+        <field name="model">post.installation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="company_id"/>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

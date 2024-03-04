@@ -1,0 +1,525 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* supplier_evaluation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-25 16:03+0000\n"
+"PO-Revision-Date: 2024-01-25 16:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid ""
+"* Value = 1 =&gt; No impact, or very low impact: Customer satisfaction "
+"(internal and external) is ensured. Internal company, contractual (security "
+"or confidentiality), legal and regulatory and customer requirements are not "
+"impacted"
+msgstr ""
+"* Valeur = 1 =&gt; Aucun impact, ou impact très faible : Satisfaction client"
+"  (interne et externe) est assuré. Interne à l'entreprise, contractuel "
+"(sécurité  ou confidentialité), les exigences légales et réglementaires et "
+"les clients ne sont pas impacté"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid ""
+"* Value = 2 =&gt; Low impact: Customers internal to the organization are "
+"dissatisfied with the products and/or services provided by the supplier; "
+"internal requirements, products and services are impacted, but this has no "
+"consequences for external customers"
+msgstr ""
+"* Valeur = 2 =&gt; Faible impact : Les clients internes à l'organisation "
+"sont insatisfait des produits et/ou services fournis par le fournisseur;Les "
+"exigences internes, les produits et les services sont impactés, mais cela "
+"n'a pas conséquences pour les clients externes"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid ""
+"* Value = 3 =&gt; Significant impact: Customers external to the organization"
+" are dissatisfied and make complaints and complaints about the products and "
+"services provided. Product and service, contractual, legal and regulatory "
+"requirements, customers and other interested parties are impacted/violated"
+msgstr ""
+"* Valeur = 3 =&gt; Impact significatif : Clients externes à "
+"l'organisationsont insatisfaits et déposent des plaintes et des réclamations"
+" concernant les produits etservices fournis. Produit et service, "
+"contractuel, légal et réglementaireles exigences, les clients et autres "
+"parties intéressées sont concernés/violés"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid ""
+"* Value = 4 =&gt; Major impact: Customer trust, including the product and "
+"service, and the reputation of the organization are at stake. The financial "
+"cost is high."
+msgstr ""
+"* Valeur = 4 =&gt; Impact majeur : Confiance du client, y compris le produit"
+" et Le service et la réputation de l'organisation sont en jeu. Les aspects "
+"financiersle coût est élevé."
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__access_warning
+msgid "Access warning"
+msgstr "Avertissement d'accès"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__campaign_id
+msgid "Campaign"
+msgstr "Compaigne"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields.selection,name:supplier_evaluation.selection__purchase_supplier_evaluation__state__cancel
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__classification
+#: model:ir.model.fields,field_description:supplier_evaluation.field_res_partner__supplier_classification
+#: model:ir.model.fields,field_description:supplier_evaluation.field_res_users__supplier_classification
+msgid "Classification"
+msgstr "Classement"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: supplier_evaluation
+#: model_terms:ir.actions.act_window,help:supplier_evaluation.supplier_evaluation_action
+msgid "Create New Supplier Evaluation"
+msgstr "Créer une nouvelle évaluation de fournisseur"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model,name:supplier_evaluation.model_res_partner
+msgid "Customer Modifications"
+msgstr "Modifications du Client"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__customer_service
+msgid "Customer Service"
+msgstr "Service client (10%)"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields.selection,name:supplier_evaluation.selection__purchase_supplier_evaluation__state__done
+msgid "Done"
+msgstr "Confirmer"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields.selection,name:supplier_evaluation.selection__purchase_supplier_evaluation__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Evaluation criteria :"
+msgstr "Critères d'évaluation :"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__final_score
+msgid "Final Score"
+msgstr "Note finale"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__guarantee
+msgid "Guarantee"
+msgstr "Garantie & fiche technique (10%)"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__id
+msgid "ID"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_needaction
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_has_error
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__medium_id
+msgid "Medium"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "NB :"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__name
+msgid "Name"
+msgstr "Référence"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__payment_method
+msgid "Payment Method"
+msgstr "Modalité de paiement (10%)"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__period
+msgid "Period"
+msgstr "Délai (20%)"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__price
+msgid "Price"
+msgstr "Prix par rapport aux concurents (20%)"
+
+#. module: supplier_evaluation
+#: model:ir.model,name:supplier_evaluation.model_purchase_order
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__quality
+msgid "Quality"
+msgstr "Qualité des produits ou services (20%)"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Reference"
+msgstr "Référence"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Reset to Draft"
+msgstr "Remettre en Brouillon"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__user_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__activity_user_id
+msgid "Responsible User"
+msgstr "Responsable"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__source_id
+msgid "Source"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__state
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_search_view
+msgid "Status"
+msgstr "État"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard: la date d'échéance est déjà dépassée\n"
+"Aujourd'hui: la date de l'activité est aujourd'hui\n"
+"Prévu : Activités futures."
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__supplier_id
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__code
+msgid "Supplier Code"
+msgstr "Code Fournisseur"
+
+#. module: supplier_evaluation
+#: model:ir.actions.act_window,name:supplier_evaluation.supplier_evaluation_action
+#: model:ir.model,name:supplier_evaluation.model_purchase_supplier_evaluation
+#: model:ir.ui.menu,name:supplier_evaluation.supplier_evaluation_menuitem_child
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Supplier Evaluation"
+msgstr "Évaluation Fournisseur"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Supplier Evaluation Information :"
+msgstr " Évaluation Fournisseur :"
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "The Values Of Those Fields Must Be Between 1 and 4 :"
+msgstr "Les valeurs de ces champs doivent être comprises entre 1 et 4 :"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+"C'est un nom qui vous aide à suivre vos différents efforts de campagne,par "
+"exemple, Fall Drive, Christmas Special"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+"Il s'agit du mode de livraison, par ex. Carte postale, e-mail ou bannière "
+"publicitaire"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+"Il s'agit de la source du lien, par exemple un moteur de recherche, un autre"
+" domaine ou un nom de la liste de diffusion"
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d’activité exceptionnelle enregistrée."
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model_terms:ir.ui.view,arch_db:supplier_evaluation.supplier_evaluation_form_fiew
+msgid "Value Must be Between 1 and 4"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,field_description:supplier_evaluation.field_purchase_supplier_evaluation__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: supplier_evaluation
+#: model:ir.model.fields,help:supplier_evaluation.field_purchase_supplier_evaluation__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: supplier_evaluation
+#: code:addons/supplier_evaluation/models/supplier_evaluation.py:0
+#, python-format
+msgid ""
+"You Can not Cancel a confirmed Supplier Evaluation, Reset It to draft First "
+"!!!"
+msgstr ""
+"Vous ne pouvez pas annuler une évaluation de fournisseur confirmée, "
+"réinitialisez-la d'abord en tant que brouillon!!!"
+
+#. module: supplier_evaluation
+#: code:addons/supplier_evaluation/models/purchase_order.py:0
+#, python-format
+msgid ""
+"You can not create purchase order from this supplier (%s), Because it's "
+"under range '%s'. Please verify with your company purchase manager"
+msgstr ""
+"Vous ne pouvez pas créer de bon de commande auprès de ce fournisseur (%s), "
+"car il est classé(e) dans la plage '%s'. Veuillez vérifier auprès du "
+"responsable des achats de votre entreprise"

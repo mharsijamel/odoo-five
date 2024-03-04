@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_requisition_inherit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-13 12:10+0000\n"
+"PO-Revision-Date: 2023-06-13 12:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_requisition_inherit
+#: model:ir.model.fields,field_description:purchase_requisition_inherit.field_purchase_requisition__vendor_ids
+msgid "Multi Vendors"
+msgstr "Multi-fournisseurs"
+
+#. module: purchase_requisition_inherit
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_inherit.purchase_requisition_form_inherit
+msgid "Multi Vendors New Quotations"
+msgstr "Nouveaux devis multi-fournisseurs"
+
+#. module: purchase_requisition_inherit
+#: model:ir.model,name:purchase_requisition_inherit.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "Appel d'offres"
+
+#. module: purchase_requisition_inherit
+#: code:addons/purchase_requisition_inherit/models/purchase_requisition.py:0
+#, python-format
+msgid ""
+"To convert this purchase agreements to an RFQ, you have to specify "
+"vendors!!!"
+msgstr ""
+"Pour convertir ce contrat d'achat en appel d'offres, vous devez spécifier"
+"les Fournisseurs!!!"

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="report_account_withholding" name="Certificat Retenue A La Source">
+			<t t-call="web.html_container">
+            	<t t-foreach="docs" t-as="o">
+            	        <!-- Multicompany -->
+				        <t t-if="o and 'company_id' in o">
+				            <t t-set="company" t-value="o.company_id"/>
+				        </t>
+				        <t t-if="not o or not 'company_id' in o">
+				            <t t-set="company" t-value="res_company"/>
+				        </t>
+	                    <div class="header">
+	        				<div class="row">
+	        					<div class="col-6 text-center">
+	        						<span><strong>REPUBLIQUE TUNISIENNE <br/></strong></span>
+	        						<span><strong>MINISTERE DU PLAN ET DES FINANCES<br/></strong></span>
+	        						<span><strong>DIRECTION GENERALE DE CONTROLE FISCAL<br/></strong></span>
+	        					</div>
+	        					<div class="col-6 text-center">
+	        						<span><strong>CERTIFICAT DE RETENUE D'IMPOT<br/></strong></span>
+	        						<span><strong>SUR LE REVENUE<br/></strong></span>
+	        						<span><strong>OU D'IMPOT SUR LES SOCIETES<br/></strong></span>
+	        					</div>
+	        				</div>
+	                    </div>
+	                    <div class="article">
+
+
+		                    			<div class="page">
+					                    	<div class="row">
+												<div class="col-12 text-center">
+													<span>Retenue effectuée le: </span><span t-field="o.date"/>
+													</div>
+					        				</div>
+											<br/>
+					        				<div class="row">
+												<div class="col-12">
+					        					<h3>
+					        						A - PERSONNE OU ORGANISME PAYEUR:
+					        					</h3>
+												</div>
+											</div>
+											<br/>
+
+										<div class="row">
+													<t t-if="o.type == 'in_withholding'">
+							                           <div name="invoice_address" class="col-6">
+
+							                            <address t-field="company.partner_id"
+							                                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+							                        </div>
+							                        <div class="col-6 small pull-right">
+							                        	<table class="table small">
+							                        		<tr>
+							                        			<th>
+							                        				Matricule Fiscal
+							                        			</th>
+							                        			<th>
+							                        				Code TVA
+							                        			</th>
+							                        			<th>
+							                        				Code catégorie
+							                        			</th>
+							                        			<th>
+							                        				N° Etab.Secondaire
+							                        			</th>
+							                        		</tr>
+							                        		<tr>
+
+																	<td>
+																		<span t-esc="company.partner_id.vat[:8]"/>
+																	</td>
+																	<td>
+																		<span t-esc="company.partner_id.vat[8:9]"/>
+																	</td>
+																	<td>
+																		<span t-esc="company.partner_id.vat[9:10]"/>
+																	</td>
+																	<td>
+																		<span t-esc="company.partner_id.vat[10:]"/>
+																	</td>
+															</tr>
+
+
+							                        	</table>
+							                        </div>
+													</t>
+													<t t-else="">
+														<div name="invoice_address" class="col-6">
+							                            <address t-field="o.partner_id"
+							                                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+							                        </div>
+							                        <div class="col-6 small pull-right">
+							                        	<table class="table small">
+							                        		<tr>
+							                        			<th>
+							                        				Matricule Fiscal
+							                        			</th>
+							                        			<th>
+							                        				Code TVA
+							                        			</th>
+							                        			<th>
+							                        				Code catégorie
+							                        			</th>
+							                        			<th>
+							                        				N° Etab.Secondaire
+							                        			</th>
+							                        		</tr>
+							                        		<tr>
+
+
+																<td>
+							                        				<span t-esc="o.partner_id.vat[:8]"/>
+							                        			</td>
+							                        			<td>
+							                  						<span t-esc="o.partner_id.vat[8:9]"/>
+							                        			</td>
+							                        			<td>
+							                  						<span t-esc="o.partner_id.vat[9:10]"/>
+							                        			</td>
+							                        			<td>
+							                  						<span t-esc="o.partner_id.vat[10:]"/>
+							                        			</td>
+
+							                        		</tr>
+							                        	</table>
+							                        </div>
+													</t>
+							                    </div>
+
+
+<br/>
+                    					    <div class="row">
+												<div class="col-12">
+					        					<h3>
+					        						<span>B - BENEFICIAIRE:</span>
+												</h3>
+												</div>
+											</div>
+											<br/>
+							                    <div class="row">
+													<t t-if="o.type == 'in_withholding'">
+														<div name="invoice_address" class="col-6">
+															<address t-field="o.partner_id"
+																t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+														</div>
+														<div class="col-6 small pull-right">
+															<table class="table small">
+																<tr>
+																	<th>
+																		Matricule Fiscal
+																	</th>
+																	<th>
+																		Code TVA
+																	</th>
+																	<th>
+																		Code catégorie
+																	</th>
+																	<th>
+																		N° Etab.Secondaire
+																	</th>
+																</tr>
+																<tr>
+
+
+																	<td>
+																		<span t-esc="o.partner_id.vat[:8]"/>
+																	</td>
+																	<td>
+																		<span t-esc="o.partner_id.vat[8:9]"/>
+																	</td>
+																	<td>
+																		<span t-esc="o.partner_id.vat[9:10]"/>
+																	</td>
+																	<td>
+																		<span t-esc="o.partner_id.vat[10:]"/>
+																	</td>
+
+																</tr>
+															</table>
+														</div>
+													</t>
+													<t t-else="">
+							                           <div name="invoice_address" class="col-6">
+
+							                            <address t-field="company.partner_id"
+							                                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+							                        </div>
+							                        <div class="col-6 small pull-right">
+							                        	<table class="table small">
+							                        		<tr>
+							                        			<th>
+							                        				Matricule Fiscal
+							                        			</th>
+							                        			<th>
+							                        				Code TVA
+							                        			</th>
+							                        			<th>
+							                        				Code catégorie
+							                        			</th>
+							                        			<th>
+							                        				N° Etab.Secondaire
+							                        			</th>
+							                        		</tr>
+							                        		<tr>
+
+																	<td>
+																		<span t-esc="company.partner_id.vat[:8]"/>
+																	</td>
+																	<td>
+																		<span t-esc="company.partner_id.vat[8:9]"/>
+																	</td>
+																	<td>
+																		<span t-esc="company.partner_id.vat[9:10]"/>
+																	</td>
+																	<td>
+																		<span t-esc="company.partner_id.vat[10:]"/>
+																	</td>
+															</tr>
+
+
+							                        	</table>
+							                        </div>
+													</t>
+												</div>
+
+                                               <br/>
+                    					    <div class="row">
+												<div class="col-12">
+					        					<h3>
+					        						<span>C - INFORMATIONS RELATIVES AU MARCHE:</span>
+												</h3></div>
+											</div>
+											<br/>
+											<div class="row">
+												<strong> Date de facture: </strong>
+												<t t-foreach="o.account_invoice_ids" t-as="d">
+													<span class="m-0" t-field="d.invoice_date"/><span> | </span>
+												</t>
+											</div>
+											<br/>
+											<div class="row">
+												<strong> Numéro de facture: </strong>
+												<t t-foreach="o.account_invoice_ids" t-as="d">
+<!--													<span class="m-0" t-field="d.name"/> <span> | </span>-->
+													<span class="m-0" t-field="d.ref"/> <span> | </span>
+												</t>
+					        				</div>
+											<br/>
+                    					    <div class="row">
+												<div class="col-12">
+					        					<h3>
+					        						<span>D - MONTANTS PAYES :</span>
+					        					</h3>
+												</div></div><br/>
+												<div class="row">
+
+													<table class="table small">
+						                        		<tr>
+						                        			<th>
+						                        			</th>
+						                        			<th colspan="2" class="text-center">
+						                        				Retenue a la source IR/IS
+						                        			</th>
+						                        			<th>
+						                        			</th>
+						                        		</tr>
+						                        		<tr>
+															<th>
+						                        				Type de Retenue
+						                        			</th>
+						                        			<th>
+						                        				MONTANT BRUT
+						                        			</th>
+						                        			<th>
+						                        				Montant de la retenue
+						                        			</th>
+						                        			<th>
+						                        				Montant Net
+						                        			</th>
+						                        		</tr>						             
+						                        		<tr>
+															<td>
+																<span t-field="o.account_withholding_tax_ids.name"/>
+																<span t-field="o.account_withholding_tax_ids.rate"/>  %
+															</td>
+															<td>
+																<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+															</td>
+															<td>
+																<span t-field="o.retenue_amount" />
+															</td>
+															<td>
+																<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+															</td>
+						                        		</tr>
+						                        	</table>
+													</div>
+											<br/>
+					        				<div class="row">
+					        					<p>
+					        						Je sousigné, certifie exacts les renseignements figurants sur le présent  certificat et m'expose aux sanctions prévues par la loi pour toute inexactitude.
+					        					</p>
+					        				</div>
+											<br/>
+					        				<div class="row">
+												<div class="col-5 col-offset-6">
+
+					        					</div>
+					        					<div class="col-3 col-offset-6">
+					        						<span t-field="company.partner_id.city"/> le <span t-field="o.date"/>
+					        					</div>
+					        				</div>
+
+					        			</div>
+
+		                    	<t t-if="retenue_amount == 0.0">
+									<br/>
+			                    	<div class="row text-center">
+			                    		<page>
+			        						<span>Pas de retenue a la source</span>
+			        					</page>
+			        				</div>
+			        			</t>
+
+
+
+
+	                	</div>
+
+	                    <div class="footer">
+	        
+	                    </div>
+	                </t>
+
+            </t>
+        </template>
+        
+        <report
+            id="action_report_account_withholding"
+            model="account.withholding"
+            report_type="qweb-pdf"
+            string="Certificat Retenue A La Source"
+            name="l10n_tn_ras.report_account_withholding"
+            file="l10n_tn_ras.report_account_withholding"
+			menu="True"
+			/>
+<!--			attrs="{'invisible':[('state', '!=', 'draft')]}"-->
+
+
+    </data>
+</odoo>

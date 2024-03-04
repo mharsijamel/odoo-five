@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='_action_after_sale_service' model='ir.actions.act_window'>
+        <field name="name">After Sale Service</field>
+        <field name="res_model">after.sale.service</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create New After Sale Service
+          </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_after_sale_service_root"
+        name="After Sale Service"
+        web_icon="after_sale_service,static/description/icon.png"
+        action="_action_after_sale_service"
+        groups="after_sale_manager,afer_sale_user"
+        sequence="98"/>
+</odoo>

@@ -1,0 +1,357 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* activity_dashboard_mngmnt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-07 11:30+0000\n"
+"PO-Revision-Date: 2023-07-07 11:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "<strong>Recommended Activities</strong>"
+msgstr "<strong>Activités recommandées</strong>"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_mail_activity__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.actions.act_window,name:activity_dashboard_mngmnt.mail_activity_action
+#: model:ir.actions.act_window,name:activity_dashboard_mngmnt.mail_activity_tag_action
+msgid "Activities"
+msgstr "Activités"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model,name:activity_dashboard_mngmnt.model_mail_activity
+#: model:ir.ui.menu,name:activity_dashboard_mngmnt.menu_my_activities
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Activity"
+msgstr "Activité"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: model:ir.ui.menu,name:activity_dashboard_mngmnt.activity_menu_root
+#, python-format
+msgid "Activity Dashboard"
+msgstr "Tableau de bord d'activité"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model,name:activity_dashboard_mngmnt.model_activity_tag
+#: model:ir.ui.menu,name:activity_dashboard_mngmnt.menu_activity_tag
+msgid "Activity Tag"
+msgstr "Étiquette d'activité"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_mail_activity__activity_type
+#: model:ir.ui.menu,name:activity_dashboard_mngmnt.menu_activity_type
+#, python-format
+msgid "Activity Type"
+msgstr "Type d'activité"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "All Activity"
+msgstr "Toutes les activités"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Assigned to"
+msgstr "Assigné à"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.actions.server,name:activity_dashboard_mngmnt.activity_cancel
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__state__cancel
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__type__cancel
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Cancelled Activities"
+msgstr "Activités annulées"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Completed Activities"
+msgstr "Activités terminées"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.ui.menu,name:activity_dashboard_mngmnt.activity_menu_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.actions.client,name:activity_dashboard_mngmnt.activity_action_dashboard
+#: model:ir.ui.menu,name:activity_dashboard_mngmnt.menu_activity_dashboard___
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Dead Line Date"
+msgstr "Date limite"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Discard"
+msgstr "Jeter"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__state__done
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__type__done
+msgid "Done"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Done & Launch Next"
+msgstr "Terminé et Lancement suivant"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Done & Schedule Next"
+msgstr "Terminé et Planifier Suivant"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__id
+msgid "ID"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Log a note..."
+msgstr "Enregistrez une note..."
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Log an Activity"
+msgstr "Consigner une Activité"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.actions.server,name:activity_dashboard_mngmnt.activity_done
+msgid "Mark As Done"
+msgstr "Marquer Comme Terminé"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Mark as Done"
+msgstr "Marquer Comme Terminé"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "No Data Available"
+msgstr "Aucune Donnée Disponible"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Origin"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__state__overdue
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__type__overdue
+msgid "Overdue"
+msgstr "Retard"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Overdue Activities"
+msgstr "Activités En Retard"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__state__planned
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__type__planned
+msgid "Planned"
+msgstr "Planifié"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Planned Activities"
+msgstr "Activités Prévues"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Planned Activity"
+msgstr "Activité Prévue"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "Schedule"
+msgstr "Calendrier"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_mail_activity__state
+msgid "State"
+msgstr "État"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_activity_tag__name
+msgid "Tag Name"
+msgstr "Nom de l'étiquette"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.constraint,message:activity_dashboard_mngmnt.constraint_activity_tag_name_uniq
+msgid "Tag name already exists !"
+msgstr "Le nom du tag existe déjà !"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.sales_team_crm_tag_view_form
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.sales_team_crm_tag_view_tree
+msgid "Tags"
+msgstr "Étiquettes"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__state__today
+#: model:ir.model.fields.selection,name:activity_dashboard_mngmnt.selection__mail_activity__type__today
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "Today's Activities"
+msgstr "Activités d'aujourd'hui"
+
+#. module: activity_dashboard_mngmnt
+#: model:ir.model.fields,field_description:activity_dashboard_mngmnt.field_mail_activity__type
+msgid "Type"
+msgstr ""
+
+#. module: activity_dashboard_mngmnt
+#. openerp-web
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#: code:addons/activity_dashboard_mngmnt/static/src/xml/activity_dashboard_view.xml:0
+#, python-format
+msgid "View"
+msgstr "Vue"
+
+#. module: activity_dashboard_mngmnt
+#: code:addons/activity_dashboard_mngmnt/models/mail_activity.py:0
+#: code:addons/activity_dashboard_mngmnt/models/mail_activity.py:0
+#, python-format
+msgid "You Cant Cancelled this activity %s"
+msgstr "Vous ne pouvez pas annuler cette activité %s"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.mail_activity_type_view_form_
+msgid "e.g. Discuss proposal"
+msgstr "Par exemple. Discutez de la proposition"
+
+#. module: activity_dashboard_mngmnt
+#: model_terms:ir.ui.view,arch_db:activity_dashboard_mngmnt.sales_team_crm_tag_view_form
+msgid "e.g. Services"
+msgstr "Par exemple. Prestations de service"

@@ -1,0 +1,32 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:14
+    user: root
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo15@2022      
+      - POSTGRES_DB=postgres
+    restart: always
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data:rw
+
+  odoo15:
+    image: odoo:15
+    user: root
+    depends_on:
+      - db
+    ports:
+      - "12215:8069"
+      - "22215:8072" # live chat
+    tty: true
+    command: --
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo15@2022
+    volumes:
+      - ./addons:/mnt/extra-addons:rw
+      - ./etc:/etc/odoo:rw
+    restart: always
+    

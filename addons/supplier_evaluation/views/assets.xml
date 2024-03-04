@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="web_widget_time_ics assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/supplier_evaluation/static/src/scss/custom_scss.scss"/>
+
+            <script type="text/javascript" src="/supplier_evaluation/static/src/js/supplier_evaluation.js"></script>
+
+
+        </xpath>
+    </template>
+</odoo>

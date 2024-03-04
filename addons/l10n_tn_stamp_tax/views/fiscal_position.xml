@@ -1,0 +1,15 @@
+<odoo>
+        <record model="ir.ui.view" id="view_account_fiscal_position_form_inherit">
+            <field name="name">account.fiscal.position.form.inherit</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_account_position_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='auto_apply']" position="after">
+                    <field name="stamp_tax_id" />
+                    <field name="stamp_tax_id2" />
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

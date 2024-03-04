@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="res.groups" id="post_installation_manager">
+        <field name="name">Post Installation Manager </field>
+        <field name="comment">Post Installation Manager</field>
+    </record>
+
+    <record model="res.groups" id="post_installation_user">
+        <field name="name">Post Installation User </field>
+        <field name="comment">Post Installation User</field>
+    </record>
+
+    <record model="res.groups" id="group_project_team_leader">
+        <field name="name">project team leader</field>
+        <field name="comment">project team leader</field>
+    </record>
+</odoo>

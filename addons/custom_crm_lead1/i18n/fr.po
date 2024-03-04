@@ -1,0 +1,420 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_crm_lead
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-22 07:51+0000\n"
+"PO-Revision-Date: 2024-01-22 07:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_crm_lead_inherit
+msgid "<span>DT</span>"
+msgstr ""
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__sub_anme
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__sub_anme
+msgid "ANME Subvention"
+msgstr "Subvention ANME"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__advance_amount
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__advance_amount
+msgid "Advance Amount"
+msgstr "Montant de l'avance"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__approbation_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__lead_approbation_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__approbation_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__lead_approbation_date
+msgid "Approbation Date"
+msgstr "Date d'approbation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__attachment_contract_fname
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__discharge_attachement_fname
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__poip_attachement_fname
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__attachment_contract_fname
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__attachment_contract_id_fname
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__discharge_attachement_fname
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__poip_attachement_fname
+msgid "Attachment Filename"
+msgstr "Nom du fichier de pièce jointe"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_crm_lead_inherit
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_order_form_inherited
+msgid "Commercial file"
+msgstr "Dossier commercial"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_type__connected
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_type__connected
+msgid "Connected to Networks"
+msgstr "Connectés Aux Réseaux"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__contract_signed
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__contract_id_signed
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__contract_signed
+msgid "Contact Signed"
+msgstr "Contact Signé"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__contractual_commitment
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__contractual_commitment
+msgid "Contractual Commitment"
+msgstr "Engagement Contractuel"
+
+#. module: custom_crm_lead
+#: model:ir.model,name:custom_crm_lead.model_crm_lead2opportunity_partner
+msgid "Convert Lead to Opportunity (not in mass)"
+msgstr "Convertir la Piste en Opportunité (Pas en masse)"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__counter_id
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__counter_id
+msgid "Counter"
+msgstr "Compteur"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_res_partner__customer_reference
+#: model:ir.model.fields,field_description:custom_crm_lead.field_res_users__customer_reference
+msgid "Counter Reference"
+msgstr "Numéro du compteur"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.res_partner_counter_form_inherit
+msgid "Counter References"
+msgstr "Numéros des Compeur"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner__action__create_contact
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner_mass__action__create_contact
+msgid "Create a new contact"
+msgstr "Créer un nouveau contact"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner__action__create
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner_mass__action__create
+msgid "Create a new customer"
+msgstr "Créer un nouveau client"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__partner_id
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_crm_lead2opportunity_partner_as_contact
+msgid "Customer"
+msgstr "Client"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_crm_lead_inherit
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_order_form_inherited
+msgid "Customer Contract"
+msgstr "Contrat du Client"
+
+#. module: custom_crm_lead
+#: model:ir.model,name:custom_crm_lead.model_res_partner
+msgid "Customer Modifications"
+msgstr "Modifications du Client"
+
+#. module: custom_crm_lead
+#: model:ir.model,name:custom_crm_lead.model_customer_reference
+msgid "Customer Reference"
+msgstr "Référence du Client"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__discharge_attachement
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__discharge_attachement
+msgid "Discharge Document"
+msgstr "Document de Décharge"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner__action__nothing
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner_mass__action__nothing
+msgid "Do not link to a customer"
+msgstr "Ne pas lier à un client"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__attachment_contract
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__attachment_contract
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__attachment_contract_id
+msgid "Document"
+msgstr "Document"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__filing_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__lead_filling_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__filing_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__lead_filling_date
+msgid "Filing Date"
+msgstr "Date de dépôt"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__id
+msgid "ID"
+msgstr ""
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__installation
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__installation
+msgid "Installation"
+msgstr "Installation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__installation_state
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__installation_state
+msgid "Installation State"
+msgstr "État de l'installation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__installation_type
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__installation_type
+msgid "Installation Type"
+msgstr "Type d'installation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__internal_order
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__internal_order
+msgid "Internal Order"
+msgstr "Commande Interne"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: custom_crm_lead
+#: model:ir.model,name:custom_crm_lead.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Piste/Opportunité"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner__action__exist
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead2opportunity_partner_mass__action__exist
+msgid "Link to an existing customer"
+msgstr "Lier à un client existant"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_res_partner__nci
+#: model:ir.model.fields,field_description:custom_crm_lead.field_res_users__nci
+msgid "NCI"
+msgstr "CIN"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__poip_attachement
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__poip_attachement
+msgid "POIP Document"
+msgstr "Document POIP"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__poip_fees
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__poip_fees
+msgid "POIP fees"
+msgstr "Frais POIP"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.res_partner_counter_form_inherit
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_crm_lead_inherit
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_order_form_inherited
+msgid "Payment Information"
+msgstr "Informations de paiement"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__payment_type
+#: model:ir.model.fields,field_description:custom_crm_lead.field_res_partner__payment_type
+#: model:ir.model.fields,field_description:custom_crm_lead.field_res_users__payment_type
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__payment_type
+msgid "Payment Type"
+msgstr "Type de paiement"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__planning
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__planning
+msgid "Planning"
+msgstr "Planification"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__post_installation
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__post_installation
+msgid "Post-installation"
+msgstr "Pré-installation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__pre_installation
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__pre_installation
+msgid "Pre-installation phase"
+msgstr "Phase de pré-installation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__lead_preparation_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__lead_preparation_date
+msgid "Preparation Date"
+msgstr "Date de préparation"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__crm_lead__installation_state__prospecting
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__sale_order__installation_state__prospecting
+msgid "Prospecting"
+msgstr "Prospection"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__lead_reception_date
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__lead_reception_date
+msgid "Reception Date"
+msgstr "Date de réception"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_customer_reference__name
+msgid "Reference"
+msgstr "Référence"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead2opportunity_partner__action
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead2opportunity_partner_mass__action
+msgid "Related Customer"
+msgstr "Client associé"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields,field_description:custom_crm_lead.field_crm_lead__steg_credit
+#: model:ir.model.fields,field_description:custom_crm_lead.field_sale_order__steg_credit
+msgid "STEG Credit"
+msgstr "Crédit STEG"
+
+#. module: custom_crm_lead
+#: model:ir.model,name:custom_crm_lead.model_sale_order
+msgid "Sale Order"
+msgstr "Commande client"
+
+#. module: custom_crm_lead
+#: model:mail.activity.type,name:custom_crm_lead.mail_activity_sale_order_data_updated
+msgid "Sale Order Data Has been Updated"
+msgstr "Les données de la commande client ont été mises à jour"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.res_partner_counter_form_inherit
+msgid "Tax registration number"
+msgstr "Numéro d'enregistrement fiscal"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_crm_lead_inherit
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.view_order_form_inherited
+msgid "Technical file"
+msgstr "Dossier technique"
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/crm_lead.py:0
+#, python-format
+msgid "There Is Already a sale Order Attached to this Opportunity"
+msgstr "Il y a déjà un ordre de vente attaché à cette opportunité"
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/crm_lead.py:0
+#, python-format
+msgid ""
+"Vous devais sélection un numéro de compteur pour créer un nouveau devis"
+msgstr ""
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__res_partner__payment_type__with_advance
+msgid "With Advance"
+msgstr "Avec Avance"
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/crm_lead.py:0
+#, python-format
+msgid ""
+"You can not attach multiple Sale Quotations to the Same Opportunity, \n"
+" Please Try to Modify the existing One"
+msgstr ""
+"Vous ne pouvez pas attacher plusieurs devis de vente à la même opportunité, \n"
+" Veuillez essayer de modifier celui existant"
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/sale_order.py:0
+#, python-format
+msgid ""
+"You can not confirm sales order. You must first check the customer Counter "
+"Reference."
+msgstr ""
+"Vous ne pouvez pas confirmer la commande client. Vous devez d'abord vérifier"
+" le comptoir client Référence."
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/sale_order.py:0
+#, python-format
+msgid ""
+"You can not confirm sales order. You must first check the customer advance "
+"payment."
+msgstr ""
+"Vous ne pouvez pas confirmer la commande client. Vous devez d'abord vérifier"
+" l'avance client paiement."
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/sale_order.py:0
+#, python-format
+msgid ""
+"You can not confirm sales order. You must first check the customer contract."
+msgstr ""
+"Vous ne pouvez pas confirmer la commande client. Vous devez d'abord vérifier"
+" le contrat client."
+
+#. module: custom_crm_lead
+#: code:addons/custom_crm_lead/models/crm_lead.py:0
+#: code:addons/custom_crm_lead/models/crm_lead.py:0
+#, python-format
+msgid ""
+"Your Commercial File missing one of those necessary Files (POIP File, "
+"Discharge File)"
+msgstr ""
+"Il manque un de ces fichiers nécessaires dans votre dossier commercial "
+"(Fichier POIP, Dossier de décharge)"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.res_partner_counter_form_inherit
+msgid "eg: 0123456KAM000"
+msgstr "eg: 0123456KAM000"
+
+#. module: custom_crm_lead
+#: model_terms:ir.ui.view,arch_db:custom_crm_lead.res_partner_counter_form_inherit
+msgid "eg: 01852369"
+msgstr "ex: 01234567"
+
+#. module: custom_crm_lead
+#: model:ir.model.fields.selection,name:custom_crm_lead.selection__res_partner__payment_type__without_advance
+msgid "without Advance"
+msgstr "Sans Avance"

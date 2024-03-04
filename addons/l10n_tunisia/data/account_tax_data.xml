@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- account chart  -->
+    <record id="l10n_tn_chart_template" model="account.chart.template">
+        <field name="property_account_receivable_id" ref="account4111"/>
+        <field name="property_account_payable_id" ref="account4011"/>
+        <field name="property_account_income_categ_id" ref="account707"/>
+        <field name="property_account_expense_categ_id" ref="account607"/>
+        <field name="income_currency_exchange_account_id" ref="account756"/>
+        <field name="expense_currency_exchange_account_id" ref="account655"/>
+        <field name="default_pos_receivable_account_id" ref="account5411" />
+    </record>
+
+    <!-- Account Tax Template -->
+    <record model="account.tax.template" id="tva_vt19">
+        <field name="name">19%</field>
+        <field name="description">19%</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount">19</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_19"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367111'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367111'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_vt29">
+        <field name="name">29%</field>
+        <field name="description">29%</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount">29</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_29"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367110'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367110'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_vt13">
+        <field name="name">13%</field>
+        <field name="description">13%</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount">13</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_13"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367112'),
+            }),]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                  'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367112'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_vt07">
+        <field name="name">7%</field>
+        <field name="description">7%</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount">7</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_7"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367113'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account4367113'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_exo">
+        <field name="name">Exo.</field>
+        <field name="description">Exo.</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_0"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            })
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            })
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_timbre_fiscal_vt">
+            <field name="name">Timbre Fiscal</field>
+            <field name="description">Timbre Fiscal</field>
+            <field name="type_tax_use">sale</field>
+            <field name="amount">1.00</field>
+            <field name="amount_type">fixed</field>
+            <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+            <field name="tax_group_id" ref="tax_group_tf"/>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'base',
+                }),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'tax',
+                    'account_id': ref('account4371'),
+                }),
+            ]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'base',
+                }),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'tax',
+                    'account_id': ref('account4371'),
+                }),
+            ]"/>
+        </record>
+
+     <record model="account.tax.template" id="tva_ac19">
+        <field name="name">19%</field>
+        <field name="description">19%</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="amount">19</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_19"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436661'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436661'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_ac29">
+        <field name="name">29%</field>
+        <field name="description">29%</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="amount">29</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_29"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436660'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436660'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_ac13">
+        <field name="name">13%</field>
+        <field name="description">13%</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="amount">13</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_13"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436662'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436662'),
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_ac07">
+        <field name="name">7%</field>
+        <field name="description">7%</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="amount">7</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_7"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436663'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('account436663'),
+            }),
+        ]"/>
+    </record>
+
+     <record model="account.tax.template" id="tva_exo1">
+        <field name="name">Exo.</field>
+        <field name="description">Exo.</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+        <field name="tax_group_id" ref="tax_group_tva_0"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            }),
+        ]"/>
+    </record>
+
+    <record model="account.tax.template" id="tva_timbre_fiscal_achat">
+            <field name="name">Timbre Fiscal</field>
+            <field name="description">Timbre Fiscal</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount">1.0</field>
+            <field name="amount_type">fixed</field>
+            <field name="chart_template_id" ref="l10n_tn_chart_template"/>
+            <field name="tax_group_id" ref="tax_group_tf"/>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'base',
+                }),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'tax',
+                    'account_id': ref('account6654'),
+                }),
+            ]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'base',
+                }),
+                (0,0, {
+                    'factor_percent': 100,
+                    'repartition_type': 'tax',
+                    'account_id': ref('account6654'),
+                }),
+            ]"/>
+        </record>
+
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="admin_document_treasury_menu" model="res.groups">
+        <field name="name">Administrateur Documents De Trésorerie </field>
+        <field name="comment">Administrateur Documents De Trésorerie</field>
+    </record>
+
+    <record id="user_document_treasury_menu" model="res.groups">
+        <field name="name">Utilisateur Documents De Trésorerie</field>
+        <field name="comment">Utilisateur Documents De Trésorerie</field>
+    </record>
+</odoo>

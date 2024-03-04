@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem
+        id="menu_document_treasury_root"
+        name="Treasury Documents"
+        web_icon="document_treasury_menu,static/description/icon.png"
+        action="l10n_tn_treasury.account_action_form_treasury"
+        sequence="7"
+        groups="document_treasury_menu.admin_document_treasury_menu,document_treasury_menu.user_document_treasury_menu"
+    />
+
+    <menuitem
+        id="menu_document_exchange_doc"
+        name="Exchange Documents"
+        parent="menu_document_treasury_root"
+        action="l10n_tn_treasury.account_action_form_exchange_costumer"
+        sequence="1"
+        groups="document_treasury_menu.admin_document_treasury_menu"
+    />
+
+    <menuitem
+        id="menu_document_vesement_doc"
+        name="Vesement Documents"
+        parent="menu_document_treasury_root"
+        action="l10n_tn_treasury.account_action_form_vesement"
+        sequence="2"
+        groups="document_treasury_menu.admin_document_treasury_menu,document_treasury_menu.user_document_treasury_menu"
+    />
+
+    <menuitem
+        id="menu_document_traite_doc"
+        name="Vesement Traite"
+        parent="menu_document_treasury_root"
+        action="l10n_tn_treasury.account_action_form_vesement_traite"
+        sequence="3"
+        groups="document_treasury_menu.admin_document_treasury_menu,document_treasury_menu.user_document_treasury_menu"
+    />
+
+    <menuitem
+        id="menu_document_cession_doc"
+        name="Documents de cession de trésorerie"
+        parent="menu_document_treasury_root"
+        action="l10n_tn_treasury.account_action_form_vesement_cash"
+        sequence="4"
+        groups="document_treasury_menu.admin_document_treasury_menu,document_treasury_menu.user_document_treasury_menu"
+    />
+
+    <menuitem
+        id="menu_document_withdrawal_doc"
+        name="Cash withdrawal Documents"
+        parent="menu_document_treasury_root"
+        action="l10n_tn_treasury.account_action_form_withdrawal_cash"
+        sequence="5"
+        groups="document_treasury_menu.admin_document_treasury_menu,document_treasury_menu.user_document_treasury_menu"
+    />
+
+<!--            groups="hr.group_hr_manager-->
+</odoo>

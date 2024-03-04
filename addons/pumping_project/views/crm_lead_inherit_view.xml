@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="crm_lead_view_form_ih_view" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='lead_priority']" position="after">
+                    <group name="pumping_details" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')]}" >
+                        <h3 style="color: blue !important;"> Pumping Project Details</h3>
+                        <field name="installation_type" invisible="1" />
+                        <field name="authorized" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')]}" />
+                        <field name="not_authorized" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')]}"/>
+                        <field name="authorized_type" attrs="{'invisible':['|',('authorized', '=', False),('installation_type', '!=', 'pumping_project')],'required': [('authorized', '=', True)]}" />
+                        <field name="pumping_project_config_id" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')],'required': [('installation_type', '=', 'pumping_project')]}" />
+                    </group>
+                </xpath>
+
+                <xpath expr="//page[@name='commercial_files']" position="replace">
+                   <page string="Commercial file" name="commercial_files" attrs="{'invisible': ['|', ('contract_signed', '!=', True), ('not_authorized', '=', True)]}">
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="filing_date"/>
+                                <field name="filing_date"/>
+                            </div>
+                            <div class="col-3" attrs="{'invisible': [('installation_type', '!=', 'connected')]}">
+                                <label for="poip_fees" attrs="{'invisible': [('installation_type', '!=', 'connected')]}"/>
+                                <field name="poip_fees" attrs="{'invisible': [('installation_type', '!=', 'connected')]}"/>
+                            </div>
+                            <div class="col-3" attrs="{'invisible': [('installation_type', '!=', 'connected')]}">
+                                <label for="steg_credit" attrs="{'invisible': [('installation_type', '!=', 'connected')]}"/>
+                                <field name="steg_credit" attrs="{'invisible': [('installation_type', '!=', 'connected')]}"/>
+                            </div>
+                            <div class="col-3">
+                                <label for="sub_anme" />
+                                <field name="sub_anme"/>
+                            </div>
+
+                            <div class="col-3">
+                                <label for="approbation_date"/>
+                                <field name="approbation_date"/>
+                            </div>
+                            <div class="col-12" attrs="{'invisible': [('installation_type', '!=', 'connected')]}">
+                                <label for="poip_attachement"/>
+                                <field name="poip_attachement" filename="poip_attachement_fname" attrs="{'readonly': [('approbation_date', '!=', False)]}"/>
+                                <field name="poip_attachement_fname" invisible="1"/>
+                            </div>
+                            <div class="col-12" attrs="{'invisible': [('installation_type', '!=', 'connected')]}">
+                                <label for="discharge_attachement"/>
+                                <field name="discharge_attachement" filename="discharge_attachement_fname" attrs="{'readonly': [('approbation_date', '!=', False)]}"/>
+                                <field name="discharge_attachement_fname" invisible="1"/>
+                            </div>
+                        </div>
+                       <div class="row">
+                           <div class="col-12">
+                                <label for="cin_number" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')]}" />
+                                <field name="cin_number" attrs="{'invisible':[('installation_type', '!=', 'pumping_project')]}"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="authorized_sondage" attrs="{'invisible':['|',('installation_type', '!=', 'pumping_project'),('authorized', '=', False)]}" />
+                                <field name="authorized_sondage" attrs="{'invisible':['|',('installation_type', '!=', 'pumping_project'),('authorized', '=', False)]}"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('authorized', '=', False),('authorized_type', '!=', 'anme')]}" />
+                                <field name="preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('authorized', '=', False),('authorized_type', '!=', 'anme')]}"/>
+                            </div>
+                            <div class="col-12">
+                                <label for="signed_preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('authorized', '=', False),('authorized_type', '!=', 'anme')]}" />
+                                <field name="signed_preliminary_application" attrs="{'invisible':['|','|',('installation_type', '!=', 'pumping_project'),('authorized', '=', False),('authorized_type', '!=', 'anme')]}"/>
+                            </div>
+                       </div>
+
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='technical_files']" position="attributes">
+                   <attribute name="attrs">{'invisible': ['|', ('contract_signed', '!=', True), ('not_authorized', '=', True)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

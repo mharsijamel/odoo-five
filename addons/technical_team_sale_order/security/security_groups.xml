@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_technical_folder">
+        <field name="name">Management Of Technical Team Users Privilege</field>
+        <field name="description">Management Of Technical Team Users Privilege</field>
+        <field name="sequence">12</field>
+    </record>
+    <record id="group_technical_folder_user" model="res.groups">
+        <field name="name">Technical Folder User</field>
+        <field name="category_id" ref="technical_team_sale_order.module_category_technical_folder"/>
+    </record>
+    <record id="group_technical_folder_manager" model="res.groups">
+        <field name="name">Technical Folder Manager</field>
+        <field name="category_id" ref="technical_team_sale_order.module_category_technical_folder"/>
+        <field name="implied_ids" eval="[(4, ref('group_technical_folder_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record model="res.users" id="base.user_root">
+        <field eval="[(4,ref('technical_team_sale_order.group_technical_folder_manager'))]" name="groups_id"/>
+    </record>
+    <record model="res.users" id="base.user_admin">
+       <field eval="[(4,ref('technical_team_sale_order.group_technical_folder_manager'))]" name="groups_id"/>
+    </record>
+</odoo>

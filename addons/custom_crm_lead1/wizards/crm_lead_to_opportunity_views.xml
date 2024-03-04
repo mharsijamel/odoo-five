@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_crm_lead2opportunity_partner_as_contact" model="ir.ui.view">
+        <field name="name">crm.lead2opportunity.partner.form.as.contact</field>
+        <field name="model">crm.lead2opportunity.partner</field>
+        <field name="inherit_id" ref="crm.view_crm_lead2opportunity_partner"/>
+        <field name="arch" type="xml">
+            <xpath  expr="//group[@name='action']"  position="replace">
+                <group name="action" attrs="{'invisible': [('name', '!=', 'convert')]}" string="Customer" col="1">
+                    <field name="action" nolabel="1" widget="radio"/>
+                    <group col="2">
+                        <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_vat': True}" attrs="{'required': [('action', '=', 'exist')], 'invisible':[('action','!=','exist')]}"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

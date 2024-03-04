@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    tree view-->
+    <record id="complaint_to_view_list" model="ir.ui.view">
+        <field name="name">purchase.complaint.view.tree</field>
+        <field name="model">purchase.complaint</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="rquested_by" />
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+<!--    form view-->
+    <record id='complaine_to_supplier_view_form' model='ir.ui.view'>
+            <field name="name">purchase.complaint.view.form</field>
+            <field name="model">purchase.complaint</field>
+            <field name="arch" type="xml">
+               <form string="Complaint To Supplier">
+                    <header>
+                        <field name="state" widget="statusbar" readonly="1"/>
+                        <button name="button_request" string="Request for approval" type="object" states="draft" class="oe_highlight"/>
+                        <button name="button_approve" string="Approve" type="object" states="waiting" class="oe_highlight" groups="custom_purchase_order.group_res_purchase_logistic" />
+                        <button name="button_send" string="Send complaint to supplier" type="object" states="approved,sent" class="oe_highlight"/>
+                        <button name="button_close" string="Close complaint" type="object" states="" groups="custom_purchase_order.group_res_purchase_logistic"/>
+                        <button name="button_cancel" string="Cancel complaint" type="object" states=""  groups="custom_purchase_order.group_res_purchase_logistic"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                Personal Information :
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="partner_id"/>
+                                <field name="rquested_by"/>
+                            </group>
+                            <group>
+                                <field name="date" />
+                            </group>
+                        </group>
+                        <div class="oe_title" >
+                            <h1>
+                                Complaint information :
+                            </h1>
+                        </div>
+                       <group>
+                            <group >
+                                <div>
+                                    <h2>
+                                        Complaint for :
+                                    </h2>
+                                </div>
+                                <field name="quality"/>
+                                <field name="progress"/>
+                                <field name="quantity"/>
+                                <field name="damege"/>
+                                <field name="other" />
+                                <field name="description" attrs="{'invisible': [('other', '=', False)]}" />
+                            </group>
+                       </group>
+                        <group>
+                            <group >
+                                <field name="product_id"/>
+                            </group>
+                            <group>
+                                <field name="purchase_id"  domain="[('partner_id','=',partner_id)]" />
+                            </group>
+                        </group>
+                    </sheet>
+                   <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </form>
+            </field>
+    </record>
+<!--    search view-->
+    <record id="purchase_complaint_search_view" model="ir.ui.view">
+        <field name="name">purchase.complaint.view.search</field>
+        <field name="model">purchase.complaint</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="rquested_by"/>
+                <field name="purchase_id"/>
+                <field name="product_id"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="waiting" string="Waiting for Approval" domain="[('state', '=', 'waiting')]"/>
+                <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                <filter name="sent" string="Sent" domain="[('state', '=', 'sent')]"/>
+                <filter name="closed" string="Closed" domain="[('state', '=', 'closed')]"/>
+                <filter name="cancel" string="Cancel" domain="[('state', '=', 'cancel')]"/>
+                <separator/>
+                <group expand="1" string="Group By">
+                    <filter name="product_id" context="{'group_by' : 'product_id'}" string="Product"/>
+                    <filter name="partner_id" context="{'group_by' : 'partner_id'}" string="Supplier"/>
+                    <filter name="purchase_id" context="{'group_by' : 'purchase_id'}" string="Purchase Order refernce"/>
+                    <filter name="rquested_by" context="{'group_by' : 'rquested_by'}" string="Requested By"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
+</odoo>

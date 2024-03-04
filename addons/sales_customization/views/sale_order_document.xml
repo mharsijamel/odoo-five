@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+		<template id="report_saleorder_document_net_to_pay" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@class='clearfix']" position="after">
+                <div>
+                    <div id="total" class="row" name="total">
+                        <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                            <table class="table table-sm">
+                              <tr class="border-black o_subtotal">
+                                <td><strong>STEG credit</strong></td>
+
+                                <td class="text-right">
+                                    <span
+                                        t-esc="doc.steg_credit"
+                                        t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                    />
+                                </td>
+                              </tr>
+                              <tr class="border-black o_subtotal">
+                                <td><strong>ANME Subvention</strong></td>
+
+                                <td class="text-right">
+                                    <span
+                                        t-esc="doc.sub_anme"
+                                        t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                    />
+                                </td>
+                              </tr>
+                              <tr class="border-black o_subtotal">
+                                <td><strong>Net To Pay</strong></td>
+
+                                <td class="text-right">
+                                    <span
+                                        t-esc="doc.net_to_pay"
+                                        t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                    />
+                                </td>
+                              </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+		</template>
+
+    </data>
+</odoo>

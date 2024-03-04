@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_after_sale_service,after_sale_service.after_sale_service,model_after_sale_service,base.group_user,1,1,1,1
+access_after_sale_complaint,after_sale_service.after_sale_complaint,model_after_sale_complaint,base.group_user,1,1,1,1

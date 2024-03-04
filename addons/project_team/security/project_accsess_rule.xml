@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+<!--          <record id="project_acces_rule" model="ir.rule">-->
+<!--            <field name="name">Project Accsess Rule</field>-->
+<!--            <field ref="model_project_project" name="model_id"/>-->
+<!--            <field eval="True" name="global"/>-->
+<!--&lt;!&ndash;            <field name="domain_force">['|','|',('team_id.user_id','=',user.id),('team_id.site_foreman_id','=',user.id),(user.id,'child_of',['team_id.team_members_ids'])]</field>&ndash;&gt;-->
+<!--            <field name="domain_force">['|','|',('team_id.user_id','=',user.id),('team_id.site_foreman_id','=',user.id),('team_id.team_members_ids','in',[user.id])]</field>-->
+<!--&lt;!&ndash;            <field name="domain_force">['|','|',('team_id.user_id','=',user.id),('team_id.site_foreman_id','=',user.id),(user.id,'in','team_id.team_members_ids.ids')]</field>&ndash;&gt;-->
+
+<!--        </record>-->
+
+        <record id="project_acces_rule_acces_rule_manager" model="ir.rule">
+            <field name="name">Project Accsess Rule Manager</field>
+            <field ref="model_project_project" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('project.group_project_manager'))]"/>
+        </record>
+
+    </data>
+</odoo>

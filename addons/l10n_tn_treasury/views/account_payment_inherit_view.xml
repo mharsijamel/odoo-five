@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_payment_inhiert_view_treasury" model="ir.ui.view">
+          <field name="name">account.payment.form</field>
+          <field name="model">account.payment</field>
+          <field name="inherit_id" ref="account.view_account_payment_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='journal_id']" position="after">
+                <field name="incash_check" invisible="1"/>
+                <field name="incash_treaty" invisible="1"/>
+                <field name="maturity_date" attrs="{'invisible': [('incash_check', '=', False), ('incash_treaty', '=', False), '|', ('payment_type', '!=', 'inbound')], 'required': ['|',('incash_check', '=', True), ('incash_treaty', '=', True)], 'readonly': [('state', '!=', 'draft')] }"/>
+                <field name="num_cheque" attrs="{'invisible': ['|', ('incash_check', '=', False), ('payment_type', '!=', 'inbound')] ,'required': [('incash_check', '=', True), ('payment_type', '=', 'inbound')], 'readonly': [('state', '!=', 'draft')]  }" />
+                <field name="num_treaty" attrs="{'invisible': [('incash_treaty', '=', False)], 'required': [('incash_treaty', '=', True)] }" />
+                <field name="bank_origin" attrs="{'invisible': [('incash_check', '=', False), ('incash_treaty', '=', False)], 'required': ['|',('incash_check', '=', True), ('incash_treaty', '=', True)], 'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="treasury_id" attrs="{'invisible': [('incash_check', '=', False), ('incash_treaty', '=', False)], 'readonly': [('state', '!=', 'draft')]}" readonly="True"/>
+            </xpath>
+          </field>
+    </record>
+        <record id="account_payment_treasury_inhiert_view" model="ir.ui.view">
+      <field name="name">account.payment.form</field>
+      <field name="model">account.payment</field>
+      <field name="inherit_id" ref="outgoing_checkbook.account_payment_inhiert_view"/>
+      <field name="arch" type="xml">
+            <xpath expr="//field[@name='checkbook_id']" position="replace">
+                <field name="incash_check" invisible="1"/>
+                <field name="incash_treaty" invisible="1"/>
+                <field name="checkbook_id" string="Check Number" force_save="1" attrs="{'invisible':  [('show_checkbook', '=', False), '&amp;', ('incash_check', '!=', True), '&amp;', ('payment_type', '!=', 'outbound')],'required': [('incash_check', '=', True), ('payment_type', '=', 'outbound')], 'readonly': [('state', '!=', 'draft')]  }"   />
+            </xpath>
+            <xpath expr="//field[@name='cheque_payment_date']" position="replace">
+                <field name="cheque_payment_date" invisible="1" />
+            </xpath>
+      </field>
+    </record>
+    </data>
+
+</odoo>
+

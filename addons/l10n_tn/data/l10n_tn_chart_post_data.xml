@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="tn_chart_template" model="account.chart.template">
+        <field name="property_account_receivable_id" ref="tn_pcg_recv"/>
+        <field name="property_account_payable_id" ref="tn_pcg_pay"/>
+        <field name="property_account_expense_categ_id" ref="tn_pcg_expense"/>
+        <field name="property_account_income_categ_id" ref="tn_pcg_sale"/>
+        <field name="expense_currency_exchange_account_id" ref="pcg_655"/>
+        <field name="income_currency_exchange_account_id" ref="pcg_756"/>
+        <field name="default_pos_receivable_account_id" ref="pcg_5411" />
+    </record>
+
+</odoo>

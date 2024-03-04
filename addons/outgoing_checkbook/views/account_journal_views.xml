@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="checkbook_view_account_journal_form" model="ir.ui.view">
+      <field name="name">account.journal.form</field>
+      <field name="model">account.journal</field>
+      <field name="inherit_id" ref="account.view_account_journal_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='advanced_settings']" position="after">
+             <page name="treasury_settings" string="Treasury Settings" >
+                 <group>
+                     <group string="Treasury Settings" groups="account.group_account_manager" >
+                        <field name="incash_check" />
+                        <field name="incash_treaty" />
+                        <field name="inpayed_check" />
+                        <field name="inpayed_treaty" />
+                    </group>
+                </group>
+             </page>
+        </xpath>
+      </field>
+    </record>
+</odoo>

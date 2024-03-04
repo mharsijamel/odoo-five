@@ -1,0 +1,576 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* post_installation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-30 09:24+0000\n"
+"PO-Revision-Date: 2023-11-30 09:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_needaction
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_ids
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_exception_decoration
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_state
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_state
+msgid "Activity State"
+msgstr "Statut de l'activité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_type_icon
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: post_installation
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+msgid "Add a product"
+msgstr "Ajouter un produit"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_attachment_count
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_attachment_count
+msgid "Attachment Count"
+msgstr "Compte de pièces jointes"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__campaign_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__campaign_id
+msgid "Campaign"
+msgstr "Campagne"
+
+#. module: post_installation
+#: model:ir.model.fields.selection,name:post_installation.selection__project_project__state__cancel
+#: model_terms:ir.ui.view,arch_db:post_installation.project_project_view_form_inherit
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__product_uom_category_id
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: post_installation
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+#: model_terms:ir.ui.view,arch_db:post_installation.project_project_view_form_inherit
+msgid "Close"
+msgstr "Clôturer"
+
+#. module: post_installation
+#: model:ir.model.fields.selection,name:post_installation.selection__post_installation__state__closed
+#: model:ir.model.fields.selection,name:post_installation.selection__project_project__state__closed
+msgid "Closed"
+msgstr "Clôturé"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__company_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: post_installation
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+msgid "Comsumption"
+msgstr "Consommation"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__consumption_ids
+msgid "Consumption"
+msgstr "Consommation"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+"La conversion entre les unités de mesure ne peut avoir lieu que si elles "
+"appartiennent à la même catégorie. La conversion sera effectuée en fonction "
+
+#. module: post_installation
+#: model_terms:ir.actions.act_window,help:post_installation._action_post_installation
+msgid "Create New Post Installation"
+msgstr "Créer une nouvelle installation"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__create_uid
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__create_date
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__name
+msgid "Description"
+msgstr "Description"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__display_name
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__display_name
+msgid "Display Name"
+msgstr "Nom à afficher"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__deposit_date
+msgid "Filing Date"
+msgstr "Date de dépôt"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_follower_ids
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_partner_ids
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (Partenaires)"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__activity_type_icon
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__has_message
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__has_message
+msgid "Has Message"
+msgstr "a un message"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__id
+msgid "ID"
+msgstr "ID"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_exception_icon
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_exception_icon
+msgid "Icon"
+msgstr "Icône"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__activity_exception_icon
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icône pour indiquer une activité d'exception."
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_needaction
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_unread
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_needaction
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Indique si les nouveaux messages nécessitent votre attention."
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_has_error
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_has_sms_error
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_has_error
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_is_follower
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_is_follower
+msgid "Is Follower"
+msgstr "Est abonné"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation____last_update
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__write_uid
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__write_date
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_main_attachment_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "pièce jointe principale"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__medium_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__medium_id
+msgid "Medium"
+msgstr "Moyen"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_has_error
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_has_error
+msgid "Message Delivery error"
+msgstr "Message d'erreur de livraison"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_ids
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_calendar_event_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Événement du calendrier de la prochaine activité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_date_deadline
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de la prochaine activité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_summary
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé de la prochaine activité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_type_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type de la prochaine activité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_needaction_counter
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_has_error_counter
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_needaction_counter
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Nombre de messages qui nécessitent une action"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_has_error_counter
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__message_unread_counter
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Nombre de messages non lus"
+
+#. module: post_installation
+#: model:ir.model.fields.selection,name:post_installation.selection__post_installation__state__open
+#: model:ir.model.fields.selection,name:post_installation.selection__project_project__state__open
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+#: model_terms:ir.ui.view,arch_db:post_installation.project_project_view_form_inherit
+msgid "Open"
+msgstr "Ouvert"
+
+#. module: post_installation
+#: code:addons/post_installation/models/post_installation.py:0
+#, python-format
+msgid "Please add consumption"
+msgstr "S'il vous plaît ajouter la consommation"
+
+#. module: post_installation
+#: code:addons/post_installation/models/post_installation.py:0
+#, python-format
+msgid "Please select a responsible for post installation"
+msgstr "S'il vous plaît sélectionner un responsable pour Post-installation"
+
+#. module: post_installation
+#: model:mail.activity.type,name:post_installation.mail_activity_post_installation
+msgid "Post Instalation"
+msgstr "Post-installation"
+
+#. module: post_installation
+#: model:ir.actions.act_window,name:post_installation._action_post_installation
+#: model:ir.model,name:post_installation.model_post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__install_id
+#: model:ir.model.fields,field_description:post_installation.field_project_project__post_installation_id
+#: model:ir.model.fields,field_description:post_installation.field_sale_order__post_installation_id
+#: model:ir.ui.menu,name:post_installation.menu_post_installation_root
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+msgid "Post Installation"
+msgstr "Post-installation"
+
+#. module: post_installation
+#: model:ir.model,name:post_installation.model_post_installation_consumption
+msgid "Post Installation Consumption"
+msgstr "Consommation de post-installation"
+
+#. module: post_installation
+#: model:res.groups,comment:post_installation.post_installation_manager
+msgid "Post Installation Manager"
+msgstr "Responsable de Post-installation"
+
+#. module: post_installation
+#: model:res.groups,name:post_installation.post_installation_manager
+msgid "Post Installation Manager "
+msgstr "Responsable de Post-installation "
+
+#. module: post_installation
+#: model:res.groups,comment:post_installation.post_installation_user
+msgid "Post Installation User"
+msgstr "Utilisateur de Post-installation"
+
+#. module: post_installation
+#: model:res.groups,name:post_installation.post_installation_user
+msgid "Post Installation User "
+msgstr "Utilisateur de Post-installation"
+
+#. module: post_installation
+#: code:addons/post_installation/models/post_installation.py:0
+#, python-format
+msgid "Post Installation closed by %s"
+msgstr "Post-installation fermée par %s"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__product_id
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+msgid "Product"
+msgstr "Produit"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__product_template_id
+msgid "Product Template"
+msgstr "Produit"
+
+#. module: post_installation
+#: model:ir.model,name:post_installation.model_project_project
+#: model:mail.activity.type,name:post_installation.mail_activity_project_project
+msgid "Project"
+msgstr "Projet"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_sale_order__project_team_id
+msgid "Project Team"
+msgstr "Équipe du projet"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_sale_order__project_team_visibility
+msgid "Project Team Visibility"
+msgstr "Visibilité de l'équipe du projet"
+
+#. module: post_installation
+#: code:addons/post_installation/models/project_project.py:0
+#, python-format
+msgid ""
+"Project closed by %s , Please select a respensible for post installation"
+msgstr ""
+"Projet fermé par %s, veuillez sélectionner un responsable pour post-installation"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__quality_control_date
+msgid "Quality Control Date"
+msgstr "Date de contrôle de qualité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__product_uom_qty
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__reception_date
+msgid "Reception Date"
+msgstr "Date de réception"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__Respensable
+msgid "Respensable"
+msgstr "Responsable"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__user_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__activity_user_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_has_sms_error
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model,name:post_installation.model_sale_order
+msgid "Sale Order"
+msgstr "Bon de commande"
+
+#. module: post_installation
+#: model:ir.model,name:post_installation.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__sending_date
+msgid "Sending Date"
+msgstr "Date d'envoi"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__source_id
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__source_id
+msgid "Source"
+msgstr "Source"
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__state
+#: model:ir.model.fields,field_description:post_installation.field_project_project__state
+msgid "Status"
+msgstr "Statut"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__activity_state
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__campaign_id
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__medium_id
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__source_id
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields.selection,name:post_installation.selection__project_project__state__todo
+#: model_terms:ir.ui.view,arch_db:post_installation.project_project_view_form_inherit
+msgid "To Do"
+msgstr "A faire"
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__activity_exception_decoration
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__product_uom
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_unread
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__message_unread_counter
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: post_installation
+#: model_terms:ir.ui.view,arch_db:post_installation.post_installation_view_form
+msgid "UoM"
+msgstr "UoM"
+
+#. module: post_installation
+#: code:addons/post_installation/models/post_installation_consumption.py:0
+#, python-format
+msgid "Warning for %s"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,field_description:post_installation.field_post_installation__website_message_ids
+#: model:ir.model.fields,field_description:post_installation.field_post_installation_consumption__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: post_installation
+#: model:ir.model.fields,help:post_installation.field_post_installation__website_message_ids
+#: model:ir.model.fields,help:post_installation.field_post_installation_consumption__website_message_ids
+msgid "Website communication history"
+msgstr "Historique des communications du site Web"
+
+#. module: post_installation
+#: model:res.groups,comment:post_installation.group_project_team_leader
+#: model:res.groups,name:post_installation.group_project_team_leader
+msgid "project team leader"
+msgstr "chef d'équipe de projet"

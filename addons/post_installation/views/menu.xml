@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='_action_post_installation' model='ir.actions.act_window'>
+        <field name="name">Post Installation</field>
+        <field name="res_model">post.installation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="search_view_id" ref="post_installation_view_search"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create New Post Installation
+          </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_post_installation_root"
+        name="Post Installation"
+        web_icon="post_installation,static/description/icon.png"
+        action="_action_post_installation"
+        groups="post_installation_manager,post_installation_user"
+        sequence="99"
+    />
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="account_payment_register_form_inhiert_view" model="ir.ui.view">
+      <field name="name">account.payment.register.form</field>
+      <field name="model">account.payment.register</field>
+      <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='journal_id']" position="after">
+            <field name="show_checkbook" invisible="1" />
+            <field name="checkbook_id" attrs="{'invisible': [('show_checkbook', '=', False)]}" />
+            <field name="cheque_payment_date" attrs="{'invisible': [('show_checkbook', '=', False)]}" />
+        </xpath>
+      </field>
+    </record>
+</odoo>

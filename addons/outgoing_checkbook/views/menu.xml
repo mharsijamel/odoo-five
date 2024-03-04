@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <menuitem id="menu_account_check_manager" name="Checkbook Manager"  parent="account.menu_finance"  sequence="20"/>
+
+          <record id="action_account_checkbook" model="ir.actions.act_window">
+            <field name="name">Checkbooks</field>
+            <field name="res_model">account.check.book</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_account_checkbook_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_account_checkbook_form')})]"/>
+<!--             <field name="context">{"search_default_bank_id":1, "search_default_state":1}</field>-->
+        </record>
+  <menuitem id="menu_cheque_book" action="action_account_checkbook"  name="Checkbook"    parent="menu_account_check_manager" sequence="10"/>
+
+            <record id="action_account_check" model="ir.actions.act_window">
+            <field name="name">Cheque</field>
+            <field name="res_model">account.check</field>
+            <field name="view_mode">tree,form</field>
+<!--             <field name="context">{"search_default_checkbook_id":1, "search_default_state":1}</field>-->
+        </record>
+  <menuitem id="menu_ckeques" action="action_account_check" name="Cheque" parent="menu_account_check_manager" sequence="20"/>
+
+     <record id="action_account_checkbook_add" model="ir.actions.act_window">
+            <field name="name">Checkbooks</field>
+            <field name="res_model">account.checkbook.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="view_account_checkbook_wizard_form"/>
+        </record>
+  <menuitem id="menu_add_checkbook" action="action_account_checkbook_add" name="Add Checkbook" parent="menu_account_check_manager" sequence="30"/>
+</odoo>
