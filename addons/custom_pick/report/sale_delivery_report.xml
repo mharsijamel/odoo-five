@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_report_chauf_voiture_inherit" inherit_id="stock.report_delivery_document">
+
+
+        <!-- Afficher le chauffeur et la voiture-->
+        <xpath expr="//table[@name='stock_move_table']" position="replace">
+            <table class="table table-sm" t-if="o.state!='done'" name="stock_move_table">
+                <thead>
+                    <tr>
+                        <th name="th_sm_product"><strong>Product</strong></th>
+                        <th name="th_sm_ordered"><strong>Ordered</strong></th>
+                        <th name="th_sm_quantity"><strong>Delivered</strong></th>
+                        <th name="th_sm_price_unity"><strong>Prix Unitaire</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+                    <t t-set="line_count" t-value="len(lines)"/>
+                    <t t-set="empty_lines" t-value="15 - line_count"/>
+                    <tr t-foreach="lines" t-as="move">
+                        <td>
+                            <span t-field="move.product_id"/>
+                            <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                <span t-field="move.description_picking"/>
+                            </p>
+                        </td>
+                        <td>
+                            <span t-field="move.product_uom_qty"/>
+                            <span t-field="move.product_uom"/>
+                        </td>
+                        <td>
+                            <span t-field="move.quantity_done"/>
+                            <span t-field="move.product_uom"/>
+                        </td>
+                        <td>
+                            <span t-field="move.sale_price"/>
+                        </td>
+                    </tr>
+                    <t t-if="empty_lines &gt; 0">
+                        <tr t-foreach="range(empty_lines)" t-as="i">
+                            <td>&amp;nbsp;</td>
+                            <td>&amp;nbsp;</td>
+                            <td>&amp;nbsp;</td>
+                            <td>&amp;nbsp;</td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']" position="after">
+            <!-- Add the div element after the table -->
+            <div class="mt32 ml64 mr4" name="signature" style="font-size: 16px!important;">
+                <div class="offset-8">
+                    <strong>Cachet et Signature</strong>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

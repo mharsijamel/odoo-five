@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_price" model="ir.ui.view">
+        <field name="name">sale_price.view.</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="sale_price" context="{'default_detailed_type': 'product'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

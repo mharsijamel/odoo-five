@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_report_chauf_voiture_inherit" inherit_id="stock.report_delivery_document">
+
+
+        <!-- Afficher le chauffeur et la voiture-->
+        <xpath expr="//div[@class='row mt32 mb32']" position="after">
+            <div class="row mt32 mb32" style="font-size: 16px!important;">
+			  <div class="col-auto" name="div_x_voiture">
+				  <strong style="display: inline;">Matricule Voiture:</strong>
+				  <p style="display: inline;" t-field="o.x_voiture"/>
+			  </div>
+			  <div class="col-auto" name="div_x_chauffeur">
+				  <strong style="display: inline;">Nom du Chauffeur:</strong>
+				  <p t-field="o.x_chaffeur" style="display: inline;"/>
+			  </div>
+		   </div>
+        </xpath>
+    </template>
+</odoo>
