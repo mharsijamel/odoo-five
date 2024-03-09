@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_payslip">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <!-- header -->
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id"></t>
+                </t>
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"></t>
+                </t>
+                <div t-attf-style="padding-bottom:0px; padding-left:0px; padding-right:0px; color:#000000 !important;font-size:12px !important;font-family:sans-serif !important;" class="header col-12">
+                    <div class="col-7 float-left" style="max-height:30px;">
+                        <span t-if="company.logo">
+					        <span itemprop="image" t-field="company.logo" t-options='{"widget": "image"}'/>
+                        </span>
+                        <span t-if="not company.logo">
+                            <span itemprop="image" t-field="company.logo" t-options='{"widget": "image"}'/>
+                        </span>
+                    </div>
+                    <div class="col-5 mb8 float-right" style="padding-bottom:2px;padding-right:0px;">
+                        <div class="float-right text-right" style="width:auto;padding-left:15px;">
+                            <div t-field="company.name" t-attf-style="color:#000000;white-space:nowrap;font-size:24px;font-weight:bold;"/>
+                            <div t-field="company.partner_id" style="margin-bottom:0px; padding-bottom:0px;white-space:nowrap;"
+                                 t-options='{"widget": "contact", "fields": ["address"], "no_marker": false, "no_tag_br": true}'/>
+                            <div>Tél. <span t-field="company.partner_id.phone"/> - Email: <span t-field="company.partner_id.email"/></div>
+                            <div>MF: <span t-field="company.partner_id.vat"/></div>
+                        </div>
+                    </div>
+                </div> <!--end of Header-->
+                <div class="article page" t-attf-data-oe-model="hr.payslip" t-attf-data-oe-id="{{o.id}}" t-attf-style="color:#000000 !important;font-size:14px !important;font-family:sans-serif !important;">
+                    <div class="row">
+                        <div class="col-6 text-center mt8">
+                            <h2>Pay Slip</h2>
+                            <span t-field="o.number"/>
+                            <p t-field="o.date_from"/>
+                        </div>
+                        <div class="col-6 border mt8 text-left">
+                            <div t-if="o.employee_id.num_chezemployeur">
+                                Employee: <span t-field="o.employee_id.num_chezemployeur"/>
+                            </div>
+                            <div t-if="o.employee_id" t-attf-style="color:#000000; margin-top:5px; margin-bottom:5px; margin-left:0px;font-size:18px;">
+                                <t t-if="o.employee_id.address_home_id">
+                                    Nom : <span t-field="o.employee_id.address_home_id.name"/>
+                                </t>
+                                <t t-if="not o.employee_id.address_home_id">
+                                    Nom : <span t-if="o.employee_id.name" t-field="o.employee_id.name"/>
+                                </t>
+                            </div>
+                            <div t-if="o.employee_id.identification_id">
+                                CIN: <span t-field="o.employee_id.identification_id"/>
+                            </div>
+                            <div t-if="o.employee_id.passport_id">
+                                Passport: <span t-field="o.employee_id.passport_id"/>
+                            </div>
+                            <div t-if="o.employee_id.matricule_cnss">
+                                CNSS: <span t-field="o.employee_id.matricule_cnss"/>
+                            </div>
+                            <div>
+                                Adresse:
+                                <span t-field="o.employee_id.address_home_id.street"/>
+                                <span t-if="o.employee_id.address_home_id.street2">
+                                    <span t-field="o.employee_id.address_home_id.street2"/>
+                                </span>
+                                <span t-if="o.employee_id.address_home_id.zip">
+                                    <span t-field="o.employee_id.address_home_id.zip"/>
+                                </span>
+                                <span t-if="o.employee_id.address_home_id.city">
+                                    <span t-field="o.employee_id.address_home_id.city"/>
+                                </span>
+                                <span t-if="o.employee_id.address_home_id.state_id">
+                                    <span t-field="o.employee_id.address_home_id.state_id.name"/>
+                                </span>
+                                <span t-if="o.employee_id.address_home_id.country_id">
+                                    <span t-field="o.employee_id.address_home_id.country_id.name"/>
+                                </span>
+                            </div>
+                            <div>
+                                Situation familiale : <span t-field="o.employee_id.marital"/>
+                            </div>
+                            <div t-if="not o.employee_id.children == 0">
+                                Enfant à charge: <span t-field="o.employee_id.children"/>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <table class="table table-sm o_main_table table-bordered">
+                        <thead>
+                            <tr class="text-center">
+                                <th>RUBRIQUES</th>
+                                <th>BASE</th>
+                                <th>TAUX</th>
+                                <th>RETENUE</th>
+                                <th>CHARGES PATRONALES</th>
+                                <th>A PAYER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
+                                <t t-if="line.category_id.code == 'NET'" >
+                                    <t t-set="tr_style" t-value="'background-color:#bcbcbc;font-size:16px;'"/>
+                                </t>
+                                <t t-if="not line.category_id.code == 'NET'">
+                                    <t t-set="tr_style" t-value="'background-color:transparent;'"/>
+                                </t>
+                                <tr t-attf-style="{{tr_style}}">
+                                    <t t-if="not line.total == 0.0">
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-if="line.category_id.code in ['SALC','IRPP','RETENUES', 'COMP', 'INDM', 'BASE']">
+                                                <span t-field="line.amount" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-if="line.category_id.code in ['SALC','IRPP','RETENUES', 'COMP', 'INDM', 'BASE']">
+                                                <span t-esc="'%.2f'%(line.rate)"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-if="line.category_id.code in ['SALC','IRPP','RETENUES']">
+                                                <span t-esc="line.total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-if="line.category_id.code in ['COMP']">
+                                                <span t-esc="line.total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-if="line.category_id.code in ['BASE','INDM','NET']">
+                                                <span t-esc="line.total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <p class="text-right">
+                        <strong>Authorized signature</strong>
+                    </p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

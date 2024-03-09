@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Root Menus -->
+    <menuitem
+        id="payroll_menu_root"
+        name="Payroll"
+        sequence="45"
+        web_icon="l10n_tunisia_payroll,static/description/icon.png"
+    />
+    <menuitem
+        id="payroll_menu_configuration"
+        name="Configuration"
+        parent="payroll_menu_root"
+        sequence="100"
+        groups="l10n_tunisia_payroll.group_payroll_manager"
+    />
+    <menuitem
+        id="menu_hr_payroll_report"
+        name="Reports"
+        parent="payroll_menu_root"
+        sequence="90"
+        groups="l10n_tunisia_payroll.group_payroll_user"
+        />
+</odoo>

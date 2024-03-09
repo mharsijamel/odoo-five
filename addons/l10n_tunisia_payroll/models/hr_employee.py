@@ -1,0 +1,27 @@
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
+from odoo import fields, models
+
+
+class HrEmployee(models.Model):
+    _inherit = "hr.employee"
+    _description = "Employee"
+
+    matricule_cnss = fields.Char(
+        string="Numéro CNSS", required=False,
+    )
+    num_chezemployeur = fields.Integer(
+        string="Numero chez l\'employeur", required=False,
+    )
+    slip_ids = fields.One2many(
+        "hr.payslip", "employee_id", string="Payslips", readonly=True
+    )
+    payslip_count = fields.Integer(
+        compute="_compute_payslip_count",
+        string="Payslip Count",
+        groups="l10n_tunisia_payroll.group_payroll_user",
+    )
+
+    def _compute_payslip_count(self):
+        for employee in self:
+            employee.payslip_count = len(employee.slip_ids)
