@@ -61,7 +61,7 @@ class button_rs_view(models.Model):
                 'target': 'new',
                 'type': 'ir.actions.act_window',
             }
-        elif types == 'in_withholding' and withholding_tax:
+        else:
             res = {
                 'name': ('Retenue à la Source'),
                 'res_model': 'account.withholding',
@@ -77,6 +77,5 @@ class button_rs_view(models.Model):
                 'target': 'new',
                 'type': 'ir.actions.act_window',
                 }
-        else:
-            raise UserError(_("Vous ne pouvez pas accéder a ce document"))
+        
         return res

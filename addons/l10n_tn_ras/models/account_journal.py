@@ -7,3 +7,4 @@ class account_journal(models.Model):
     is_retenuachat = fields.Boolean('Retenue Achat', default=False)
     is_retenuvente = fields.Boolean('Retenue vente', default=False)
     retenue_account_id = fields.Many2one('account.account', 'Retenue Account')
+    retenue_account_id = fields.Many2one('account.account', 'Retenue Account')

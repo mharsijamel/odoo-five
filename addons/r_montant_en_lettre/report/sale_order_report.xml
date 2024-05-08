@@ -9,7 +9,7 @@
                         <td style="border: white">
                             <h2 class="mt16">
                                 <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                                    <span t-if="doc.state not in ['draft','sent']">COMMANDE </span>
+                                    <span t-if="doc.state not in ['draft','sent']">DEVIS </span>
                                     <span t-if="doc.state in ['draft','sent']">PROFORMA </span>
                                 </t>
                                 <t t-if="env.context.get('proforma', False) or is_pro_forma">
@@ -20,7 +20,7 @@
                         </td>
                         <td style="border: white">
                             <div class="col-auto col-3 mw-100 mb-2">
-                                <strong>Alger le : <span class="m-0" t-field="doc.date_order"/></strong>
+                                <strong>Le : <span class="m-0" t-field="doc.date_order"/></strong>
                             </div>
                             <div t-if="doc.user_id.name" class="col-auto col-2 mw-100 mb-2">
                                 <strong>Commercial(e) : <span class="m-0" t-field="doc.user_id"/></strong>

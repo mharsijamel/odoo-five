@@ -818,6 +818,7 @@ class AccountReport(models.AbstractModel):
             ('display_type', 'not in', ('line_section', 'line_note')),
             ('move_id.state', '!=', 'cancel'),
             ('company_id', 'in', self.get_report_company_ids(options)),
+            ('account_id.internal_type', '!=', 'liquidity'),
         ]
         domain += self._get_options_journals_domain(options)
         domain += self._get_options_date_domain(options)

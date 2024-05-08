@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="marge_vente" model="ir.ui.view">
+        <field name="name">marge_vente.view.</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <field name="x_margeperc" on_change="onchange_x_margeperc_standard_price"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

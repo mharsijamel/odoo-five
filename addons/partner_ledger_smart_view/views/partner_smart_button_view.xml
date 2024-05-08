@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="partner_ledger_smart_view_res_partner_view_inherit">
+            <field name="name">partner.ledger.smart.view.res.partner.view.mi.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="13"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button type="object"
+                        class="oe_stat_button"
+                        id="partner_ledger_smart_view"
+                        icon="fa-pencil-square-o"
+                        name="open_partner_ledger_smart_view"
+                        
+                        string="Partner Ledger"
+                        context="{'default_partner_id': active_id}">
+                    </button>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
