@@ -63,8 +63,8 @@ msgstr "Pagamento"
 
 #. module: account_check_printing_report_dlt103
 #: model:ir.actions.report,name:account_check_printing_report_dlt103.action_report_check_dlt103
-msgid "Payment Check DLT103"
-msgstr "Cheque de Pagamento DLT103"
+msgid "Payment Check BIAT"
+msgstr "Cheque de Pagamento BIAT"
 
 #. module: account_check_printing_report_dlt103
 #: model:ir.model,name:account_check_printing_report_dlt103.model_report_account_check_printing_report_dlt103_report_check_dlt103

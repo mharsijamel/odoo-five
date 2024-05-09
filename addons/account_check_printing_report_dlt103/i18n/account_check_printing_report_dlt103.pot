@@ -67,7 +67,12 @@ msgstr ""
 
 #. module: account_check_printing_report_dlt103
 #: model:ir.actions.report,name:account_check_printing_report_dlt103.action_report_check_dlt103
-msgid "Payment Check DLT103"
+msgid "Payment Check BIAT"
+msgstr ""
+
+#. module: account_check_printing_report_dlt103
+#: model:ir.actions.report,name:account_check_printing_report_dlt103.action_report_check_zitouna
+msgid "Payment Check ZITOUNA"
 msgstr ""
 
 #. module: account_check_printing_report_dlt103
@@ -81,7 +86,13 @@ msgstr ""
 #. module: account_check_printing_report_dlt103
 #: model:ir.model.fields.selection,name:account_check_printing_report_dlt103.selection__account_journal__account_check_printing_layout__account_check_printing_report_dlt103_action_report_check_dlt103
 #: model:ir.model.fields.selection,name:account_check_printing_report_dlt103.selection__res_company__account_check_printing_layout__account_check_printing_report_dlt103_action_report_check_dlt103
-msgid "dlt103"
+msgid "BIAT"
+msgstr ""
+
+#. module: account_check_printing_report_dlt103
+#: model:ir.model.fields.selection,name:account_check_printing_report_dlt103.selection__account_journal__account_check_printing_layout__account_check_printing_report_dlt103_action_report_check_zitouna
+#: model:ir.model.fields.selection,name:account_check_printing_report_dlt103.selection__res_company__account_check_printing_layout__account_check_printing_report_dlt103_action_report_check_zitouna
+msgid "ZITOUNA"
 msgstr ""
 
 #. module: account_check_printing_report_dlt103
