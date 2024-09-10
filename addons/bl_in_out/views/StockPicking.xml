@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_picking_tree_in" model="ir.actions.act_window">
+        <field name="name">Incoming Stock Pickings</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('picking_type_id.code', '=', 'incoming')]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_picking_tree_out" model="ir.actions.act_window">
+        <field name="name">Outgoing Stock Pickings</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('picking_type_id.code', '=', 'outgoing')]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Ensure unique IDs for the menu items -->
+    <menuitem id="menu_stock_picking_in" name="Incoming Stock Pickings" parent="stock.menu_stock_warehouse_mgmt" sequence="10" action="action_picking_tree_in" groups="stock.group_stock_manager,stock.group_stock_user"/>
+    <menuitem id="menu_stock_picking_out" name="Outgoing Stock Pickings" parent="stock.menu_stock_warehouse_mgmt" sequence="15" action="action_picking_tree_out" groups="stock.group_stock_manager,stock.group_stock_user"/>
+    <!-- Adding BLS menu items under sales and procurement management -->
+    <menuitem id="menu_stock_picking_in_sale" name="BLS" parent="sale.sale_order_menu" sequence="12" action="action_picking_tree_in"/>
+    <menuitem id="menu_stock_picking_out_purchase" name="BLS" parent="purchase.menu_procurement_management" sequence="10" action="action_picking_tree_out"/>
+</odoo>

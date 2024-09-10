@@ -9,6 +9,7 @@ class AccountPaymentRegister(models.TransientModel):
 
     incash_treaty = fields.Boolean(string='Incash Treaty', compute="compute_incash_checks_treaty")
 
+    checkbook_id = fields.Many2one('account.check', string="Cheque", domain="[('state','=','available'), ('bank_id', '=', bank_origin)]")
 
     maturity_date = fields.Date(string='Maturity Date')
 
@@ -33,18 +34,18 @@ class AccountPaymentRegister(models.TransientModel):
     @api.depends('journal_id',  'payment_method_line_id')
     def compute_incash_checks_treaty(self):
         for payment in self:
-            if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank' and payment.journal_id.temporary_bank_journal:
-                if payment.journal_id.incash_check and not payment.journal_id.incash_treaty:
+            if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank' and not payment.journal_id.temporary_bank_journal:
+                if payment.payment_method_line_id.code == 'check_printing':
                     payment.incash_check = True
                     payment.incash_treaty = False
-                elif not payment.journal_id.incash_check and payment.journal_id.incash_treaty:
+                elif payment.payment_method_line_id.code == 'treaty':
                     payment.incash_check = False
                     payment.incash_treaty = True
                 else:
                     payment.incash_check = False
                     payment.incash_treaty = False
             elif payment.payment_type == 'outbound' and payment.journal_id.type == 'bank' and not payment.journal_id.temporary_bank_journal:
-                payment.sudo().write({
+                payment.sudo().update({
                     'bank_origin': self.journal_id.bank_id.id,
                 })
                 if payment.payment_method_line_id.code == 'check_printing':
@@ -80,7 +81,12 @@ class AccountPaymentRegister(models.TransientModel):
                     'state': 'in_cash',
                     'bank_origin': self.bank_origin.id,
                 }
-                check_id = self.env['account.treasury'].sudo().create(values)
+                already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
+                if already_exist:
+                    already_exist.sudo().write(values)
+                    check_id = already_exist
+                else:
+                    check_id = self.env['account.treasury'].sudo().create(values)
                 treasury_id = check_id.id
             elif self.incash_treaty and self.payment_type == 'inbound':
                 values = {
@@ -97,7 +103,12 @@ class AccountPaymentRegister(models.TransientModel):
                     'state': 'in_cash',
                     'bank_origin': self.bank_origin.id,
                 }
-                treaty_id = self.env['account.treasury'].sudo().create(values)
+                already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
+                if already_exist:
+                    already_exist.sudo().write(values)
+                    treaty_id = already_exist
+                else:
+                    treaty_id = self.env['account.treasury'].sudo().create(values)
                 treasury_id = treaty_id.id
             payments.sudo().write({
                 'bank_origin': self.bank_origin.id if self.incash_check or self.incash_treaty else False,
@@ -127,9 +138,16 @@ class AccountPaymentRegister(models.TransientModel):
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
-                self.checkbook_id.compute_treasury()
-                check_id = self.env['account.treasury'].sudo().create(values)
+                already_exist = self.env['account.treasury'].sudo().search([('name', '=', '0000000'), ('holder', '=', self.env.company.partner_id.id), ('payment_id', '=', payments.id)])
+                if already_exist:
+                    already_exist.sudo().write(values)
+                    check_id = already_exist
+                else:
+                    check_id = self.env['account.treasury'].sudo().create(values)
                 treasury_id = check_id.id
+                self.checkbook_id.compute_treasury()
+                self.checkbook_id.write({'state': 'used'})
+
             elif self.journal_id.type == 'bank' and self.payment_method_line_id.code == 'treaty':
                 values = {
                     'name': self.num_treaty,
@@ -145,7 +163,12 @@ class AccountPaymentRegister(models.TransientModel):
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
-                treaty_id = self.env['account.treasury'].sudo().create(values)
+                already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.env.company.partner_id.id), ('payment_id', '=', payments.id)])
+                if already_exist:
+                    already_exist.sudo().write(values)
+                    treaty_id = already_exist
+                else:
+                    treaty_id = self.env['account.treasury'].sudo().create(values)
                 treasury_id = treaty_id.id
             payments.sudo().write({
                 'bank_origin': self.journal_id.bank_id.id if self.payment_method_line_id.code == 'check_printing' or self.payment_method_line_id.code == 'treaty' else False,

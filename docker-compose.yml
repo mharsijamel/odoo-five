@@ -10,8 +10,13 @@ services:
     restart: always
     volumes:
       - ./postgresql:/var/lib/postgresql/data:rw
+    ports:
+      - "5432:5432"  # Expose PostgreSQL port  
 
   odoo15:
+    build:
+        context: .
+        dockerfile: Dockerfile
     image: odoo:15
     user: root
     depends_on:

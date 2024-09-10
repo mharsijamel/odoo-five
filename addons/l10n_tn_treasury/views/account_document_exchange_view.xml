@@ -26,6 +26,7 @@
                                 <field name="bank_commission_account"/>
                             </group>
                             <group>
+                                <field name="date"/>
                                 <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                                 <field name="move_id"/>
                                 <field name="bank_commission_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
@@ -43,16 +44,28 @@
                         <group>
                             <field name="bank_source_ids" widget="many2many_tags"/>
                         </group>
-                        <field name="line_ids">
-                            <tree editable="bottom">
-                                <field name="document_id"/>
-<!--                                <field name="partner_id"/>-->
-                                <field name="holder"/>
-                                <field name="maturity_date"/>
-                                <field name="bank_origin"/>
-                                <field name="amount" sum="Total"/>
-                            </tree>
-                        </field>
+                        <notebook>
+                            <page string="Liste ds documents">
+                                <field name="treasury_ids">
+                                    <tree create="false" edit="false" delete="true" editable="bottom">
+        <!--                                <field name="document_id"/>-->
+        <!--                                <field name="partner_id"/>-->
+                                        <field name="name"/>
+                                        <field name="holder" readonly="1"/>
+                                        <field name="maturity_date"/>
+                                        <field name="bank_origin"/>
+                                        <field name="invoice_ids" widget="many2many_tags"/>
+                                        <field name="state"/>
+                                        <field name="amount" sum="Total"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Écritures Comptables" attrs="{'invisible': [('state','!=','valid')]}">
+                                <field name="move_ids" string="Écritures Comptables"/>
+                            </page>
+                        </notebook>
+
+
                     </sheet>
                 </form>
             </field>

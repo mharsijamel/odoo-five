@@ -50,6 +50,7 @@
                                     <group>
 
                                         <field name="payment_type" colspan="4"/>
+                                        <field name="payment_method_line_id" colspan="4"/>
 
                                         <field name="payment_id" colspan="4"
                                                options="{'no_create': True, 'no_open': False}"/>

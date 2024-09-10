@@ -23,7 +23,7 @@ class AccountInstallment(models.Model):
     journal_id = fields.Many2one('account.journal', 'Journal', readonly=True, states={'draft': [('readonly', False)]},
                                  domain=[('type', '=', 'bank')])
     treasury_ids = fields.Many2many('account.treasury', 'account_vesement_treasury_rel', 'vesement_id', 'treasury_id',
-                                    'Associated Document', domain="[('type_transaction', '=', 'receipt')]",
+                                    'Associated Document', domain="[('type_transaction', '=', 'receipt'), ('journal_id', '=', journal_id.id)]",
                                     readonly=True, states={'draft': [('readonly', False)]})
     amount = fields.Float(string='Total', digits='Product Price', readonly=True, compute='_compute_amount')
     amount_in_word = fields.Char("Amount in Word")
@@ -68,6 +68,7 @@ class AccountInstallment(models.Model):
                 debit = {
                     'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
                         line.maturity_date) or '/',
+                    'partner_id': line.partner_id.id,
                     'debit': line.amount,
                     'credit': 0,
                     'account_id': vesement.journal_id.default_account_id.id,
@@ -81,6 +82,7 @@ class AccountInstallment(models.Model):
                         line.maturity_date) or '/',
                     'debit': 0,
                     'credit': line.amount,
+                    'partner_id': line.partner_id.id,
                     'account_id': line.payment_id.journal_id.default_account_id.id,
                     'date': vesement.date_vesement,
                 }
@@ -88,12 +90,12 @@ class AccountInstallment(models.Model):
 
             self.move_id = self.env['account.move'].create(move)
             self.move_id.action_post()
-            account_move_lines_to_reconcile = self.env['account.move.line']
-            for treas in vesement.treasury_ids:
-                account_move_lines_to_reconcile |= treas.payment_id.line_ids.filtered(
-                    lambda line: line.account_id.user_type_id.type == 'liquidity')
-            account_move_lines_to_reconcile |= self.move_id.line_ids.filtered(lambda line: line.credit > 0)
-            account_move_lines_to_reconcile.reconcile()
+            # account_move_lines_to_reconcile = self.env['account.move.line']
+            # for treas in vesement.treasury_ids:
+            #     account_move_lines_to_reconcile |= treas.payment_id.line_ids.filtered(
+            #         lambda line: line.account_id.user_type_id.type == 'liquidity')
+            # account_move_lines_to_reconcile |= self.move_id.line_ids.filtered(lambda line: line.credit > 0)
+            # account_move_lines_to_reconcile.reconcile()
 
     def button_validate(self):
         if len(self.treasury_ids) == 0:
@@ -103,10 +105,9 @@ class AccountInstallment(models.Model):
                 raise UserError(_('Document number %s for %s is not in cash !') % (
                     treasury.name, treasury.holder.name))
             treasury.state = 'versed'
-            treasury.bank_target = self.bank_target.id
         self.amount_in_word = amount_to_text_fr(self.amount, currency='Dinars')
         self.state = 'valid'
-        self.action_move_line_create()
+        # self.action_move_line_create()
 
     def button_cancel(self):
         for treasury in self.treasury_ids:
@@ -115,12 +116,6 @@ class AccountInstallment(models.Model):
                     treasury.name, treasury.holder.name))
             treasury.state = 'in_cash'
             treasury.bank_target = False
-        #######################################
-        self.refresh()
-        self.move_ids.remove_move_reconcile()
-        #######################################
-        self.move_id.button_cancel()
-        self.move_id.unlink()
         self.state = 'cancel'
 
     @api.model
@@ -142,9 +137,9 @@ class AccountInstallment(models.Model):
             inv = self.env['account.treasury'].search([('state', '=', 'in_cash'),
                                                        ('maturity_date', '>=', self.date_from),
                                                        ('maturity_date', '<=', self.date_to),
+                                                       ('payment_type', '=', 'inbound'),
                                                        ('company_id', '=', self.company_id.id)])
             self.treasury_ids = [(6, 0, [x.id for x in inv])]
-
 
     @api.onchange('bank_target')
     def onchange_bank(self):

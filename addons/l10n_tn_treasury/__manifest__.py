@@ -27,6 +27,11 @@
         'views/account_installment_trait_view.xml',
         'views/account_withdrawal_cash_view.xml',
         'wizard/document_treasury_unpaid_view.xml',
+        'wizard/document_treasury_paid_view.xml',
+        'report/vesement_report_views.xml',
+        'report/report_traite_vesement.xml',
+        'report/report_check_vesement.xml',
+        'report/report_cash_vesement.xml',
 
     ],
 }

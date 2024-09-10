@@ -19,7 +19,7 @@ class AccountTreasury(models.Model):
 
     payment_date = fields.Date(string='Payment Date', required=True, readonly=True, )
 
-    payment_id = fields.Many2one('account.payment', string='Payment ref', required=True, readonly=True, )
+    payment_id = fields.Many2one('account.payment', string='Payment ref', readonly=True, )
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, readonly=True, )
 
     invoice_ids = fields.Many2many('account.move', string='Invoice ref', readonly=True, )
@@ -30,7 +30,7 @@ class AccountTreasury(models.Model):
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True,
                                  default=lambda self: self.env.company)
 
-
+    payment_method_line_id = fields.Many2one('account.payment.method.line', string='Payment Method', related='payment_id.payment_method_line_id', store=True, index=True)
     # document_type = fields.Many2one('account.document.type', string='Document Type', required=True, readonly=True,)
 
     # transasaction_type = fields.Selection([('in', 'In'), ('out', 'Out')], string='Transaction Type', required=True, readonly=True,)
@@ -48,6 +48,8 @@ class AccountTreasury(models.Model):
     bank_target = fields.Many2one('res.bank', string='Bank Target', readonly=True, )
 
     payment_type = fields.Selection(string='Payment Type', related='payment_id.payment_type', store=True, index=True)
+
+    exchange_document_id = fields.Many2one('account.exchange.document', 'Exchange Document', ondelete="set null")
 
     @api.onchange('payment_id.reconciled_invoice_ids')
     def onchange_payment_invoice_ids(self):
@@ -76,8 +78,26 @@ class AccountTreasury(models.Model):
         return action
 
     def check_paid(self):
-        return True
+        view_id = self.env.ref('l10n_tn_treasury.document_treasury_paid_wizard').id
+        action = {
+                'name': "Payé",
+                'type': 'ir.actions.act_window',
+                'view_mode': 'form',
+                'res_model': 'document.treasury.paid',
+                'view_id': view_id,
+                'views': [(view_id, 'form')],
+                'target': 'new',
+                'context': {
+                    'default_check_id': self.id,
+                    'default_partner_id': self.holder.id,
+                    'default_amount': self.amount,
+                }
+            }
+        return action
+
 
     def check_paid_sortant(self):
-        return True
+        return self.write({
+            'state': 'paid',
+        })
 

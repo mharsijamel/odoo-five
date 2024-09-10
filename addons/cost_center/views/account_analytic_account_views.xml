@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Action for creating analytic accounts with cost center default to True -->
+        <record id="action_account_analytic_account_cost_center" model="ir.actions.act_window">
+            <field name="name">Cost Centers</field>
+            <field name="res_model">account.analytic.account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_cost_center': True}</field>
+            <field name="domain">[('cost_center', '=', True)]</field>
+        </record>
+
+        <record id="view_account_analytic_account_form_inherit_cost_center" model="ir.ui.view">
+            <field name="name">analytic.analytic.account.form.inherit.cost_center</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/sheet/group/group/field[@name='code']" position="after">
+                        <field name="cost_center" invisible="1"/>
+                    </xpath>
+                </data>
+                <xpath expr="//div[@class='oe_title']/label[@for='name']" position="replace">
+                    <label for="name" string="Cost Center" attrs="{'invisible': [('cost_center', '=', False)]}"/>
+                    <label for="name" string="Compte Analytique" attrs="{'invisible': [('cost_center', '=', True)]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="analytic.action_account_analytic_account_form" model="ir.actions.act_window">
+            <field name="domain">[('cost_center', '!=', True)]</field>
+        </record>
+        
+        <!-- Modify analytic tag form view -->
+        <record id="account_analytic_tag_cost_center_form_view" model="ir.ui.view">
+            <field name="name">account.analytic.tag.dimension.form</field>
+            <field name="model">account.analytic.tag</field>
+            <field name="inherit_id" ref="analytic.account_analytic_tag_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='analytic_distribution_ids']/tree/field[@name='account_id']" position="replace">
+                    <field name="account_id" string="Cost Center" domain="[('cost_center', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Tree view for analytic line -->
+        <record id="view_account_analytic_line_tree_cc" model="ir.ui.view">
+            <field name="name">account.analytic.line.tree</field>
+            <field name="model">account.analytic.line</field>
+            <field name="arch" type="xml">
+                <tree string="Analytic Entries">
+                    <field name="date" optional="show"/>
+                    <field name="name"/>
+                    <field name="account_id" string="Cost Center"/>
+                    <field name="amount" sum="Total" optional="show"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for the tree view -->
+        <record model="ir.actions.act_window" id="cost_center_action">
+            <field name="name">Cost Center View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.analytic.line</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+            <field name="view_id" ref="view_account_analytic_line_tree_cc"/>
+            <field name="domain">[('cost_center', '=', True)]</field>
+            <field name="context">{'search_default_group_date': 1}</field>
+        </record>
+        
+        <!-- Pivot view for Analytic Lines with Cost Center hierarchy -->
+        <record id="view_account_analytic_line_pivot_cc" model="ir.ui.view">
+            <field name="name">account.analytic.line.pivot</field>
+            <field name="model">account.analytic.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Analytic Entries" sample="1">
+                    <field name="account_id" type="row"/>
+                    <field name="unit_amount" type="measure"/>
+                    <field name="amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action for the pivot view -->
+        <record id="cost_center_pivot_action" model="ir.actions.act_window">
+            <field name="name">Cost Center Analysis</field>
+            <field name="res_model">account.analytic.line</field>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="view_account_analytic_line_pivot_cc"/>
+            <field name="domain">[('account_id.cost_center', '=', True)]</field>
+            <field name="context">{'search_default_group_date': 1}</field>
+        </record>
+        <record id="action_account_report_analyticcc" model="ir.actions.client">
+            <field name="name">Analytic CC Report</field>
+            <field name="tag">account_report</field>
+            <field name="context" eval="{'model': 'account.analyticcc.report'}" />
+        </record>
+		
+		        <menuitem id="menu_action_report_cost_center" name="Analytic CC Report" action="action_account_report_analyticcc" parent="account.account_reports_management_menu" groups="analytic.group_analytic_accounting"/>
+
+
+
+                <record id="action_account_report_official" model="ir.actions.client">
+                    <field name="name">Analytic Account Report</field>
+                    <field name="tag">account_report</field>
+                    <field name="context" eval="{'model': 'account.analytic.official.report'}" />
+                </record>
+                
+                        <menuitem id="menu_action_report_account_analytic_off" name="Analytic Account Report" action="action_account_report_official" parent="account.account_reports_management_menu" groups="analytic.group_analytic_accounting"/>
+
+                        
+        <!-- Menu item for the pivot view -->
+        <menuitem id="menu_account_analytic_account_cost_center_pivot"
+                  name="Cost Center Analysis"
+                  parent="account.menu_analytic_accounting"
+                  action="cost_center_pivot_action"
+                  sequence="44"/>
+        
+        <!-- Menu item for analytic accounts with cost center -->
+        <menuitem id="menu_account_analytic_account_cost_center"
+                  name="Cost Centers"
+                  parent="account.menu_analytic_accounting"
+                  action="action_account_analytic_account_cost_center"
+                  sequence="40"/>
+
+        <!-- Menu item for analytic line cost center reports -->
+        <menuitem id="menu_account_analytic_account_cost_center_report"
+                  name="Cost Centers Reports"
+                  parent="account.menu_analytic_accounting"
+                  action="cost_center_action"
+                  sequence="42"/>
+    </data>
+</odoo>

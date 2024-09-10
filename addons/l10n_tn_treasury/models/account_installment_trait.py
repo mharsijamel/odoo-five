@@ -54,38 +54,43 @@ class AccountInstallmentTrait(models.Model):
         self.state = 'draft'
 
     def action_move_line_create(self):
-        vals = {
-            'ref': self.name,
-            'journal_id': self.bank_target.journal_id.id,
-            'narration': False,
-            'date': self.date_vesement,
-            'line_ids': [],
-        }
+        for vesement in self:
+            if vesement.move_id:
+                continue
+            # Create the account move record.
+            move = {
+                'journal_id': vesement.journal_id.id,
+                'date': vesement.date_vesement,
+                'ref': vesement.name,
+                'line_ids': [],
 
-        name = self.bank_target.acc_number
-        if self.bank_target.bank_name:
-            name = self.bank_target.bank_name
-        move_line1 = {
-            'name': "VERSEMENT [" + name + "] N:" + self.number or '/',
-            'company_id': self.bank_target.journal_id.company_id.id,
-            'debit': 0,
-            'credit': self.amount,
-            'account_id': self.journal_id.default_debit_account_id.id,
-            'date': self.date_vesement,
-        }
-        vals['line_ids'].append([0, False, move_line1])
+            }
+            for line in vesement.treasury_ids:
+                debit = {
+                    'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
+                        line.maturity_date) or '/',
+                    'partner_id': line.partner_id.id,
+                    'debit': line.amount,
+                    'credit': 0,
+                    'account_id': vesement.journal_id.default_account_id.id,
+                    'date': vesement.date_vesement,
+                }
+                move['line_ids'].append([0, False, debit])
 
-        move_line2 = {
-            'name': "VERSEMENT [" + name + "] N:" + self.number or '/',
-            'company_id': self.bank_target.journal_id.company_id.id,
-            'debit': self.amount,
-            'credit': 0,
-            'account_id': self.bank_target.journal_id.default_credit_account_id.id,
-            'date': self.date_vesement,
-        }
-        vals['line_ids'].append([0, False, move_line2])
-        self.move_id = self.env['account.move'].create(vals)
-        self.move_id.post()
+            for line in vesement.treasury_ids:
+                credit = {
+                    'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
+                        line.maturity_date) or '/',
+                    'debit': 0,
+                    'credit': line.amount,
+                    'partner_id': line.partner_id.id,
+                    'account_id': line.payment_id.journal_id.default_account_id.id,
+                    'date': vesement.date_vesement,
+                }
+                move['line_ids'].append([0, False, credit])
+
+            self.move_id = self.env['account.move'].create(move)
+            self.move_id.action_post()
 
     def button_validate(self):
         if len(self.treasury_ids) == 0:
@@ -97,7 +102,7 @@ class AccountInstallmentTrait(models.Model):
             treasury.state = 'versed'
             treasury.bank_target = self.bank_target.id
         self.state = 'valid'
-        self.action_move_line_create()
+        # self.action_move_line_create()
         self.amount_in_word = amount_to_text_fr(self.amount, currency='Dinars')
 
     def button_cancel(self):
@@ -108,7 +113,6 @@ class AccountInstallmentTrait(models.Model):
             treasury.state = 'in_cash'
             treasury.bank_target = False
         #######################################
-        self.refresh()
         self.move_ids.remove_move_reconcile()
         #######################################
         self.move_id.button_cancel()
@@ -135,7 +139,9 @@ class AccountInstallmentTrait(models.Model):
         else:
             inv = self.env['account.treasury'].search([('state', '=', 'in_cash'),
                                                        ('maturity_date', '>=', self.date_from),
-                                                       ('maturity_date', '<=', self.date_to)])
+                                                       ('payment_type', '=', 'inbound'),
+                                                       ('maturity_date', '<=', self.date_to),
+                                                       ('journal_id.incash_treaty', '=', True)])
 
             # ('type_transaction', '=', 'receipt')
 

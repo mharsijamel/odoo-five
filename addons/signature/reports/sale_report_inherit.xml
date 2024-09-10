@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='clearfix']" position="after">
+            <div style="padding-top:20px; padding-bottom:20px;">
+                <p>
+                    <h6>
+                        <strong>Arrêter la présente à la somme de : <span t-field="doc.amount_words"/></strong>
+                    </h6>
+                </p>
+                <p>
+                    <h5 style="text-align: center;">
+                        <strong>Cachet et Signature</strong>
+                    </h5>
+                    <t t-if="doc.company_id.signature">
+                        <div style="text-align: center; padding-top: 10px;">
+                            <img t-attf-src="data:image/jpg;base64,{{ doc.company_id.signature }}" align="center" height="100" width="100" style='margin:0px;padding-top:0px;' />
+                        </div>
+                    </t>
+                </p>
+            </div>
+        </xpath>
+    </template>
+</odoo>

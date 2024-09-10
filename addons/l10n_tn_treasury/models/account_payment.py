@@ -49,9 +49,10 @@ class AccountPayment(models.Model):
                         'invoice_ids': [Command.link(payment.reconciled_bill_ids.id)]
                     })
                     if payment.checkbook_id:
-                        check.browse(payment.checkbook_id.id).sudo().write({
-                            'libelle': payment.reconciled_bill_ids.name
-                        })
+                        for inv in payment.reconciled_bill_ids:
+                            check.browse(payment.checkbook_id.id).sudo().write({
+                                'libelle': inv.name
+                            })
                 else:
                     libelle = ""
                     for bill in payment.reconciled_bill_ids:
@@ -59,26 +60,28 @@ class AccountPayment(models.Model):
                             'invoice_ids': [Command.link(bill.id)]
                         })
                         if payment.checkbook_id:
-                            check.browse(payment.checkbook_id.id).sudo().write({
-                                'libelle': libelle + ", " + payment.reconciled_bill_ids.name
-                            })
+
+                            for bill in payment.reconciled_bill_ids:
+                                check.browse(payment.checkbook_id.id).sudo().write({
+                                    'libelle': libelle + ", " + bill.name
+                                })
         return res
 
     @api.depends('journal_id', 'payment_method_line_id')
     def compute_incash_checks_treaty(self):
         for payment in self:
-            if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank' and payment.journal_id.temporary_bank_journal:
-                if payment.journal_id.incash_check and not payment.journal_id.incash_treaty:
+            if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank':
+                if payment.payment_method_line_id.code == 'check_printing':
                     payment.incash_check = True
                     payment.incash_treaty = False
-                elif not payment.journal_id.incash_check and payment.journal_id.incash_treaty:
+                elif payment.payment_method_line_id.code == 'treaty':
                     payment.incash_check = False
                     payment.incash_treaty = True
                 else:
                     payment.incash_check = False
                     payment.incash_treaty = False
-            elif payment.payment_type == 'outbound' and payment.journal_id.type == 'bank' and not payment.journal_id.temporary_bank_journal:
-                payment.sudo().write({
+            elif payment.payment_type == 'outbound' and payment.journal_id.type == 'bank':
+                payment.sudo().update({
                     'bank_origin': self.journal_id.bank_id.id,
                 })
                 if payment.payment_method_line_id.code == 'check_printing':

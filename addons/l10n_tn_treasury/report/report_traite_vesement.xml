@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_vesement_treaty_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page" style="padding-top: 100px !important;">
+                    <h2 style="text-align: center;">
+                        N°: <span t-field="o.name"/>
+                        <br/>
+                        REMISE EFFETS
+                    </h2>
+                    <br/>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th><strong>R.I.B du Bénéficiaire</strong></th>
+                                <th><strong>Nom du Bénéficiaire</strong></th>
+                                <th><strong>Téléphone:</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span t-field="o.bank_target.acc_number"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.bank_target.partner_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.bank_target.partner_id.phone"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <t t-set="number" t-value="0" />
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th><strong>Nom du tiré</strong></th>
+                                <th><strong>N°: Effet</strong></th>
+                                <th><strong>Banque</strong></th>
+                                <th><strong>Echéance</strong></th>
+                                <th><strong>Montant encaissé</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.treasury_ids" t-as="doc">
+                                <t t-set="number" t-value="number + 1" />
+                                <td>
+                                    <span t-field="doc.holder"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.bank_origin"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.maturity_date"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.amount"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th><strong>Nombre d'effets</strong></th>
+                                <th><strong>TOTAL</strong></th>
+                                <th><strong>Montant en toutes lettres</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span t-esc="number"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.amount"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.amount_in_word"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <h4 style="text-align: center;">
+                        Date et Signature du Bénéficiaire
+                        <br/>
+                        <span t-field="o.date_vesement"/>
+                    </h4>
+                </div>
+            </t>
+         </t>
+    </template>
+
+    <template id="report_vesement_treaty">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="l10n_tn_treasury.report_vesement_treaty_document"/>
+        </t>
+    </template>
+
+</odoo>

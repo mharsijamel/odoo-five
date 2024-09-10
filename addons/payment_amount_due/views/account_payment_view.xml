@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_payment_form_inherit" model="ir.ui.view">
+            <field name="name">account.payment.form.inherit</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group1']" position="inside">
+                    <field name="payment_amount_due" readonly="1"/>
+                    <field name="total_commande" readonly="1" attrs="{'invisible': [('partner_type', '!=', 'customer')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

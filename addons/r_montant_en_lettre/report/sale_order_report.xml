@@ -22,9 +22,6 @@
                             <div class="col-auto col-3 mw-100 mb-2">
                                 <strong>Le : <span class="m-0" t-field="doc.date_order"/></strong>
                             </div>
-                            <div t-if="doc.user_id.name" class="col-auto col-2 mw-100 mb-2">
-                                <strong>Commercial(e) : <span class="m-0" t-field="doc.user_id"/></strong>
-                            </div>
                         </td>
                     </tr>
 
@@ -44,20 +41,6 @@
         <xpath expr="//span[@t-field='line.product_uom']" position="replace">
         </xpath>
 
-        <!-- Afficher le montant en lettres-->
-        <xpath expr="//div[@class='clearfix']" position="after">
-            <div style="padding-top:20px; padding-bottom:20px;">
-                <p>
-                    <h6>
-                        <strong>Arrêter la présente Proforma à la somme de : <span t-field="doc.amount_words"/></strong>
-                    </h6>
-                </p>
-                <p>
-                    <h5>
-                        <strong>Pour toute réservation un bon de commande est imperatif ainsi qu'un acompte de 30%</strong>
-                    </h5>
-                </p>
-            </div>
-        </xpath>
+        
     </template>
 </odoo>

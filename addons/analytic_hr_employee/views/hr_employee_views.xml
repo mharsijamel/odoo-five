@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/> 
+        <field name="arch" type="xml">
+            <field name="department_id" position="after">
+                <field name="analytic_account_id"/>
+                <field name="salary"/>
+                <field name="current_month_balance"/>
+            </field>
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page name="analytic_employee" string="Analytics">
+                        <field name="child_analytic_account_ids" widget="many2many" nolabel="1"/>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+
+    
+</odoo>

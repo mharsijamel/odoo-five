@@ -29,7 +29,19 @@
                         </group>
                         <notebook colspan="4">
                             <page string="Treasury">
-                                <field name="treasury_ids" colspan="4" nolabel="1" domain="[('state', '=', 'valid')]"/>
+                                <field name="treasury_ids" colspan="4" options="{'no_create': True}" nolabel="1" domain="[('state', '=', 'valid')]">
+                                    <tree create="false" edit="false" delete="true" editable="bottom">
+        <!--                                <field name="document_id"/>-->
+        <!--                                <field name="partner_id"/>-->
+                                        <field name="name"/>
+                                        <field name="holder" readonly="1"/>
+                                        <field name="maturity_date"/>
+                                        <field name="bank_origin"/>
+                                        <field name="invoice_ids" widget="many2many_tags"/>
+                                        <field name="state"/>
+                                        <field name="amount" sum="Total"/>
+                                    </tree>
+                                </field>
                             </page>
                             <page string="Notes">
                                 <field name="note" colspan="4" nolabel="1"/>

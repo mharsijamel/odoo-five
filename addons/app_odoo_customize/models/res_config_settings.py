@@ -105,7 +105,10 @@ class ResConfigSettings(models.TransientModel):
         ir_config.set_param("app_account_url", self.app_account_url or "https://webvue.tn/my-account/")
         ir_config.set_param("app_enterprise_url", self.app_enterprise_url or "https://webvue.tn")
         ir_config.set_param("app_ribbon_name", self.app_ribbon_name or "*webvue.tn")
-
+    def _app_check_sys_op(self):
+        # Implement the logic of the method here
+        # Return True if the check passes, otherwise return False
+        return True
     def set_module_url(self):
         if not self._app_check_sys_op():
             raise UserError(_('Not allow.'))

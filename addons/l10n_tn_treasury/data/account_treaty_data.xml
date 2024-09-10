@@ -6,5 +6,15 @@
             <field name="code">treaty</field>
             <field name="payment_type">outbound</field>
         </record>
+        <record id="account_payment_method_treaty_in" model="account.payment.method">
+            <field name="name">Treaty</field>
+            <field name="code">treaty</field>
+            <field name="payment_type">inbound</field>
+        </record>
+        <record id="account_payment_method_check_in" model="account.payment.method">
+            <field name="name">Checks</field>
+            <field name="code">check_printing</field>
+            <field name="payment_type">inbound</field>
+        </record>
     </data>
 </odoo>

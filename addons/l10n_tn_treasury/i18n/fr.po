@@ -6,14 +6,130 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 15:27+0000\n"
-"PO-Revision-Date: 2023-11-21 15:27+0000\n"
+"POT-Creation-Date: 2024-03-13 21:40+0000\n"
+"PO-Revision-Date: 2024-03-13 21:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+msgid ""
+"<br/>\n"
+"                        BORDEREAU DE VERSEMENT"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+msgid ""
+"<br/>\n"
+"                        DEPOT DE CHEQUES"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid ""
+"<br/>\n"
+"                        REMISE EFFETS"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+msgid "<strong>Agence</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+msgid "<strong>Banque tirée</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Banque</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Echéance</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Montant en toutes lettres</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Montant encaissé</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Nom du Bénéficiaire</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+msgid "<strong>Nom du tireur</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Nom du tiré</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Nombre d'effets</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+msgid "<strong>Nombre de chèques</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+msgid "<strong>N°: Chèque</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>N°: Effet</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>R.I.B du Bénéficiaire</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>TOTAL</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid "<strong>Téléphone:</strong>"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__access_warning
@@ -103,6 +219,7 @@ msgid "Amount in Word"
 msgstr "Montant en Lettre"
 
 #. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__treasury_ids
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__treasury_ids
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__treasury_ids
 msgid "Associated Document"
@@ -160,6 +277,7 @@ msgstr "Banque Cible"
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_paid_wizard
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_unpaid_wizard
 msgid "Cancel"
 msgstr "Annuler"
@@ -171,6 +289,7 @@ msgid "Cancelled"
 msgstr "Annulé"
 
 #. module: l10n_tn_treasury
+#: model:ir.actions.report,name:l10n_tn_treasury.action_report_cash_vesement
 #: model:ir.model,name:l10n_tn_treasury.model_account_treasury_installment
 #: model:ir.ui.menu,name:l10n_tn_treasury.vesement_cash_document
 msgid "Cash Vesement"
@@ -203,6 +322,12 @@ msgid "Check Number"
 msgstr "Numéro de Chèque"
 
 #. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_exchange_document.py:0
+#, python-format
+msgid "Checks Not Found !!!"
+msgstr ""
+
+#. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__num_cheque
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment_register__num_cheque
 msgid "Cheque Number"
@@ -211,12 +336,12 @@ msgstr "Numéro de Chèque"
 #. module: l10n_tn_treasury
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
 msgid "Chèque/Traite Impayé"
-msgstr "Chèque/Traite Impayé"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
 msgid "Chèque/Traite Versé"
-msgstr "Chèque/Traite Versé"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__company_id
@@ -226,6 +351,7 @@ msgstr "Chèque/Traite Versé"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__company_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__company_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__company_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__company_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__company_id
 msgid "Company"
 msgstr "Société"
@@ -249,6 +375,7 @@ msgstr "Société liée à cette trésorerie"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__create_uid
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__create_uid
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__create_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__create_uid
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__create_uid
 msgid "Created by"
 msgstr "Créé par"
@@ -261,6 +388,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__create_date
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__create_date
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__create_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__create_date
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__create_date
 msgid "Created on"
 msgstr "Créé le"
@@ -281,6 +409,13 @@ msgid "Customer Portal URL"
 msgstr "URL du portail client"
 
 #. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__date
+msgid "Date"
+msgstr ""
+
+#. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__date_start
 msgid "Date Start"
 msgstr "Date de Début"
@@ -291,14 +426,25 @@ msgid "Date Stop"
 msgstr "Date de Fin"
 
 #. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_cash_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_check_document
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.report_vesement_treaty_document
+msgid ""
+"Date et Signature du Bénéficiaire\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_paid_wizard
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_unpaid_wizard
 msgid "Detail"
 msgstr "Détail"
 
 #. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__currency_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__currency_id
 msgid "Devise"
-msgstr "Devise"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__display_name
@@ -308,6 +454,7 @@ msgstr "Devise"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__display_name
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__display_name
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__display_name
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__display_name
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__display_name
 msgid "Display Name"
 msgstr ""
@@ -315,12 +462,17 @@ msgstr ""
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__document_id
 msgid "Document"
-msgstr "Document"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__name
 msgid "Document ID"
-msgstr "Document ID"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__payment_ref
+msgid "Document Reference"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__document_state
@@ -350,6 +502,7 @@ msgstr "Date de Fin"
 #. module: l10n_tn_treasury
 #: model:ir.model,name:l10n_tn_treasury.model_account_exchange_document
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__exchange_document_id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__exchange_document_id
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_tree
 msgid "Exchange Document"
@@ -410,6 +563,7 @@ msgstr "A un Message"
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document_line__holder
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__holder
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__partner_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__partner_id
 msgid "Holder"
 msgstr "Titulaire"
@@ -422,9 +576,10 @@ msgstr "Titulaire"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__id
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__activity_exception_icon
@@ -479,14 +634,13 @@ msgid ""
 "If the amount of the bank commission is defined you must define the account "
 "for this move"
 msgstr ""
-"Si le montant de la commission bancaire est défini, vous devez définir le compte"
-"pour cette écriture"
+"Si le montant de la commission bancaire est défini, vous devez définir le "
+"comptepour cette écriture"
 
 #. module: l10n_tn_treasury
-#: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__document_state__in_cash
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__in_cash
 msgid "In Cash"
-msgstr "En Caisse"
+msgstr "En Espèce"
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__incash_check
@@ -516,6 +670,13 @@ msgid "Invoice ref"
 msgstr "Référence de la Facture"
 
 #. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_bank_statement_line__invoice_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_move__invoice_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__invoice_date
+msgid "Invoice/Bill Date"
+msgstr "Date de facturation"
+
+#. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_is_follower
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__message_is_follower
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__message_is_follower
@@ -530,9 +691,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__journal_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__journal_id
 msgid "Journal"
-msgstr "Journal"
+msgstr ""
 
 #. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__move_ids
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__move_ids
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment_trait__move_ids
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__move_ids
@@ -549,12 +716,13 @@ msgstr "Éléments de Journal"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__journal_source
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__journal_source
 msgid "Journal Source"
-msgstr "Journal Source"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__journal_target
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__journal_target
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__journal_target
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__journal_target
 msgid "Journal Target"
 msgstr "Journal Cible"
 
@@ -566,6 +734,7 @@ msgstr "Journal Cible"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury____last_update
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment____last_update
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash____last_update
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid____last_update
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid____last_update
 msgid "Last Modified on"
 msgstr "Dernière Modification le"
@@ -578,6 +747,7 @@ msgstr "Dernière Modification le"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__write_uid
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__write_uid
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__write_uid
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__write_uid
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__write_uid
 msgid "Last Updated by"
 msgstr "Dernière Mise à Jour par"
@@ -590,6 +760,7 @@ msgstr "Dernière Mise à Jour par"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__write_date
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__write_date
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__write_date
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__write_date
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -610,6 +781,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_exchange_document__line_ids
 msgid "Line"
 msgstr "Ligne"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+msgid "Liste ds documents"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_main_attachment_id
@@ -706,7 +882,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_withdrawal_cash_form
 msgid "Notes"
-msgstr "Notes"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__notice
@@ -767,9 +943,10 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__check_id
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__check_id
 msgid "Numéro Chèque/traite"
-msgstr "Numéro Chèque/traite"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__state__draft
@@ -784,6 +961,11 @@ msgstr "Ouvert"
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__paid
 msgid "Paid"
 msgstr "Payé"
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_document_treasury_paid
+msgid "Paid Check/Treaty Wizard"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
@@ -840,6 +1022,11 @@ msgid "Register Payment"
 msgstr "Enregistrer un paiement"
 
 #. module: l10n_tn_treasury
+#: model:ir.actions.report,name:l10n_tn_treasury.action_report_check_vesement
+msgid "Remise Chéque"
+msgstr ""
+
+#. module: l10n_tn_treasury
 #: model:ir.ui.menu,name:l10n_tn_treasury.vesement_document_traite
 msgid "Remise Effets"
 msgstr ""
@@ -874,6 +1061,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__access_token
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__access_token
 msgid "Security Token"
+msgstr ""
+
+#. module: l10n_tn_treasury
+#: model:ir.model.fields,help:l10n_tn_treasury.field_document_treasury_paid__journal_type
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
 msgstr ""
 
 #. module: l10n_tn_treasury
@@ -934,10 +1130,14 @@ msgstr "Journal Bancaire Temporaire"
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury__amount
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_treasury_installment__amount
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_withdrawal_cash__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__amount
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_unpaid__amount
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_tree
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_form
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_vesement_traite_form
 msgid "Total"
-msgstr "Total"
+msgstr "Montant Total"
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_payment__num_treaty
@@ -982,6 +1182,11 @@ msgid "Treaty"
 msgstr "Traite"
 
 #. module: l10n_tn_treasury
+#: model:ir.model.fields,field_description:l10n_tn_treasury.field_document_treasury_paid__journal_type
+msgid "Type"
+msgstr ""
+
+#. module: l10n_tn_treasury
 #: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment__activity_exception_decoration
 #: model:ir.model.fields,help:l10n_tn_treasury.field_account_installment_trait__activity_exception_decoration
 #: model:ir.model.fields,help:l10n_tn_treasury.field_account_treasury__activity_exception_decoration
@@ -989,6 +1194,11 @@ msgstr "Traite"
 #: model:ir.model.fields,help:l10n_tn_treasury.field_account_withdrawal_cash__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr "Type d’activité exceptionnelle enregistrée."
+
+#. module: l10n_tn_treasury
+#: model:ir.model,name:l10n_tn_treasury.model_document_treasury_unpaid
+msgid "Unpaid Check/Treaty Wizard"
+msgstr "Assistant Chèque/Traité impayé"
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__message_unread
@@ -1036,6 +1246,11 @@ msgstr "Valider"
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__versed
 msgid "Versed"
 msgstr "Versé"
+
+#. module: l10n_tn_treasury
+#: model:ir.actions.report,name:l10n_tn_treasury.action_report_treaty_vesement
+msgid "Versement de traité"
+msgstr ""
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__date_vesement
@@ -1126,6 +1341,16 @@ msgid "You cannot delete this cash withdrawal !"
 msgstr "Vous ne pouvez pas supprimer ce retrait !"
 
 #. module: l10n_tn_treasury
+#: code:addons/l10n_tn_treasury/models/account_payment.py:0
+#, python-format
+msgid ""
+"You cannot delete this document because treasury document is not valid or "
+"cancel!"
+msgstr ""
+"Vous ne pouvez pas supprimer ce document car le document de trésorerie n'est pas valide ou "
+"Annuler!"
+
+#. module: l10n_tn_treasury
 #: code:addons/l10n_tn_treasury/models/account_installment.py:0
 #: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
 #, python-format
@@ -1133,14 +1358,10 @@ msgid "You cannot delete this vesement !"
 msgstr "Vous ne pouvez pas supprimer ce versement !"
 
 #. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_paid_wizard
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.document_treasury_unpaid_wizard
 msgid "confirm"
 msgstr "Confirmer"
-
-#. module: l10n_tn_treasury
-#: model:ir.model,name:l10n_tn_treasury.model_document_treasury_unpaid
-msgid "document.treasury.unpaid"
-msgstr ""
 
 #. module: l10n_tn_treasury
 #: code:addons/l10n_tn_treasury/models/account_installment.py:0
@@ -1148,3 +1369,8 @@ msgstr ""
 #, python-format
 msgid "no treasury line !"
 msgstr "pas de ligne de trésorerie !"
+
+#. module: l10n_tn_treasury
+#: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_exchange_form
+msgid "Écritures Comptables"
+msgstr ""

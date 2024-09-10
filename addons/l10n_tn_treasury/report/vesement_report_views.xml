@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="action_report_cash_vesement" model="ir.actions.report">
+            <field name="name">Cash Vesement</field>
+            <field name="model">account.treasury.installment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_tn_treasury.report_vesement_cash</field>
+            <field name="report_file">l10n_tn_treasury.report_vesement_cash</field>
+            <field name="binding_model_id" ref="model_account_treasury_installment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+         <record id="action_report_check_vesement" model="ir.actions.report">
+            <field name="name">Remise Chéque</field>
+            <field name="model">account.installment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_tn_treasury.report_vesement_check</field>
+            <field name="report_file">l10n_tn_treasury.report_vesement_check</field>
+<!--            <field name="print_report_name">'Print Badge - %s' % (object.name).replace('/', '')</field>-->
+            <field name="binding_model_id" ref="model_account_installment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+         <record id="action_report_treaty_vesement" model="ir.actions.report">
+            <field name="name">Versement de traité</field>
+            <field name="model">account.installment.trait</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_tn_treasury.report_vesement_treaty</field>
+            <field name="report_file">l10n_tn_treasury.report_vesement_treaty</field>
+            <field name="binding_model_id" ref="model_account_installment_trait"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
