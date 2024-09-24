@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_lead_inherit_credit_view" model="ir.ui.view">
+        <field name="name">crm.lead.inherit.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="after">
+                <field name="with_credit"/>
+                <field name="cash"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_order_inherit_credit_view" model="ir.ui.view">
+        <field name="name">sale.order.inherit.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="pumping_project.sale_order_form_view_form_ih_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='commercial_files']" position="inside">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="with_credit"/>
+                        <field name="with_credit" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    </div>
+                    <div class="col-6">
+                        <label for="cash"/>
+                        <field name="cash"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='steg_details']" position="replace">
+                <div name="steg_details" class="col-3">
+                    <label for="steg_credit" attrs="{'invisible': [('cash', '=', True)]}"/>
+                    <field name="steg_credit" attrs="{'invisible': [('cash', '=', True)]}"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='anme_details']" position="replace">
+                <div name="anme_details" class="col-3">
+                    <label for="sub_anme" attrs="{'invisible': [('cash', '=', True)]}"/>
+                    <field name="sub_anme" attrs="{'invisible': [('cash', '=', True)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_inherit_credit_view_sale" model="ir.ui.view">
+        <field name="name">sale.order.inherit.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="with_credit" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="cash"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

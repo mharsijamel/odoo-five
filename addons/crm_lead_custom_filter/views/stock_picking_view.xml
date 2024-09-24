@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock_picking_view_search_custom" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="power_level"/>
+                <field name="city"/>
+                <field name="partner_vat"/>
+                <separator/>
+                <filter name="power_level" string="Nb Kilos" domain="[]" context="{'group_by':'power_level'}"/>
+                <filter name="city" string="Ville" domain="[]" context="{'group_by':'city'}"/>
+                <filter name="installation_type" string="Type d'usage" domain="[]" context="{'group_by':'installation_type'}"/>
+                <filter name="partner_vat" string="Numéro d'enregistrement fiscal" domain="[]" context="{'group_by':'partner_vat'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

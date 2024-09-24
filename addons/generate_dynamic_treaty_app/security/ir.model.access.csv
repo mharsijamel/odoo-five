@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dynamic_treaty,access.dynamic_treaty_user,generate_dynamic_treaty_app.model_dynamic_treaty,,1,1,1,1
+access_dynamic_treaty_wizard,access_dynamic_treaty_wizard,model_dynamic_treaty_wizard,,1,1,1,1

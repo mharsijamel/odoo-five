@@ -18,6 +18,7 @@
         'security/ir.model.access.csv',
         'views/account_journal_view_inherit.xml',
         'views/account_payment_register_form_inherit.xml',
+        'views/account_move_line.xml',
         'views/account_payment_inherit_view.xml',
         'views/menu.xml',
         'views/account_treasury_view.xml',

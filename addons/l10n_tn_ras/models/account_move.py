@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from odoo import models, api, _, fields
 from odoo.tools import format_date
 
@@ -61,60 +63,70 @@ class AccountInvoice(models.Model):
         return (draft_name or self.name) + (show_ref and self.ref and ' (%s%s)' % (self.ref[:50], '...' if len(self.ref) > 50 else '') or '')
 
     @api.depends(
+        'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
+        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
+        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual_currency',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.payment_id.is_matched',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual_currency',
         'line_ids.debit',
         'line_ids.credit',
         'line_ids.currency_id',
         'line_ids.amount_currency',
         'line_ids.amount_residual',
         'line_ids.amount_residual_currency',
-        'line_ids.payment_id.state')
+        'line_ids.payment_id.state',
+        'line_ids.full_reconcile_id')
     def _compute_amount(self):
-        invoice_ids = [move.id for move in self if move.id and move.is_invoice(include_receipts=True)]
-        self.env['account.payment'].flush(['state'])
-        if invoice_ids:
-            self._cr.execute(
-                '''
-                    SELECT move.id
-                    FROM account_move move
-                    JOIN account_move_line line ON line.move_id = move.id
-                    JOIN account_partial_reconcile part ON part.debit_move_id = line.id OR part.credit_move_id = line.id
-                    JOIN account_move_line rec_line ON
-                        (rec_line.id = part.debit_move_id AND line.id = part.credit_move_id)
-                    JOIN account_payment payment ON payment.id = rec_line.payment_id
-                    JOIN account_journal journal ON journal.id = rec_line.journal_id
-                    AND move.id IN %s
-                UNION
-                    SELECT move.id
-                    FROM account_move move
-                    JOIN account_move_line line ON line.move_id = move.id
-                    JOIN account_partial_reconcile part ON part.debit_move_id = line.id OR part.credit_move_id = line.id
-                    JOIN account_move_line rec_line ON
-                        (rec_line.id = part.credit_move_id AND line.id = part.debit_move_id)
-                    JOIN account_payment payment ON payment.id = rec_line.payment_id
-                    JOIN account_journal journal ON journal.id = rec_line.journal_id                  
-                    AND move.id IN %s
-                ''', [tuple(invoice_ids), tuple(invoice_ids)]
-            )
-            in_payment_set = set(res[0] for res in self._cr.fetchall())
-        else:
-            in_payment_set = {}
+        in_invoices = self.filtered(lambda m: m.move_type == 'in_invoice')
+        out_invoices = self.filtered(lambda m: m.move_type == 'out_invoice')
+        entries = self.filtered(lambda m: m.move_type == 'entry')
+        reversed_mapping = defaultdict(lambda: self.env['account.move'])
+        if in_invoices or out_invoices or entries:
+            for reverse_move in self.env['account.move'].search([
+                ('state', '=', 'posted'),
+                '|', '|',
+                '&', ('reversed_entry_id', 'in', in_invoices.ids), ('move_type', '=', 'in_refund'),
+                '&', ('reversed_entry_id', 'in', out_invoices.ids), ('move_type', '=', 'out_refund'),
+                '&', ('reversed_entry_id', 'in', entries.ids), ('move_type', '=', 'entry'),
+            ]):
+                reversed_mapping[reverse_move.reversed_entry_id] += reverse_move
+
+        caba_mapping = defaultdict(lambda: self.env['account.move'])
+        caba_company_ids = self.company_id.filtered(lambda c: c.tax_exigibility)
+        if caba_company_ids:
+            reverse_moves_ids = [move.id for moves in reversed_mapping.values() for move in moves]
+            for caba_move in self.env['account.move'].search([
+                ('tax_cash_basis_origin_move_id', 'in', self.ids + reverse_moves_ids),
+                ('state', '=', 'posted'),
+                ('move_type', '=', 'entry'),
+                ('company_id', 'in', caba_company_ids.ids)
+            ]):
+                caba_mapping[caba_move.tax_cash_basis_origin_move_id] += caba_move
 
         for move in self:
+
+            if move.payment_state == 'invoicing_legacy':
+                # invoicing_legacy state is set via SQL when setting setting field
+                # invoicing_switch_threshold (defined in account_accountant).
+                # The only way of going out of this state is through this setting,
+                # so we don't recompute it here.
+                move.payment_state = move.payment_state
+                continue
+
             total_untaxed = 0.0
             total_untaxed_currency = 0.0
             total_tax = 0.0
             total_tax_currency = 0.0
+            total_to_pay = 0.0
             total_residual = 0.0
             total_residual_currency = 0.0
             total = 0.0
             total_currency = 0.0
-            currencies = set()
+            currencies = move._get_lines_onchange_currency().currency_id
 
             for line in move.line_ids:
-                if line.currency_id:
-                    currencies.add(line.currency_id)
-
-                if move.is_invoice(include_receipts=True):
+                if move._payment_state_matters():
                     # === Invoices ===
 
                     if not line.exclude_from_invoice_tab:
@@ -131,6 +143,7 @@ class AccountInvoice(models.Model):
                         total_currency += line.amount_currency
                     elif line.account_id.user_type_id.type in ('receivable', 'payable'):
                         # Residual amount.
+                        total_to_pay += line.balance
                         total_residual += line.amount_residual
                         total_residual_currency += line.amount_residual_currency
                 else:
@@ -149,20 +162,40 @@ class AccountInvoice(models.Model):
             move.amount_residual = -sign * (total_residual_currency if len(currencies) == 1 else total_residual)
             move.amount_untaxed_signed = -total_untaxed
             move.amount_tax_signed = -total_tax
-            move.amount_total_signed = abs(total) if move.move_type == 'entry' or move.move_type == 'out_withholding' else -total
-            print("amount_total_signed", move.amount_total_signed)
+            move.amount_total_signed = abs(total) if move.move_type == 'entry' else -total
             move.amount_residual_signed = total_residual
+            move.amount_total_in_currency_signed = abs(
+                move.amount_total) if move.move_type == 'entry' or move.move_type == 'out_withholding' else -(
+                        sign * move.amount_total)
 
-            currency = len(currencies) == 1 and currencies.pop() or move.company_id.currency_id
-            is_paid = currency and currency.is_zero(move.amount_residual) or not move.amount_residual
+            currency = currencies if len(currencies) == 1 else move.company_id.currency_id
 
             # Compute 'payment_state'.
-            if move.move_type == 'entry':
-                move.payment_state = False
-            elif move.state == 'posted' and is_paid:
-                if move.id in in_payment_set:
-                    move.payment_state = 'in_payment'
-                else:
-                    move.payment_state = 'paid'
-            else:
-                move.payment_state = 'not_paid'
+            new_pmt_state = 'not_paid' if move.move_type != 'entry' else False
+
+            if move._payment_state_matters() and move.state == 'posted':
+                if currency.is_zero(move.amount_residual):
+                    reconciled_payments = move._get_reconciled_payments()
+                    print('reconciled', reconciled_payments)
+                    if not reconciled_payments or all(payment.is_matched for payment in reconciled_payments):
+                        new_pmt_state = 'paid'
+                    else:
+                        new_pmt_state = move._get_invoice_in_payment_state()
+
+                elif currency.compare_amounts(total_to_pay, total_residual) != 0:
+                    new_pmt_state = 'partial'
+
+            if new_pmt_state == 'paid' and move.move_type in ('in_invoice', 'out_invoice', 'entry'):
+                reverse_moves = reversed_mapping[move]
+                caba_moves = caba_mapping[move]
+                for reverse_move in reverse_moves:
+                    caba_moves |= caba_mapping[reverse_move]
+
+                # We only set 'reversed' state in cas of 1 to 1 full reconciliation with a reverse entry; otherwise, we use the regular 'paid' state
+                # We ignore potentials cash basis moves reconciled because the transition account of the tax is reconcilable
+                reverse_moves_full_recs = reverse_moves.mapped('line_ids.full_reconcile_id')
+                if reverse_moves_full_recs.mapped('reconciled_line_ids.move_id').filtered(lambda x: x not in (
+                        caba_moves + reverse_moves + reverse_moves_full_recs.mapped('exchange_move_id'))) == move:
+                    new_pmt_state = 'reversed'
+
+            move.payment_state = new_pmt_state

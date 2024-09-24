@@ -8,6 +8,7 @@
           <field name="inherit_id" ref="account.view_account_payment_register_form"/>
           <field name="arch" type="xml">
             <xpath expr="//field[@name='journal_id']" position="after">
+                <field name="partner_id" />
                 <field name="incash_check" invisible="1"/>
                 <field name="incash_treaty" invisible="1"/>
 

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="dynamic_treaty_form_view" model="ir.ui.view">
+			<field name="name">dynamic.treaty.form.view</field>
+			<field name="model">dynamic.treaty</field>
+			<field name="arch" type="xml">
+				<form string="Treaty">
+					<sheet>
+						<div class="alert alert-success" role="alert">
+						<strong>Note :</strong> Consider value of all the parameter in px.
+						</div>
+						<group>
+							<field name="name" placeholder="Cheque Format"/>
+						</group>
+						<group>
+							<group>
+								<field name="treaty_height" />
+							</group>
+							<group >
+								<field name="treaty_width"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="A/c Pay" colspan="1" col="2">
+								<field name="ac_pay"/>
+								<field name="ac_top_margin"/>
+								<field name="ac_left_margin"/>
+								<field name="ac_font_size"/>
+							</group>
+							<group string="Treaty Date" colspan="1" col="2">
+								<field name="top_margin"/>
+								<field name="left_margin"/>
+								<field name="font_size"/>
+								<field name="char_spacing"/>
+							</group>
+							<group string="Treaty Date 2" colspan="1" col="2">
+								<field name="d_top_margin"/>
+								<field name="d_left_margin"/>
+								<field name="d_width"/>
+								<field name="d_font_size"/>
+							</group>
+							<group string="Payee Name" colspan="1" col="2">
+								<field name="payee_top_margin"/>
+								<field name="payee_left_margin"/>
+								<field name="payee_width"/>
+								<field name="payee_font_size"/>
+							</group>
+							<group string="Payee Name 2" colspan="1" col="2">
+								<field name="payee2_top_margin"/>
+								<field name="payee2_left_margin"/>
+								<field name="payee2_width"/>
+								<field name="payee2_font_size"/>
+							</group>
+							<group string="Maturity Date" colspan="1" col="2">
+								<field name="de_top_margin"/>
+								<field name="de_left_margin"/>
+								<field name="de_width"/>
+								<field name="de_font_size"/>
+							</group>
+							<group string="Maturity Date 2" colspan="1" col="2">
+								<field name="de2_top_margin"/>
+								<field name="de2_left_margin"/>
+								<field name="de2_width"/>
+								<field name="de2_font_size"/>
+							</group>
+							<group string="City" colspan="1" col="2">
+								<field name="a_top_margin"/>
+								<field name="a_left_margin"/>
+								<field name="a_width"/>
+								<field name="a_font_size"/>
+							</group>
+							<group string="City 2" colspan="1" col="2">
+								<field name="a2_top_margin"/>
+								<field name="a2_left_margin"/>
+								<field name="a2_width"/>
+								<field name="a2_font_size"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="Bank Account" colspan="1" col="2">
+								<field name="rib_top_margin"/>
+								<field name="rib_left_margin"/>
+								<field name="rib_width"/>
+								<field name="rib_font_size"/>
+							</group>
+							<group string="Bank Account 2" colspan="1" col="2">
+								<field name="rib2_top_margin"/>
+								<field name="rib2_left_margin"/>
+								<field name="rib2_width"/>
+								<field name="rib2_font_size"/>
+							</group>
+							<group string="Signature Box" colspan="1" col="2">
+								<field name="sb_width"/>
+								<field name="sb_hight"/>
+								<field name="sb_top_margin"/>
+								<field name="sb_left_margin"/>
+							</group>
+							<group string="Company Sign" colspan="1" col="2">
+								<field name="comapny_name"/>
+								<field name="comp_font_size"/>
+								<field name="comp_top_margin"/>
+								<field name="comp_left_margin"/>
+								<field name="comp_width"/>
+							</group>
+							<group string="Company Sign" colspan="1" col="2">
+								<field name="bank_font_size"/>
+								<field name="bank_top_margin"/>
+								<field name="bank_left_margin"/>
+								<field name="bank_width"/>
+							</group>
+							<group string="Amount in Figure" colspan="1" col="2">
+								<field name="af_currency_symbol"/>
+								<field name="af_currency_symbol_position" attrs="{'required': [('af_currency_symbol', '=', True)]}"/>
+								<field name="af_top_margin"/>
+								<field name="af_left_margin"/>
+								<field name="af_width"/>
+								<field name="af_font_size"/>
+							</group>
+							<group string="Amount in Figure 2" colspan="1" col="2">
+								<field name="af2_currency_symbol"/>
+								<field name="af2_currency_symbol_position" attrs="{'required': [('af_currency_symbol', '=', True)]}"/>
+								<field name="af2_top_margin"/>
+								<field name="af2_left_margin"/>
+								<field name="af2_width"/>
+								<field name="af2_font_size"/>
+							</group>
+						</group>
+						<group string="Amount in Word" col="6" colspan="2">
+						    	<field name="sc_currency_name"/>
+								<field name="sc_currency_name_position" attrs="{'required': [('sc_currency_name', '=', True)]}"/>
+						    	<field name="fl_top_margin"/>
+								<field name="fl_left_margin"/>
+								<field name="fl_width"/>
+								<field name="words_in_fl_line"/>
+								<field name="sc_top_margin"/>
+								<field name="sc_left_margin"/>
+								<field name="sc_width"/>
+								<field name="words_in_sc_line"/>
+								<field name="sc_font_size"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="dynamic_treaty_print_tree_view" model="ir.ui.view">
+			<field name="name">dynamic.treaty.tree.view</field>
+			<field name="model">dynamic.treaty</field>
+			<field name="arch" type="xml">
+				<tree string="Dyn. treaty Configuration">
+					<field name="name"/>
+					<field name="treaty_height"/>
+					<field name="treaty_width"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_dynamic_treaty_print" model="ir.actions.act_window">
+			<field name="name">Dyn. treaty Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">dynamic.treaty</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		 <menuitem name="Dyn. treaty Configuration"
+			id="dynamic_treaty_config_menu"
+			parent = "account.menu_finance_configuration"
+			action="action_dynamic_treaty_print"
+			sequence = '3'
+		/>
+
+		<record id="account_payment_form_inh" model="ir.ui.view">
+			<field name="name">inherit.account.payment.button.form.view</field>
+			<field name="model">account.payment</field>
+			<field name="inherit_id" ref="account.view_account_payment_form" />
+			<field name="arch" type="xml">
+				<header>
+						<button name="%(action_dynamic_treaty_print_wizard)d" string="Print treaty" type="action" class="btn-primary" attrs="{'invisible': ['|', ('payment_type', '!=', 'outbound'), ('incash_treaty', '=', False)]}"/>
+				</header>
+			</field>
+		</record>
+
+	</data>
+</odoo>

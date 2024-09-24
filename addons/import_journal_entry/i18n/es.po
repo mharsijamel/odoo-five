@@ -1,0 +1,134 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* import_journal_entry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-30 06:31+0000\n"
+"PO-Revision-Date: 2021-06-30 06:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: import_journal_entry
+#: model:ir.model.fields.selection,name:import_journal_entry.selection__gen_journal_entry__import_option__csv
+msgid "CSV File"
+msgstr "Archivo CSV"
+
+#. module: import_journal_entry
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.import_account_move_line_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Currency %s is not  in the system"
+msgstr "La moneda %s no está en el sistema"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__file_to_upload
+msgid "File"
+msgstr "Archivo"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__id
+msgid "ID"
+msgstr "IDENTIFICACIÓN"
+
+#. module: import_journal_entry
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.import_account_move_line_view
+msgid "Import"
+msgstr "Importar"
+
+#. module: import_journal_entry
+#: model:ir.actions.act_window,name:import_journal_entry.action_import_account_move_line
+msgid "Import Journal Entries"
+msgstr "Importar asientos de diario"
+
+#. module: import_journal_entry
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.button_for_import_move_line
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.import_account_move_line_view
+msgid "Import Journal Items"
+msgstr "Importar elementos del diario"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Invalid file!"
+msgstr "¡Archivo inválido!"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__import_option
+msgid "Select"
+msgstr "Seleccione"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Wrong Account Code"
+msgstr "Código de cuenta incorrecto"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Wrong Account Code %s"
+msgstr "Código de cuenta incorrecto %s"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Wrong Analytic Account Name %s"
+msgstr "Nombre de cuenta analítico incorrecto %s"
+
+#. module: import_journal_entry
+#: model:ir.model.fields.selection,name:import_journal_entry.selection__gen_journal_entry__import_option__xls
+msgid "XLS File"
+msgstr "Archivo XLS"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "You can not left blank date field!"
+msgstr "¡No puedes dejar el campo de fecha en blanco!"
+
+#. module: import_journal_entry
+#: model:ir.model,name:import_journal_entry.model_gen_journal_entry
+msgid "gen.journal.entry"
+msgstr ""

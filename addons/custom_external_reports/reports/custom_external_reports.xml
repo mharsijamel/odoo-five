@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="external_layout_inherit" inherit_id="web.external_layout_boxed">
+            <xpath expr="//div[@class='o_boxed_header']" position="replace">
+                <div class="o_boxed_header">
+                    <div class="row mb0">
+                        <div class="col-5 mb0" style="padding-top: 40px;">
+                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" width="250" height="150"/>
+                        </div>
+                        <div class="col-7 text-center mb0" style="color:#136CAF;">
+                            <h4 class="mt0" t-field="company.report_header"/>
+                            <div name="company_address" class="float-center mb0">
+                                <ul class="list-unstyled" t-if="company.company_details or forced_vat">
+                                    <li t-if="company.company_details"> <t t-esc="company.company_details"/></li>
+                                    <li t-if="forced_vat">
+                                        <t t-esc="company.country_id.vat_label or 'M.F.'"/>:
+                                        <span t-esc="forced_vat"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@t-attf-class='footer o_boxed_footer o_company_#{company.id}_layout']" position="replace">
+                <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+                    <div class="text-center">
+                        <div t-field="company.report_footer"/>
+                        <div t-if="report_type == 'pdf'">
+                            Page: <span class="page"/> / <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

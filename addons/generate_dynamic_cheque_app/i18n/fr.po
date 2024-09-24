@@ -1,0 +1,262 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* generate_dynamic_cheque_app
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-22 20:24+0000\n"
+"PO-Revision-Date: 2024-05-22 20:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+msgid ""
+"<strong>Note :</strong> Consider value of all the parameter in px only "
+"cheque height and cheque width on (mm)."
+msgstr ""
+"<strong>Remarque:</strong> Considérez la valeur de tous les paramètres en px uniquement "
+"hauteur et largeur du chèque en (mm)."
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+msgid "Amount in Figure"
+msgstr "Montant en chiffres"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+msgid "Amount in Word"
+msgstr "Montant en lettres"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.print_dynamic_cheque_form_view
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__char_spacing
+msgid "Character Spacing"
+msgstr "Espacement des caractères"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+msgid "Cheque Date"
+msgstr "Date du chèque / traite"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__name
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__cheque_format
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+msgid "Cheque Format"
+msgstr "Format du chèque / traite"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__create_uid
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__create_date
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__display_name
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.actions.act_window,name:generate_dynamic_cheque_app.action_dynamic_cheque_print
+#: model:ir.ui.menu,name:generate_dynamic_cheque_app.dynamic_cheque_config_menu
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_print_tree_view
+msgid "Dyn. Cheque Configuration"
+msgstr "Configuration Dynamique du chèque
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model,name:generate_dynamic_cheque_app.model_dynamic_cheque
+msgid "Dynamic Cheque"
+msgstr "Chèque dynamique"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__first_line_amount
+msgid "First Line"
+msgstr "Première ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__fl_left_margin
+msgid "First Line Left Margin"
+msgstr "Marge gauche de la première ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__fl_top_margin
+msgid "First Line Top Margin"
+msgstr "Marge supérieure de première ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__fl_width
+msgid "First Line Width"
+msgstr "Largeur de la première ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__af_font_size
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__font_size
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__payee_font_size
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__sc_font_size
+msgid "Font Size"
+msgstr "Taille de police"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__cheque_height
+msgid "Height"
+msgstr "Hauteur"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__id
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque____last_update
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__write_uid
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__write_date
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__af_left_margin
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__left_margin
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__payee_left_margin
+msgid "Left Margin"
+msgstr "Marge de gauche"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__words_in_fl_line
+msgid "No. of Word in First Line"
+msgstr "Nombre des lettres en première ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__words_in_sc_line
+msgid "No. of Word in Second Line"
+msgstr "Nombre des lettres en deuxième ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model,name:generate_dynamic_cheque_app.model_report_paperformat
+msgid "Paper Format Config"
+msgstr "Configuration du format papier"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__partner_id
+msgid "Partner"
+msgstr "Fournisseur"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.dynamic_cheque_form_view
+msgid "Partner Name"
+msgstr "Nom du Fournisseur"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque_wizard__payment_id
+msgid "Payment Id"
+msgstr "Référence du paiement"
+
+#. module: generate_dynamic_cheque_app
+#: code:addons/generate_dynamic_cheque_app/wizard/print_dynamic_cheque_wizard.py:0
+#, python-format
+msgid "Payment Not fount You cannot print Cheque !!!!"
+msgstr "Paiement introuvable Vous ne pouvez pas imprimer le chèque !!!!"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.print_dynamic_cheque_form_view
+msgid "Print"
+msgstr "Imprimer"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.account_payment_form_inh
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.print_dynamic_cheque_form_view
+msgid "Print Cheque"
+msgstr "Imprimer chèque / traite"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.actions.act_window,name:generate_dynamic_cheque_app.action_dynamic_cheque_print_wizard
+#: model:ir.actions.report,name:generate_dynamic_cheque_app.dynamic_cheque_print_report_action
+#: model:ir.model,name:generate_dynamic_cheque_app.model_dynamic_cheque_wizard
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.print_dynamic_cheque_form_view
+msgid "Print Dynamic Cheque"
+msgstr "Imprimer chèque / traire dynamic"
+
+#. module: generate_dynamic_cheque_app
+#: code:addons/generate_dynamic_cheque_app/wizard/print_dynamic_cheque_wizard.py:0
+#, python-format
+msgid "Report format not found! Please Update Module."
+msgstr "Format de rapport introuvable! Veuillez mettre à jour le module."
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__second_line_amount
+msgid "Second Line"
+msgstr "Deuxième ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__sc_left_margin
+msgid "Second Line Left Margin"
+msgstr "Marge gauche de la deuxième ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__sc_top_margin
+msgid "Second Line Top Margin"
+msgstr "Marge supérieure de deuxième ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__sc_width
+msgid "Second Line Width"
+msgstr "Largeur de la deuxième ligne"
+
+#. module: generate_dynamic_cheque_app
+#: model_terms:ir.ui.view,arch_db:generate_dynamic_cheque_app.print_dynamic_cheque_form_view
+msgid "Select Cheque Format"
+msgstr "Sélectionnez le format du chèque"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_report_paperformat__custom_report
+msgid "Temp Formats"
+msgstr "Formats temporaires"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__af_top_margin
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__payee_top_margin
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__top_margin
+msgid "Top Margin"
+msgstr "Marge supérieure"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__af_width
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__cheque_width
+#: model:ir.model.fields,field_description:generate_dynamic_cheque_app.field_dynamic_cheque__payee_width
+msgid "Width"
+msgstr "Largeur"
+
+#. module: generate_dynamic_cheque_app
+#: model:ir.model,name:generate_dynamic_cheque_app.model_report_generate_dynamic_cheque_app_report_dynamic_check_print
+msgid "report.generate_dynamic_cheque_app.report_dynamic_check_print"
+msgstr ""

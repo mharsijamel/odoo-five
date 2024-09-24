@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <template id="stock_picking_report_document_inherit" inherit_id="stock.report_delivery_document">
+            <xpath expr="//div[@name='signature']" position="before">
+                <br/>
+                <div t-if="o.Vehicle_registration" class="col-auto" name="Vehicle_registration">
+                    <strong>Immatricule de la véhicule:</strong>
+                    <span t-field="o.Vehicle_registration"/>
+                </div>
+                <div t-if="o.driver_full_name" class="col-auto" name="driver_full_name">
+                    <strong>Nom du chauffeur:</strong>
+                    <span t-field="o.driver_full_name"/>
+                </div>
+            </xpath>
+        </template>
+</odoo>

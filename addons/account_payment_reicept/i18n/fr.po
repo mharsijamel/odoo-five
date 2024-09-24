@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_payment_reicept
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-22 16:36+0000\n"
+"PO-Revision-Date: 2024-05-22 16:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_reicept
+#: model_terms:ir.ui.view,arch_db:account_payment_reicept.report_payment_receipt_document_inherit
+msgid "<span>Amount</span>"
+msgstr "<span>Montant</span>"
+
+#. module: account_payment_reicept
+#: model_terms:ir.ui.view,arch_db:account_payment_reicept.report_payment_receipt_document_inherit
+msgid "<span>Bank</span>"
+msgstr "<span>Banque</span>"
+
+#. module: account_payment_reicept
+#: model_terms:ir.ui.view,arch_db:account_payment_reicept.report_payment_receipt_document_inherit
+msgid "<span>Document Number</span>"
+msgstr "<span>Numéro du document</span>"
+
+#. module: account_payment_reicept
+#: model_terms:ir.ui.view,arch_db:account_payment_reicept.report_payment_receipt_document_inherit
+msgid "<span>Maturity Date</span>"
+msgstr "<span>Date d'Echéance</span>"
+
+#. module: account_payment_reicept
+#: model_terms:ir.ui.view,arch_db:account_payment_reicept.report_payment_receipt_document_inherit
+msgid "<strong>Payment details: </strong>"
+msgstr "<strong>Détails de paiement: </strong>"

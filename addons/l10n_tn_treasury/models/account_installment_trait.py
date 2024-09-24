@@ -3,6 +3,12 @@ import time
 from datetime import datetime
 from odoo.exceptions import UserError
 from .amount_to_text_fr import amount_to_text_fr
+import logging
+from odoo.tools.translate import _
+
+_logger = logging.getLogger(__name__)
+
+
 
 class AccountInstallmentTrait(models.Model):
     _name = 'account.installment.trait'
@@ -21,9 +27,8 @@ class AccountInstallmentTrait(models.Model):
                                   domain=[('company_id', '<>', False)])
     journal_id = fields.Many2one('account.journal', 'Journal', readonly=True, states={'draft': [('readonly', False)]},
                                  domain=[('type', '=', 'bank')])
-    treasury_ids = fields.Many2many('account.treasury', 'account_vesement_traite_treasury_rel', 'vesement_id',
-                                    'treasury_id',
-                                    'Associated Document', domain="[('type_transaction', '=', 'receipt')]",
+    treasury_ids = fields.Many2many('account.treasury', 'account_vesement_traite_treasury_rel', 'vesement_id', 'treasury_id',
+                                    'Associated Document', domain="[('type_transaction', '=', 'receipt'), ('journal_id', '=', journal_id.id)]",
                                     readonly=True, states={'draft': [('readonly', False)]})
     amount = fields.Float(string='Total', digits='Product Price', readonly=True, compute='_compute_amount')
     amount_in_word = fields.Char("Amount in Word")
@@ -67,30 +72,45 @@ class AccountInstallmentTrait(models.Model):
             }
             for line in vesement.treasury_ids:
                 debit = {
-                    'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
+                    'name': "Traite[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
                         line.maturity_date) or '/',
-                    'partner_id': line.partner_id.id,
+                    'partner_id': line.holder.id,
                     'debit': line.amount,
                     'credit': 0,
-                    'account_id': vesement.journal_id.default_account_id.id,
+                    'account_id': vesement.journal_id.suspense_account_id.id,
                     'date': vesement.date_vesement,
                 }
                 move['line_ids'].append([0, False, debit])
 
             for line in vesement.treasury_ids:
                 credit = {
-                    'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
+                    'name': "Traite[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
                         line.maturity_date) or '/',
                     'debit': 0,
                     'credit': line.amount,
-                    'partner_id': line.partner_id.id,
-                    'account_id': line.payment_id.journal_id.default_account_id.id,
+                    'partner_id': line.holder.id,
+                    'account_id': line.payment_id.journal_id.suspense_account_id.id,
                     'date': vesement.date_vesement,
                 }
                 move['line_ids'].append([0, False, credit])
 
             self.move_id = self.env['account.move'].create(move)
             self.move_id.action_post()
+            for line in vesement.treasury_ids:
+                _logger.info('move id %s', self.move_id.id)
+                move_line = self.move_id.line_ids.filtered(
+                    lambda l: (l.debit == line.amount)  # Only credit lines
+                              and l.partner_id.id == line.holder.id
+                )
+                if len(move_line) > 1:
+                    _logger.warning(
+                        f"Multiple matching move lines found for amount: {line.amount}, partner: {line.holder.id}")
+                    # Select the correct move line based on additional criteria
+                    move_line = move_line[0]
+                if move_line:
+                    line.move_line_id = move_line.id
+                else:
+                    _logger.warning(f"No matching move line found for amount: {line.amount}, partner: {line.holder.id}")
 
     def button_validate(self):
         if len(self.treasury_ids) == 0:
@@ -101,8 +121,9 @@ class AccountInstallmentTrait(models.Model):
                     treasury.name, treasury.partner_id.name))
             treasury.state = 'versed'
             treasury.bank_target = self.bank_target.id
+            _logger.info('Bank target for treasury %s', self.bank_target.id)
         self.state = 'valid'
-        # self.action_move_line_create()
+        self.action_move_line_create()
         self.amount_in_word = amount_to_text_fr(self.amount, currency='Dinars')
 
     def button_cancel(self):

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_lead_view_form_in_custom" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm_lead_win_date.crm_lead_view_form_ih"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='win_date']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_lead_view_form_in_custom_tree" model="ir.ui.view">
+        <field name="name">crm.lead.tree</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="win_date"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crm_case_opportunities_filter_custom" model="ir.ui.view">
+        <field name="name">crm.lead.search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='date_closed']" position="after">
+                <filter string="Date Gagnée" name="win_date" context="{'group_by':'win_date'}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

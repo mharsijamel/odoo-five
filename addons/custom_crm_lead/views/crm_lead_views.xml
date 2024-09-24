@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_crm_lead_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath  expr="//div[@class='oe_title']/h1"  position="after">
+                    <label for="installation_type"/>
+                    <h2><field name="installation_type" readonly="0"/></h2>
+                    <label for="installation_state"/>
+                    <h2><field name="installation_state" readonly="1"  force_save="1" /></h2>
+            </xpath>
+            <xpath  expr="//group[@name='opportunity_partner']/field[@name='partner_id']"  position="after">
+                    <field name="counter_id" attrs="{'invisible': [('partner_id', '=', False)]}" widget="selection"/>
+            </xpath>
+            <xpath  expr="//notebook"  position="inside">
+                <page string="Customer Contract" name="customer_contract">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="attachment_contract"/>
+                            <field name="attachment_contract" filename="attachment_contract_fname"/>
+                            <field name="attachment_contract_fname" invisible="1" />
+                        </div>
+                        <div class="col-12 mt-5">
+                            <label for="contract_signed"/>
+                            <field name="contract_signed" invisible="0"/>
+                        </div>
+                    </div>
+
+                </page>
+                <page string="Commercial file" name="commercial_files" attrs="{'invisible': [('contract_signed', '!=', True)]}">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="filing_date"/>
+                            <field name="filing_date"/>
+                        </div>
+                        <div class="col-3">
+                            <label for="poip_fees"/>
+                            <field name="poip_fees"/>
+                        </div>
+                        <div class="col-3">
+                            <label for="steg_credit" attrs="{'invisible': [('installation_type', '!=', 'connected')]}"/>
+                            <field name="steg_credit" attrs="{'invisible': [('installation_type', '!=', 'connected')]}"/>
+                        </div>
+                        <div class="col-3">
+                            <label for="sub_anme" />
+                            <field name="sub_anme"/>
+                        </div>
+
+                        <div class="col-3">
+                            <label for="approbation_date"/>
+                            <field name="approbation_date"/>
+                        </div>
+                        <div class="col-12">
+                            <label for="poip_attachement"/>
+                            <field name="poip_attachement" filename="poip_attachement_fname" attrs="{'readonly': [('approbation_date', '!=', False)]}"/>
+                            <field name="poip_attachement_fname" invisible="1"/>
+                        </div>
+                        <div class="col-12">
+                            <label for="discharge_attachement"/>
+                            <field name="discharge_attachement" filename="discharge_attachement_fname" attrs="{'readonly': [('approbation_date', '!=', False)]}"/>
+                            <field name="discharge_attachement_fname" invisible="1"/>
+                        </div>
+                    </div>
+
+                </page>
+                <page string="Technical file" name="technical_files" attrs="{'invisible': [('contract_signed', '!=', True)]}">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="lead_reception_date"/>
+                            <field name="lead_reception_date"/>
+                        </div>
+                        <div class="col-4">
+                            <label for="lead_preparation_date"/>
+                            <field name="lead_preparation_date"/>
+                        </div>
+                        <div class="col-4">
+                            <label for="lead_filling_date"/>
+                            <field name="lead_filling_date"/>
+                        </div>
+                        <div class="col-4">
+                            <label for="lead_approbation_date"/>
+                            <field name="lead_approbation_date"/>
+                        </div>
+                    </div>
+
+                </page>
+                <page string="Payment Information" name="payment_information" attrs="{'invisible': [('contract_signed', '!=', True)]}">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="payment_type"/>
+                            <field name="payment_type"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="advance_amount"/>
+                            <field name="advance_amount" attrs="{'invisible': [('payment_type', '!=', 'with_advance')]}"/>
+                            <span>DT</span>
+                        </div>
+                    </div>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

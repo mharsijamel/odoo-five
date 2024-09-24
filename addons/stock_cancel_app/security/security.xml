@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="group_show_cancel_stock_picking" model="res.groups" >
+        	<field name="name">Stock Picking Cancel Feature</field>
+    	</record>
+
+        <record id="group_scrap_cancels" model="res.groups">
+            <field name="name">Stock Picking Scrap Cancel Feature</field>
+        </record>
+
+        <record id="group_cancel_stock_move" model="res.groups">
+            <field name="name">Cancel Stock Move</field>
+        </record>
+        
+    </data>
+</odoo>

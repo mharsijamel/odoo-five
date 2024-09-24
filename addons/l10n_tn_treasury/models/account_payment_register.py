@@ -1,5 +1,8 @@
 from odoo import api, fields, models, _, Command
+import logging
+from odoo.tools.translate import _
 
+_logger = logging.getLogger(__name__)
 
 class AccountPaymentRegister(models.TransientModel):
 
@@ -9,7 +12,7 @@ class AccountPaymentRegister(models.TransientModel):
 
     incash_treaty = fields.Boolean(string='Incash Treaty', compute="compute_incash_checks_treaty")
 
-    checkbook_id = fields.Many2one('account.check', string="Cheque", domain="[('state','=','available'), ('bank_id', '=', bank_origin)]")
+    checkbook_id = fields.Many2one('account.check', string="Cheque", domain="[('state','=','available')]")
 
     maturity_date = fields.Date(string='Maturity Date')
 
@@ -27,8 +30,20 @@ class AccountPaymentRegister(models.TransientModel):
         for rec in self:
             if rec.partner_type == 'supplier' and rec.journal_id.type == 'bank' and rec.payment_type == 'outbound' and rec.payment_method_line_id.code == 'check_printing' and rec.incash_check:
                 rec.show_checkbook = True
+                # Apply dynamic domain to checkbook_id field based on the bank_origin
+                return {
+                    'domain': {
+                        'checkbook_id': [('state', '=', 'available'), ('bank_id', '=', rec.bank_origin.id)]
+                    }
+                }
             else:
                 rec.show_checkbook = False
+                # If conditions don't match, clear the domain for checkbook_id
+                return {
+                    'domain': {
+                        'checkbook_id': [('id', '=', False)]
+                    }
+                }
 
 
     @api.depends('journal_id',  'payment_method_line_id')
@@ -62,6 +77,7 @@ class AccountPaymentRegister(models.TransientModel):
                 payment.incash_treaty = False
 
     def action_create_payments(self):
+        _logger.info('test %s', self.partner_id.id)
         treasury_id = 0
         payments = self._create_payments()
         invoices = self.env['account.move'].browse(self.env.context.get('active_ids', []))
@@ -80,7 +96,8 @@ class AccountPaymentRegister(models.TransientModel):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.bank_origin.id,
-                }
+                    }
+                _logger.info('Bank target for treasury %s', self.journal_id.id)
                 already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
                 if already_exist:
                     already_exist.sudo().write(values)
@@ -103,6 +120,7 @@ class AccountPaymentRegister(models.TransientModel):
                     'state': 'in_cash',
                     'bank_origin': self.bank_origin.id,
                 }
+                _logger.info('Bank target for treasuryy %s', self.journal_id.id)
                 already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
                 if already_exist:
                     already_exist.sudo().write(values)
@@ -134,11 +152,11 @@ class AccountPaymentRegister(models.TransientModel):
                     'invoice_ids': [Command.link(invoices.id)],
                     'user_id': self.env.user.id,
                     'company_id': self.company_id.id,
-                    'holder': self.company_id.partner_id.id,
+                    'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
-                already_exist = self.env['account.treasury'].sudo().search([('name', '=', '0000000'), ('holder', '=', self.env.company.partner_id.id), ('payment_id', '=', payments.id)])
+                already_exist = self.env['account.treasury'].sudo().search([('name', '=', '0000000'), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
                 if already_exist:
                     already_exist.sudo().write(values)
                     check_id = already_exist
@@ -159,11 +177,11 @@ class AccountPaymentRegister(models.TransientModel):
                     'invoice_ids': [Command.link(invoices.id)],
                     'user_id': self.env.user.id,
                     'company_id': self.company_id.id,
-                    'holder': self.company_id.partner_id.id,
+                    'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
-                already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.env.company.partner_id.id), ('payment_id', '=', payments.id)])
+                already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
                 if already_exist:
                     already_exist.sudo().write(values)
                     treaty_id = already_exist
@@ -203,4 +221,5 @@ class AccountPaymentRegister(models.TransientModel):
                 'view_mode': 'tree,form',
                 'domain': [('id', 'in', payments.ids)],
             })
+        
         return action

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_crm_lead_inheritc_contract_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="custom_crm_lead.view_crm_lead_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='customer_contract']/div" position="inside">
+                    <div class="col-12 mt-5">
+                        <label for="attachment_ids" string="Other Contract Attachments"/>
+                         <field nolabel='1' name="attachment_ids" widget="many2many_binary"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

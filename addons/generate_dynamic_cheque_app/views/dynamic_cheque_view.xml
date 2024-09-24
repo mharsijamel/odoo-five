@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="dynamic_cheque_form_view" model="ir.ui.view">
+			<field name="name">dynamic.cheque.form.view</field>
+			<field name="model">dynamic.cheque</field>
+			<field name="arch" type="xml">
+				<form string="Dyn. Cheque Configuration">
+					<sheet>
+						<div class="alert alert-success" role="alert">
+						<strong>Note :</strong> Consider value of all the parameter in px only cheque height and cheque width on (mm).
+						</div>
+						<group>
+							<field name="name" placeholder="Cheque Format"/>
+						</group>
+						<group>
+							<group>
+								<field name="journal_id" />
+							</group>
+							<group>
+								<field name="cheque_height" />
+							</group>
+							<group >
+								<field name="cheque_width"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="Cheque Date" colspan="1" col="2">
+								<field name="top_margin"/>
+								<field name="left_margin"/>
+								<field name="font_size"/>
+								<field name="char_spacing"/>
+							</group>
+							<group string="Partner Name" colspan="1" col="2">
+								<field name="payee_top_margin"/>
+								<field name="payee_left_margin"/>
+								<field name="payee_width"/>
+								<field name="payee_font_size"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="Amount in Figure" colspan="1" col="2">
+								<field name="af_top_margin"/>
+								<field name="af_left_margin"/>
+								<field name="af_width"/>
+								<field name="af_font_size"/>
+							</group>
+						</group>
+						<group string="Amount in Word" col="6" colspan="2">
+						    	<field name="fl_top_margin"/>
+								<field name="fl_left_margin"/>
+								<field name="fl_width"/>
+								<field name="words_in_fl_line"/>
+								<field name="sc_top_margin"/>
+								<field name="sc_left_margin"/>
+								<field name="sc_width"/>
+								<field name="words_in_sc_line"/>
+								<field name="sc_font_size"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="dynamic_cheque_print_tree_view" model="ir.ui.view">
+			<field name="name">dynamic.cheque.tree.view</field>
+			<field name="model">dynamic.cheque</field>
+			<field name="arch" type="xml">
+				<tree string="Dyn. Cheque Configuration">
+					<field name="name"/>
+					<field name="cheque_height"/>
+					<field name="cheque_width"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_dynamic_cheque_print" model="ir.actions.act_window">
+			<field name="name">Dyn. Cheque Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">dynamic.cheque</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		 <menuitem name="Dyn. Cheque Configuration"
+			id="dynamic_cheque_config_menu"
+			parent = "account.menu_finance_configuration"
+			action="action_dynamic_cheque_print"
+			sequence = '3'
+		/>
+
+		<record id="account_payment_form_inh" model="ir.ui.view">
+			<field name="name">inherit.account.payment.button.form.view</field>
+			<field name="model">account.payment</field>
+			<field name="inherit_id" ref="account.view_account_payment_form" />
+			<field name="arch" type="xml">
+				<header>
+						<button name="%(action_dynamic_cheque_print_wizard)d" string="Print Cheque" type="action" class="btn-primary" attrs="{'invisible': ['|', ('payment_type', '!=', 'outbound'), ('incash_check', '=', False)]}"/>
+				</header>
+			</field>
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="account_move_view_search_custom" model="ir.ui.view">
+        <field name="name">account.invoice.select</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+<!--                <field name="installation_type"/>-->
+                <field name="power_level"/>
+                <field name="counter_id"/>
+                <field name="city"/>
+                <separator/>
+                <filter name="power_level" string="Nb Kilos" domain="[]" context="{'group_by':'power_level'}"/>
+                <filter name="city" string="Ville" domain="[]" context="{'group_by':'city'}"/>
+                <filter name="counter_id" string="Numéro du compteur" domain="[]" context="{'group_by':'counter_id'}"/>
+<!--                <field name="partner_id.customer_reference"/>-->
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -71,12 +71,7 @@ class AccountAsset(models.Model):
     original_move_line_ids = fields.Many2many('account.move.line', 'asset_move_line_rel', 'asset_id', 'line_id', string='Journal Items', readonly=True, states={'draft': [('readonly', False)]}, copy=False)
 
     # Analytic
-    account_analytic_id = fields.Many2one(
-    'account.analytic.account',
-    string='Analytic Account',
-    domain="['|', ('company_id', '=', False), ('company_id', '=', company_id), ('cost_center', '!=', True)]"
-)
-
+    account_analytic_id = fields.Many2one('account.analytic.account', string='Analytic Account', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     analytic_tag_ids = fields.Many2many('account.analytic.tag', string='Analytic Tag', domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
 
     # Dates

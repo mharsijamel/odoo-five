@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for res.partner -->
+        <record id="seq_res_customer" model="ir.sequence">
+            <field name="name">Res Customer</field>
+            <field name="code">res.customer</field>
+            <field name="prefix">411</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <!-- Sequences for res.partner -->
+        <record id="seq_res_vendor" model="ir.sequence">
+            <field name="name">Res vendor</field>
+            <field name="code">res.vendor</field>
+            <field name="prefix">401</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

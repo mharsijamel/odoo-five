@@ -64,8 +64,8 @@ class AccountBankReconciliationReport(models.AbstractModel):
             ('date', '<=', options['date']['date_to']),
         ]
 
-        if not options['all_entries']:
-            domain.append(('move_id.state', '=', 'posted'))
+        #if not options['all_entries']:
+            #domain.append(('move_id.state', '=', 'posted'))
 
         if journal.company_id.account_opening_move_id:
             domain.append(('move_id', '!=', journal.company_id.account_opening_move_id.id))
@@ -555,7 +555,8 @@ class AccountBankReconciliationReport(models.AbstractModel):
         report_currency = journal_currency or company_currency
 
         last_statement_domain = [('date', '<=', options['date']['date_to'])]
-        
+        #if not options['all_entries']:
+        #   last_statement_domain.append(('move_id.state', '=', 'posted'))
         last_statement = journal._get_last_bank_statement(domain=last_statement_domain)
 
         # === Warnings ====

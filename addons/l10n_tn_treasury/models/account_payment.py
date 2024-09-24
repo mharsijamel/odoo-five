@@ -1,6 +1,9 @@
 from odoo import api, fields, models, _, Command
 from odoo.exceptions import UserError
+import logging
+from odoo.tools.translate import _
 
+_logger = logging.getLogger(__name__)
 
 class AccountPayment(models.Model):
     _inherit = 'account.payment'
@@ -98,6 +101,7 @@ class AccountPayment(models.Model):
                 payment.incash_treaty = False
 
     def action_post(self):
+        _logger.info('partner target %s', self.partner_id.id)
         ''' draft -> posted '''
         res = super(AccountPayment, self).action_post()
         for rec in self.move_id.line_ids:
@@ -187,7 +191,7 @@ class AccountPayment(models.Model):
                     'amount': self.amount,
                     'user_id': self.env.user.id,
                     'company_id': self.company_id.id,
-                    'holder': self.company_id.partner_id.id,
+                    'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
@@ -206,7 +210,7 @@ class AccountPayment(models.Model):
                     'amount': self.amount,
                     'user_id': self.env.user.id,
                     'company_id': self.company_id.id,
-                    'holder': self.company_id.partner_id.id,
+                    'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
@@ -225,7 +229,7 @@ class AccountPayment(models.Model):
                     'amount': self.amount,
                     'user_id': self.env.user.id,
                     'company_id': self.company_id.id,
-                    'holder': self.company_id.partner_id.id,
+                    'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }
@@ -242,7 +246,7 @@ class AccountPayment(models.Model):
                     'amount': self.amount,
                     'user_id': self.env.user.id,
                     'company_id': self.company_id.id,
-                    'holder': self.company_id.partner_id.id,
+                    'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
                 }

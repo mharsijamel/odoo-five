@@ -79,6 +79,7 @@
                       decoration-danger="state == 'notice'"
                       decoration-success="state == 'paid'">
                     <field name="holder"/>
+
 <!--                    <field name="value" sum="Total" widget="monetary"-->
 <!--                           options="{'currency_field': 'currency_id','digits': 'Product Price'}"/>-->
 <!--                    <field name="currency_id" invisible="1"/>-->
@@ -91,6 +92,8 @@
 <!--                    <field name="type"/>-->
 <!--                    <field name="type_transaction"/>-->
                     <field name="payment_type"/>
+                    <field name="maturity_date"/>
+                    <field name="payment_method_line_id"/>
                     <field name="state"/>
                 </tree>
             </field>

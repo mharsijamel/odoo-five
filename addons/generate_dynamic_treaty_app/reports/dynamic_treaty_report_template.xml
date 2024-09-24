@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_dynamic_treaty_print">
+		<t t-call="web.html_container">
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.a_font_size) + 'px;'+'margin-top:' + str(treaty_format.a_top_margin) + 'px;'+'margin-left:' + str(treaty_format.a_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.company_id.city" />
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.a2_font_size) + 'px;'+'margin-top:' + str(treaty_format.a2_top_margin) + 'px;'+'margin-left:' + str(treaty_format.a2_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.company_id.city" />
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.de_font_size) + 'px;'+'margin-top:' + str(treaty_format.de_top_margin) + 'px;'+'margin-left:' + str(treaty_format.de_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.maturity_date" />
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.de_font_size) + 'px;'+'margin-top:' + str(treaty_format.de2_top_margin) + 'px;'+'margin-left:' + str(treaty_format.de2_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.maturity_date" />
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.af_font_size) + 'px;'+'margin-top:' + str(treaty_format.af_top_margin) + 'px;'+'margin-left:' + str(treaty_format.af_left_margin) + 'px; position: absolute;'">
+				#<span t-esc="'{:,.3f}'.format(payment_id.amount)" />
+				<span t-esc="payment_id.company_id.currency_id.symbol"/>#
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.af2_font_size) + 'px;'+'margin-top:' + str(treaty_format.af2_top_margin) + 'px;'+'margin-left:' + str(treaty_format.af2_left_margin) + 'px; position: absolute;'">
+				#<span t-esc="'{:,.3f}'.format(payment_id.amount)" />
+				<span t-esc="payment_id.company_id.currency_id.symbol"/>#
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.sc_font_size) + 'px;'+'margin-top:' + str(treaty_format.fl_top_margin) + 'px;'+ 'px;'+'width:' + str(treaty_format.fl_width) + 'px;'+'margin-left:' + str(treaty_format.fl_left_margin) + 'px; position: absolute;'">
+				<span t-esc="get_amount_in_word_line(payment_id,treaty_format)['first_line'] or ''" />
+			</div>
+			<div class="divTableRow"  t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.payee_font_size) + 'px;'+'margin-top:' + str(treaty_format.payee_top_margin) + 'px;'+'margin-left:' + str(treaty_format.payee_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.partner_id.name"/>
+			</div>
+			<div class="divTableRow"  t-att-style="'font-weight: bold;' + 'font-size: 10' + 'px;'+'margin-top: 195px;'+'margin-left: 439px; position: absolute;'">
+				<span>X</span>
+			</div>
+			<div class="divTableRow"  t-att-style="'font-weight: bold;' + 'font-size: 15' + 'px;'+'margin-top: 329px;'+'margin-left: 422px; position: absolute;'">
+				<span>Marchandise</span>
+			</div>
+			<div class="divTableRow"  t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.payee2_font_size) + 'px;'+'margin-top:' + str(treaty_format.payee2_top_margin) + 'px;'+'margin-left:' + str(treaty_format.payee2_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.partner_id.name"/>
+			</div>
+			<div class="divTableRow"  t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.rib_font_size) + 'px;'+'margin-top:' + str(treaty_format.rib_top_margin) + 'px;'+'margin-left:' + str(treaty_format.rib_left_margin) +  'px; position: absolute;'">
+				<span style="margin-right: 20px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[:2]"/>
+				<span style="margin-right: 55px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[2:5]"/>
+				<span style="margin-right: 80px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[5:18]"/>
+				<span style="margin-right: 20px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[18:]"/>
+			</div>
+			<div class="divTableRow"  t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.rib_font_size) + 'px;'+'margin-top:' + str(treaty_format.rib2_top_margin) + 'px;'+'margin-left:' + str(treaty_format.rib2_left_margin) + 'px; position: absolute;'">
+				<span style="margin-right: 20px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[:2]"/>
+				<span style="margin-right: 55px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[2:5]"/>
+				<span style="margin-right: 80px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[5:18]"/>
+				<span style="margin-right: 20px;" t-esc="payment_id.journal_id.bank_account_id.acc_number[18:]"/>
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.font_size) + 'px;' + 'margin-top:' + str(treaty_format.top_margin) + 'px;'+'margin-left:' + str(treaty_format.left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.date.strftime('%d/%m/%Y')"/>
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.font_size) + 'px;' + 'margin-top:' + str(treaty_format.d_top_margin) + 'px;'+'margin-left:' + str(treaty_format.d_left_margin) + 'px; position: absolute;'">
+				<span t-esc="payment_id.date.strftime('%d/%m/%Y')"/>
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.comp_font_size) + 'px;' + 'margin-top:' + str(treaty_format.comp_top_margin) + 'px;'+'margin-left:' + str(treaty_format.comp_left_margin) + 'px;'+ 'width:' + str(treaty_format.comp_width) + 'px; position: absolute;'">
+				<span t-esc="payment_id.company_id.name"/>
+				<br/>
+				<span t-esc="payment_id.company_id.street"/>,
+<!--				<span t-esc="payment_id.company_id.country.name"/>,-->
+			</div>
+			<div class="divTableRow" t-att-style="'font-weight: bold;' + 'font-size:' + str(treaty_format.bank_font_size) + 'px;' + 'margin-top:' + str(treaty_format.bank_top_margin) + 'px;'+'margin-left:' + str(treaty_format.bank_left_margin) + 'px;'+'width:' + str(treaty_format.bank_width) + 'px; position: absolute;'">
+				<span t-esc="payment_id.journal_id.bank_account_id.bank_id.name"/><br/>
+				<span t-esc="payment_id.journal_id.bank_account_id.bank_id.street"/>,
+				<span t-esc="payment_id.journal_id.bank_account_id.bank_id.city"/>,
+				<span t-esc="payment_id.journal_id.bank_account_id.bank_id.zip"/>,
+				<span t-esc="payment_id.journal_id.bank_account_id.bank_id.country.name"/>,
+			</div>
+		</t>
+	</template>
+
+    <record id="dynamic_treaty_print_report_action" model="ir.actions.report">
+        <field name="name">Print Dynamic treaty</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">generate_dynamic_treaty_app.report_dynamic_treaty_print</field>
+        <field name="report_file">generate_dynamic_treaty_app.report_dynamic_treaty_print</field>
+    </record>
+
+</odoo>

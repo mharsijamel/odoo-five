@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_sale_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="city"/>
+                <field name="partner_state"/>
+                <field name="power_level"/>
+                <field name="installation_type" string="Type d'usage"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_tree_inherit_devi" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="city"/>
+                <field name="partner_state"/>
+                <field name="power_level" invisible="1"/>
+                <field name="nb_kilo"/>
+                <field name="installation_type" string="Type d'usage"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="city" force_save="1"/>
+                <field name="partner_state" force_save="1"/>
+                <field name="power_level" force_save="1" invisible="1"/>
+                <field name="nb_kilo" force_save="1" invisible="1"/>
+            </xpath>
+            <xpath expr="//group[@name='partner_details']" position="inside">
+                    <field name="nb_kilo" force_save="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_form_inherit_devi" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='order_date']" position="after">
+                <filter string="Ville" name="city" context="{'group_by': 'city'}"/>
+                <filter string="État" name="partner_state" context="{'group_by': 'partner_state'}"/>
+                <filter string="Nb Kilos" name="nb_kilo" context="{'group_by': 'nb_kilo'}"/>
+                <filter string="Type d'usage" name="installation_type" context="{'group_by': 'installation_type'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

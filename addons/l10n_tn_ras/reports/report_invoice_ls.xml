@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="report_account_withholding" name="Certificat Retenue A La Source">
+			<t t-call="web.html_container">
+            	<t t-foreach="docs" t-as="o">
+            	        <!-- Multicompany -->
+				        <t t-if="o and 'company_id' in o">
+				            <t t-set="company" t-value="o.company_id"/>
+				        </t>
+				        <t t-if="not o or not 'company_id' in o">
+				            <t t-set="company" t-value="res_company"/>
+				        </t>
+	                    <div class="header">
+	        				<div >
+	        					<div class="col-6 text-left" style="padding-bottom : 20px !important;" >
+	        						<span>REPUBLIQUE TUNISIENNE <br/></span>
+	        						<span><strong>MINISTERE DU PLAN ET DES FINANCES<br/></strong></span>
+	        						<span>DIRECTION GENERALE DE CONTROLE FISCAL<br/></span>
+	        					</div>
+	        					<div class="col-12 text-center">
+	        						<span><strong>CERTIFICAT DE RETENUE D'IMPOT<br/></strong></span>
+	        						<span><strong>SUR LE REVENUE<br/></strong></span>
+	        						<span><strong>OU D'IMPOT SUR LES SOCIETES<br/></strong></span>
+	        					</div>
+	        				</div>
+	                    </div>
+	                    <div class="article">
+		                    			<div class="page">
+					                    	<div class="row mb-2"  style="padding-top : 30px !important;" >
+												<div class="col-12 text-center" >
+													<span>Retenue effectuée le: </span><span t-field="o.date"/>
+													</div>
+					        				</div>
+					        				<div class="row mb-2">
+												<div class="col-12">
+					        					<h5>
+					        						A - PERSONNE OU ORGANISME PAYEUR:
+					        					</h5>
+												</div>
+											</div>
+										<div class="row d-block">
+												<t t-if="o.type == 'in_withholding'">
+														<div name="invoice_address" class="col-12">
+															<div class="row mb4" >
+																<div class="col-6">
+																	<strong >Non et Prénom ou Raison Social :</strong>
+																</div>
+																<div class="col-6">
+																	<address t-field="company.partner_id"
+																	t-options='{"widget": "contact", "fields": ["name"], "no_marker": True}' />
+																</div>
+
+															</div>
+															<div class="row mb4">
+																<div class="col-5">
+																	<strong>Adresse :</strong>
+																</div>
+																<div class="col-7">
+																	<address t-field="company.partner_id"
+																	t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'  />
+																</div>
+
+
+															</div>
+														</div>
+														<div name="invoice_address" class="col-6 mb4">
+															<strong>Identifiant:</strong>
+														 </div>
+
+														<div class="col-6 small pull-right">
+															<table class="table small">
+																<tr style="border: 1px solid #efefef !important ;" >
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Matricule Fiscal
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code TVA
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code catégorie
+																	</th>
+																	<th style="border: 1px solid #efefef !important ;">
+																		N° Etab.Secondaire
+																	</th>
+																</tr>
+																<tr  style="border: 1px solid #efefef !important ;text-align : center !important;">
+
+
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[:8]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[8:9]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[9:10]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[10:]"/>
+																	</td>
+
+																</tr>
+															</table>
+														</div>
+													</t>
+													<t t-else="">
+														<div name="invoice_address" class="col-12">
+															<div class="row mb4">
+																<div class="col-6">
+																	<strong >Non et Prénom ou Raison Social :</strong>
+																</div>
+																<div class="col-6">
+																	<address t-field="o.partner_id"
+																	t-options='{"widget": "contact", "fields": ["name"], "no_marker": True}' />
+																</div>
+
+															</div>
+															<div class="row mb4">
+																<div class="col-5">
+																	<strong>Adresse :</strong>
+																</div>
+																<div class="col-7">
+																	<address t-field="o.partner_id"
+																	t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'  />
+																</div>
+
+
+															</div>
+
+
+														</div>
+														<div name="invoice_address" class="col-6 mb4">
+															<strong>Identifiant:</strong>
+														 </div>
+
+														<div class="col-6 small pull-right">
+																<t t-if="o.partner_id.company_type == 'person'">
+																<table class="table small">
+																<tr style="border: 1px solid #efefef !important ; text-align: center;" >
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Carte D'identité Nationale
+																	</th>
+																</tr>
+																<tr  style="border: 1px solid #efefef !important ;text-align : center !important;">
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.nci"/>
+																	</td>
+																</tr>
+															</table>
+															</t>
+															<t t-else="o.partner_id.company_type == 'company'">
+																<table class="table small">
+																<tr style="border: 1px solid #efefef !important ;" >
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Matricule Fiscal
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code TVA
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code catégorie
+																	</th>
+																	<th style="border: 1px solid #efefef !important ;">
+																		N° Etab.Secondaire
+																	</th>
+																</tr>
+																<tr  style="border: 1px solid #efefef !important ;text-align : center !important;">
+
+
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[:8]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[8:9]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[9:10]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[10:]"/>
+																	</td>
+
+																</tr>
+															</table>
+															</t>
+														</div>
+
+													</t>
+							                    </div>
+											<div class="row">
+												<div class="col-12 mb-2">
+													<h5>
+														<span>B - INFORMATIONS RELATIVES AU MARCHE :</span>
+													</h5>
+												</div>
+											</div>
+											<div class="row mb-2" style="padding-left: 20px !important;">
+												<strong> Date de facture: </strong>
+												<t t-foreach="o.account_invoice_ids" t-as="d">
+													<span class="m-0" t-field="d.invoice_date"/><span> | </span>
+												</t>
+											</div>
+											<div class="row mb-2" style="padding-left: 20px !important;">
+												<strong> Numéro de facture: </strong>
+												<t t-foreach="o.account_invoice_ids" t-as="d">
+													<t t-if="o.type == 'out_withholding'">
+														<span class="m-0" t-field="d.name"/> <span> | </span>
+													</t>
+													<t t-else="">
+													<span class="m-0" t-field="d.ref"/> <span> | </span>
+													</t>
+												</t>
+					        				</div>
+                    					    <div class="row mb-2">
+												<div class="col-12">
+					        					<h5>
+					        						<span>C - RETENUES EFFECTUEES :</span>
+					        					</h5>
+												</div>
+											</div>
+												<div class="row mb-2" >
+
+													<table class="table small">
+						                        		<tr>
+															<th style="padding: 0px !important;border: 1px solid #efefef !important ;text-align : center ;" >
+																Retenues effectuées sur
+															</th>
+						                        			<th style="padding: 0px !important;border: 1px solid #efefef !important  ;text-align : center ;">
+						                        				MONTANT BRUT
+						                        			</th>
+															<th style="padding: 0px !important;border: 1px solid #efefef !important ;text-align : center ;">
+																Taux %
+															</th>
+						                        			<th style="padding: 0px !important;border: 1px solid #efefef !important ;text-align : center ;">
+						                        				Montant de la retenue
+						                        			</th>
+						                        			<th style="padding: 0px !important;border: 1px solid #efefef !important ;text-align : center ;">
+						                        				Montant Net
+						                        			</th>
+						                        		</tr>
+														<tr style="padding: 0px !important;border: 1px solid #efefef !important ;">
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;">
+																<span>Honoraires 5%</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important; text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 5">
+																	<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+
+<!--																<span>loyers,Honoraires,Commissions</span>-->
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;padding-right: 5px !important; text-align: right !important ;">
+<!--																<span>Factures supèrieures a 1000 DT</span>-->
+																<span>5%</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important; text-align: right !important; ;">
+																<t t-if="o.account_withholding_tax_ids.rate == 5">
+																	<span t-field="o.retenue_amount" />
+
+																</t>
+<!--																<span>Redevance</span>-->
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important; text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 5">
+																	<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+<!--																<span>Revenus de capitux mobiliers</span>-->
+															</td>
+
+						                        		</tr>
+						                        		<tr style="padding: 0px !important;border: 1px solid #efefef !important text-align: right !important;">
+
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;">
+																<span>loyers,Honoraires,Commissions</span>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important; text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 10">
+																	<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+<!--																<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;padding-right: 5px !important; text-align: right !important ;">
+																<span>10%</span>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 10">
+																	<span t-field="o.retenue_amount" />
+																</t>
+<!--																<span t-field="o.retenue_amount" />-->
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 10">
+																	<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+
+																</t>
+
+															</td>
+						                        		</tr>
+
+						                        		<tr style="padding: 0px !important;border: 1px solid #efefef !important ;">
+
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;">
+																<span>Facture supérieures a 1000 DT</span>
+
+															</td >
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; padding-right: 5px !important; text-align: right !important ;">
+																<t t-if="o.account_withholding_tax_ids.rate == 1">
+																	<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;padding-right: 5px !important; text-align: right !important ;">
+																<span>1%</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; padding-right: 5px !important; text-align: right !important ;">
+																<t t-if="o.account_withholding_tax_ids.rate == 1">
+																	<span t-field="o.retenue_amount" />
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; padding-right: 5px !important; text-align: right !important  ;">
+																<t t-if="o.account_withholding_tax_ids.rate == 1">
+																	<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+															</td>
+						                        		</tr>
+						                        		<tr style="padding: 0px !important;border: 1px solid #efefef !important ;">
+
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;">
+																<span>Redevance</span>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; text-align: right !important; ">
+																<t t-if="o.account_withholding_tax_ids.rate == 1.5">
+																	<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;padding-right: 5px !important; text-align: right !important ;">
+																<span>1,5%</span>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 1.5">
+																	<span t-field="o.retenue_amount" />
+																</t>
+
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 1.5">
+																	<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+
+																</t>
+
+															</td>
+						                        		</tr>
+						                        		<tr style="padding: 0px !important;border: 1px solid #efefef !important ;">
+
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;">
+																<span>Revenus de capitaux mobiliers</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 20">
+																	<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;padding-right: 5px !important; text-align: right !important ;">
+																<span>20%</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 20">
+																	<span t-field="o.retenue_amount" />
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 20">
+																	<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+															</td>
+						                        		</tr>
+														<tr style="padding: 0px !important;border: 1px solid #efefef !important ;">
+
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;">
+																<span>Retenue Honoraires Fournisseurs 3%</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 3 and o.account_withholding_tax_ids.type_withholding == 'achat' ">
+																	<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;padding-right: 5px !important; text-align: right !important ;">
+																<span>3%</span>
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ;text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 3 and o.account_withholding_tax_ids.type_withholding == 'achat'">
+																	<span t-field="o.retenue_amount" />
+																</t>
+
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef !important ; text-align: right !important;">
+																<t t-if="o.account_withholding_tax_ids.rate == 3 and o.account_withholding_tax_ids.type_withholding == 'achat'">
+																	<span t-esc="o.amount_total_rs-o.retenue_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+																</t>
+
+															</td>
+						                        		</tr>
+														<tr style="padding: 0px !important;border: 1px solid #efefef !important ;">
+															<th class="text-center" style="padding: 0px !important;border: 1px solid #efefef !important ; ">
+																<span class="text-center" style="text-align: center !important;" >TOTAL</span>
+															</th>
+															<td colspan="3" style="padding: 0px !important;border: 1px solid #efefef; text-align: right !important ;border-right: #ffffff !important ; ">
+<!--																<span t-esc="o.amount_total_rs" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+																<span  t-field="o.retenue_amount" />
+															</td>
+															<td style="padding: 0px !important;border: 1px solid #efefef ; text-align: right !important ;border-left: #ffffff !important ; ">
+
+															</td>
+														</tr>
+						                        	</table>
+													</div>
+											<div class="row mb-2">
+												<div class="col-12">
+					        					<h5>
+					        						<span>D - BENEFICIAIRE:</span>
+												</h5>
+												</div>
+											</div>
+							                    <div class="row d-block">
+													<t t-if="o.type == 'in_withholding'">
+														<div name="invoice_address" class="col-12">
+															<div class="row mb4">
+																<div class="col-6">
+																	<strong >Non et Prénom ou Raison Social :</strong>
+																</div>
+																<div class="col-6">
+																	<address t-field="o.partner_id"
+																	t-options='{"widget": "contact", "fields": ["name"], "no_marker": True}' />
+																</div>
+
+															</div>
+															<div class="row mb4">
+																<div class="col-5">
+																	<strong>Adresse :</strong>
+																</div>
+																<div class="col-7">
+																	<address t-field="o.partner_id"
+																	t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'  />
+																</div>
+															</div>
+														</div>
+														<div name="invoice_address" class="col-6 mb4">
+															<strong>Identifiant:</strong>
+														 </div>
+														<div class="col-6 small pull-right">
+															<t t-if="o.partner_id.company_type == 'person'">
+																<table class="table small">
+																<tr style="border: 1px solid #efefef !important ; text-align: center;" >
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Carte D'identité Nationale
+																	</th>
+																</tr>
+																<tr  style="border: 1px solid #efefef !important ;text-align : center !important;">
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.nci"/>
+																	</td>
+																</tr>
+															</table>
+															</t>
+															<t t-else="o.partner_id.company_type == 'company'">
+<!--																<span>test2</span>-->
+																<table class="table small">
+																<tr style="border: 1px solid #efefef !important ;" >
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Matricule Fiscal
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code TVA
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code catégorie
+																	</th>
+																	<th style="border: 1px solid #efefef !important ;">
+																		N° Etab.Secondaire 5
+																	</th>
+																</tr>
+																<tr  style="border: 1px solid #efefef !important ;text-align : center !important;">
+
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[:8]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[8:9]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[9:10]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="o.partner_id.vat[10:]"/>
+																	</td>
+
+																</tr>
+															</table>
+															</t>
+														</div>
+													</t>
+													<t t-else="">
+														<div name="invoice_address" class="col-12">
+															<div class="row mb4">
+																<div class="col-6">
+																	<strong >Non et Prénom ou Raison Social :</strong>
+																</div>
+																<div class="col-6">
+																	<address t-field="company.partner_id"
+																	t-options='{"widget": "contact", "fields": ["name"], "no_marker": True}' />
+																</div>
+
+															</div>
+															<div class="row mb4">
+																<div class="col-5">
+																	<strong>Adresse :</strong>
+																</div>
+																<div class="col-7">
+																	<address t-field="company.partner_id"
+																	t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'  />
+																</div>
+
+
+															</div>
+
+
+														</div>
+														<div name="invoice_address" class="col-6 mb4">
+															<strong>Identifiant:</strong>
+														 </div>
+
+														<div class="col-6 small pull-right">
+															<table class="table small">
+																<tr style="border: 1px solid #efefef !important ;" >
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Matricule Fiscal
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code TVA
+																	</th>
+																	<th  style="border: 1px solid #efefef !important ;">
+																		Code catégorie
+																	</th>
+																	<th style="border: 1px solid #efefef !important ;">
+																		N° Etab.Secondaire
+																	</th>
+																</tr>
+																<tr  style="border: 1px solid #efefef !important ;text-align : center !important;">
+
+
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[:8]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[8:9]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[9:10]"/>
+																	</td>
+																	<td style="border: 1px solid #efefef !important ;text-align : center !important;">
+																		<span t-esc="company.partner_id.vat[10:]"/>
+																	</td>
+
+																</tr>
+															</table>
+														</div>
+													</t>
+												</div>
+					        				<div class="row mb-2">
+					        					<p>
+					        						Je sousigné, certifie exacts les renseignements figurants sur le présent  certificat et m'expose aux sanctions prévues par la loi pour toute inexactitude.
+					        					</p>
+					        				</div>
+					        				<div class="row">
+												<div class="col-5 col-offset-6">
+					        					</div>
+					        					<div class="col-3 col-offset-6 pull-right" >
+					        						Fait à <span t-field="company.partner_id.city"/> le <span t-field="o.date"/>
+													<br>Cachet et signature</br>
+					        					</div>
+					        					</div>
+					        				</div>
+
+		                    	<t t-if="retenue_amount == 0.0">
+			                    	<div class="row text-center">
+			                    		<page>
+			        						<span>Pas de retenue a la source</span>
+			        					</page>
+			        				</div>
+			        			</t>
+
+
+
+
+	                	</div>
+
+	                    <div class="footer">
+
+	                    </div>
+	                </t>
+
+            </t>
+        </template>
+
+        <report
+            id="action_report_account_withholding"
+            model="account.withholding"
+            report_type="qweb-pdf"
+            string="Certificat Retenue A La Source"
+            name="l10n_tn_ras.report_account_withholding"
+            file="l10n_tn_ras.report_account_withholding"
+			menu="True"
+			/>
+<!--			attrs="{'invisible':[('state', '!=', 'draft')]}"-->
+
+
+    </data>
+</odoo>

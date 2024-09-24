@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_counter_number_view" model="ir.actions.act_window">
+        <field name="name">Counter Number</field>
+        <field name="res_model">customer.reference</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="view_id" ref="customer_reference_view_list"/>-->
+        <field name="search_view_id" ref="customer_reference_search.customer_reference_search_view"/>
+        <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('customer_reference_view_list')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('customer_reference_view_form')}),
+                         ]"/>
+    </record>
+    <menuitem
+        id="crm_menu_counter_number"
+        name="Counter Number"
+        parent="crm.crm_menu_sales"
+        action="customer_reference_search.action_counter_number_view"
+        sequence="25"/>
+
+</odoo>
+
+

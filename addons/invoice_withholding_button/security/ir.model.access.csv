@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rs_butt_rs_butt,rs_butt.rs_butt,model_rs_butt_rs_butt,base.group_user,1,1,1,1

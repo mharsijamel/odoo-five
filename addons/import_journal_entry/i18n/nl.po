@@ -1,0 +1,134 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* import_journal_entry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-30 06:30+0000\n"
+"PO-Revision-Date: 2021-06-30 06:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: import_journal_entry
+#: model:ir.model.fields.selection,name:import_journal_entry.selection__gen_journal_entry__import_option__csv
+msgid "CSV File"
+msgstr "CSV-bestand"
+
+#. module: import_journal_entry
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.import_account_move_line_view
+msgid "Cancel"
+msgstr "annuleren"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__create_uid
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__create_date
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Currency %s is not  in the system"
+msgstr "Valuta %s staat niet in het systeem"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__file_to_upload
+msgid "File"
+msgstr "het dossier"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__id
+msgid "ID"
+msgstr "ID kaart"
+
+#. module: import_journal_entry
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.import_account_move_line_view
+msgid "Import"
+msgstr "Importeren"
+
+#. module: import_journal_entry
+#: model:ir.actions.act_window,name:import_journal_entry.action_import_account_move_line
+msgid "Import Journal Entries"
+msgstr "Journaalposten importeren"
+
+#. module: import_journal_entry
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.button_for_import_move_line
+#: model_terms:ir.ui.view,arch_db:import_journal_entry.import_account_move_line_view
+msgid "Import Journal Items"
+msgstr "Journaalposten importeren"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Invalid file!"
+msgstr "Ongeldig bestand!"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__write_date
+msgid "Last Updated on"
+msgstr "Laatst geupdate op"
+
+#. module: import_journal_entry
+#: model:ir.model.fields,field_description:import_journal_entry.field_gen_journal_entry__import_option
+msgid "Select"
+msgstr "Selecteer"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Wrong Account Code"
+msgstr "Verkeerde accountcode"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Wrong Account Code %s"
+msgstr "Verkeerde accountcode %s"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "Wrong Analytic Account Name %s"
+msgstr "Verkeerde analytische accountnaam %s"
+
+#. module: import_journal_entry
+#: model:ir.model.fields.selection,name:import_journal_entry.selection__gen_journal_entry__import_option__xls
+msgid "XLS File"
+msgstr "XLS-bestand"
+
+#. module: import_journal_entry
+#: code:addons/import_journal_entry/account_move.py:0
+#, python-format
+msgid "You can not left blank date field!"
+msgstr "U kunt geen leeg datumveld verlaten!"
+
+#. module: import_journal_entry
+#: model:ir.model,name:import_journal_entry.model_gen_journal_entry
+msgid "gen.journal.entry"
+msgstr ""

@@ -16,14 +16,14 @@ class AccountTreasury(models.Model):
     amount = fields.Float(string='Total', digits='Product Price', required=True, readonly=True, )
 
     maturity_date = fields.Date(string='Maturity Date', readonly=True, )
-
+    move_line_id = fields.Many2one('account.move.line', 'Move Line', readonly=True)
     payment_date = fields.Date(string='Payment Date', required=True, readonly=True, )
 
     payment_id = fields.Many2one('account.payment', string='Payment ref', readonly=True, )
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, readonly=True, )
 
     invoice_ids = fields.Many2many('account.move', string='Invoice ref', readonly=True, )
-
+    move_id = fields.Many2one('account.move', string='Account Move', copy=False)
     user_id = fields.Many2one('res.users', string='User', required=True, readonly=True,
                               default=lambda self: self.env.user)
 
@@ -42,10 +42,19 @@ class AccountTreasury(models.Model):
         ('paid', 'Paid'),  # paier
         ('notice', 'Notice'),  # préavis
         ('cancel', 'Cancelled'),
-    ], 'State', required=True, readonly=True, index=1, default='in_cash', track_visibility='onchange')
+    ],  'State', compute='_compute_state', store=True, required=True, readonly=True, index=1, track_visibility='onchange')
+
+
+    @api.depends('move_line_id.reconciled')
+    def _compute_state(self):
+        for record in self:
+            if record.move_line_id and record.move_line_id.reconciled:
+                record.state = 'paid'
+            elif record.move_line_id and not record.move_line_id.reconciled:
+                record.state="versed"
 
     bank_origin = fields.Many2one('res.bank', string='Bank Origin', readonly=True, )
-    bank_target = fields.Many2one('res.bank', string='Bank Target', readonly=True, )
+    bank_target = fields.Many2one('res.partner.bank', string='Bank Target', readonly=True, )
 
     payment_type = fields.Selection(string='Payment Type', related='payment_id.payment_type', store=True, index=True)
 

@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_inherited
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-13 20:21+0000\n"
+"PO-Revision-Date: 2024-03-13 20:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_inherited
+#: model_terms:ir.ui.view,arch_db:crm_inherited.view_crm_lead_power_inherit
+msgid "<span class=\"oe_grey\"> KW</span>"
+msgstr ""
+
+#. module: crm_inherited
+#: model:ir.model,name:crm_inherited.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Piste/Opportunité"
+
+#. module: crm_inherited
+#: model:ir.model.fields,field_description:crm_inherited.field_crm_lead__power_level
+msgid "Power"
+msgstr "Puissance"

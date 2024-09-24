@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="albaraka_bank_cheque_format" model="dynamic.cheque">
+            <field name="name">Bank Albaraka</field>
+            <field name="cheque_height"> 76 </field>
+            <field name="cheque_width"> 176 </field>
+            <field name="top_margin"> 258.9 </field>
+            <field name="left_margin"> 215,88 </field>
+            <field name="font_size"> 18 </field>
+            <field name="char_spacing"> 6 </field>
+            <field name="payee_top_margin"> 150 </field>
+            <field name="payee_left_margin"> 150 </field>
+            <field name="payee_width"> 500,00 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="af_top_margin"> 40 </field>
+            <field name="af_left_margin"> 590 </field>
+            <field name="af_width"> 120 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 98 </field>
+            <field name="fl_left_margin"> 240 </field>
+            <field name="fl_width"> 257 </field>
+            <field name="words_in_fl_line"> 28 </field>
+            <field name="sc_top_margin"> 128 </field>
+            <field name="sc_left_margin"> 40 </field>
+            <field name="sc_width"> 580 </field>
+            <field name="words_in_sc_line"> 200 </field>
+            <field name="sc_font_size"> 18 </field>
+        </record>
+
+        <record id="biat_bank_cheque_format" model="dynamic.cheque">
+            <field name="name">BIAT Bank</field>
+            <field name="cheque_height"> 76 </field>
+            <field name="cheque_width"> 176 </field>
+            <field name="top_margin"> 240 </field>
+            <field name="left_margin"> 220 </field>
+            <field name="font_size"> 18 </field>
+            <field name="char_spacing"> 6 </field>
+            <field name="payee_top_margin"> 135 </field>
+            <field name="payee_left_margin"> 90 </field>
+            <field name="payee_width"> 500 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="af_top_margin"> 25 </field>
+            <field name="af_left_margin"> 580 </field>
+            <field name="af_width"> 120 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 70 </field>
+            <field name="fl_left_margin"> 280 </field>
+            <field name="fl_width"> 257 </field>
+            <field name="words_in_fl_line"> 28 </field>
+            <field name="sc_top_margin"> 100 </field>
+            <field name="sc_left_margin"> 20 </field>
+            <field name="sc_width"> 580 </field>
+            <field name="words_in_sc_line"> 200 </field>
+            <field name="sc_font_size"> 18 </field>
+        </record>
+
+        <record id="zitouna_bank_cheque_format" model="dynamic.cheque">
+            <field name="name">ZITOUNA Bank</field>
+            <field name="cheque_height"> 76 </field>
+            <field name="cheque_width"> 176 </field>
+            <field name="top_margin"> 261.66 </field>
+            <field name="left_margin"> 239.855 </field>
+            <field name="font_size"> 18 </field>
+            <field name="char_spacing"> 6 </field>
+            <field name="payee_top_margin"> 152.615 </field>
+            <field name="payee_left_margin"> 109.025 </field>
+            <field name="payee_width"> 500 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="af_top_margin"> 40 </field>
+            <field name="af_left_margin"> 623.6 </field>
+            <field name="af_width"> 120 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 113.386 </field>
+            <field name="fl_left_margin"> 261.66 </field>
+            <field name="fl_width"> 257 </field>
+            <field name="words_in_fl_line"> 28 </field>
+            <field name="sc_top_margin"> 135.191 </field>
+            <field name="sc_left_margin"> 65.415 </field>
+            <field name="sc_width"> 580 </field>
+            <field name="words_in_sc_line"> 200 </field>
+            <field name="sc_font_size"> 18 </field>
+        </record>
+        <record id="elwifek_bank_cheque_format" model="dynamic.cheque">
+            <field name="name">AlWIFEK Bank</field>
+            <field name="cheque_height"> 76 </field>
+            <field name="cheque_width"> 176 </field>
+            <field name="top_margin"> 270.382 </field>
+            <field name="left_margin"> 226.772 </field>
+            <field name="font_size"> 18 </field>
+            <field name="char_spacing"> 6 </field>
+            <field name="payee_top_margin"> 154.815 </field>
+            <field name="payee_left_margin"> 109.025 </field>
+            <field name="payee_width"> 500 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="af_top_margin"> 47.971 </field>
+            <field name="af_left_margin"> 553.847 </field>
+            <field name="af_width"> 120 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 87.22 </field>
+            <field name="fl_left_margin"> 239.855 </field>
+            <field name="fl_width"> 257 </field>
+            <field name="words_in_fl_line"> 28 </field>
+            <field name="sc_top_margin"> 122.108 </field>
+            <field name="sc_left_margin"> 65.415 </field>
+            <field name="sc_width"> 580 </field>
+            <field name="words_in_sc_line"> 200 </field>
+            <field name="sc_font_size"> 18 </field>
+        </record>
+        <record id="laposte_bank_cheque_format" model="dynamic.cheque">
+            <field name="name">La POSTE Tunisienne Bank</field>
+            <field name="cheque_height"> 76 </field>
+            <field name="cheque_width"> 176 </field>
+            <field name="top_margin"> 165.718 </field>
+            <field name="left_margin"> 510.237 </field>
+            <field name="font_size"> 18 </field>
+            <field name="char_spacing"> 6 </field>
+            <field name="payee_top_margin"> 146.093 </field>
+            <field name="payee_left_margin"> 109.025 </field>
+            <field name="payee_width"> 500 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="af_top_margin"> 43.361 </field>
+            <field name="af_left_margin"> 558.208 </field>
+            <field name="af_width"> 120 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 91.581 </field>
+            <field name="fl_left_margin"> 239.855 </field>
+            <field name="fl_width"> 257 </field>
+            <field name="words_in_fl_line"> 28 </field>
+            <field name="sc_top_margin"> 117.747 </field>
+            <field name="sc_left_margin"> 65.415 </field>
+            <field name="sc_width"> 580 </field>
+            <field name="words_in_sc_line"> 200 </field>
+            <field name="sc_font_size"> 18 </field>
+        </record>
+
+        <record id="btk_bank_cheque_format" model="dynamic.cheque">
+            <field name="name">BTK Bank</field>
+            <field name="cheque_height"> 76 </field>
+            <field name="cheque_width"> 176 </field>
+            <field name="top_margin"> 200 </field>
+            <field name="left_margin"> 140 </field>
+            <field name="font_size"> 18 </field>
+            <field name="char_spacing"> 6 </field>
+            <field name="payee_top_margin"> 170 </field>
+            <field name="payee_left_margin"> 45 </field>
+            <field name="payee_width"> 500 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="af_top_margin"> 35 </field>
+            <field name="af_left_margin"> 580 </field>
+            <field name="af_width"> 120 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 100 </field>
+            <field name="fl_left_margin"> 180 </field>
+            <field name="fl_width"> 257 </field>
+            <field name="words_in_fl_line"> 28 </field>
+            <field name="sc_top_margin"> 140 </field>
+            <field name="sc_left_margin"> 20 </field>
+            <field name="sc_width"> 580 </field>
+            <field name="words_in_sc_line"> 200 </field>
+            <field name="sc_font_size"> 18 </field>
+        </record>
+
+    </data>
+</odoo>

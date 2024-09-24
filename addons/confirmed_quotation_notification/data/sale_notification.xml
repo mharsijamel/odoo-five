@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="mail_activity_sale_order" model="mail.activity.type">
+            <field name="name">Devis Est Validé</field>
+            <field name="icon">fa-file-text-o</field>
+            <field name="res_model">sale.order</field>
+            <field name="delay_count">30</field>
+        </record>
+</odoo>

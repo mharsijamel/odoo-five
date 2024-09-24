@@ -23,6 +23,14 @@ class AccountWithholdingTax(models.Model):
     journal_id = fields.Many2one('account.journal', string='Journal', required=True)
 
 
+    @api.onchange('account_id')
+    def onchange_account_id(self):
+        # print('test')
+        for rec in self:
+            if rec.account_id:
+                rec.sudo().write({'refund_account_id': rec.account_id.id})
+
+
 class AccountWithholding(models.Model):
     _name = 'account.withholding'
 
@@ -122,6 +130,7 @@ class AccountWithholding(models.Model):
     withholding_advance = fields.Boolean(string='Retenue sur avance', default=0)
     account_move_id = fields.Many2one('account.move')
 
+
     @api.onchange('partner_id')
     def _partner_id_onchange(self):
         for invoice in self.account_invoice_ids:
@@ -175,7 +184,7 @@ class AccountWithholding(models.Model):
         self.ensure_one()
         if self.amount_advance == 0.0:
             if not all(obj.account_invoice_ids for obj in self):
-                raise Warning(
+                raise UserError(
                     _("Vous ne pouvez pas valider: Vous devez ajouter au moins une Ligne de facture ou entrer "
                       "un Montant d'avance."))
         if self.withholding_advance:
@@ -217,7 +226,7 @@ class AccountWithholding(models.Model):
                                'debit': cred,
                                'date': today,
                                'partner_id': self.partner_id.id,
-                               'account_id': self.journal_id.retenue_account_id.id}
+                               'account_id': self.account_withholding_tax_ids.account_id.id}
                 vals['line_ids'].append([0, False, withholding])
 
             self.account_move_id = self.env['account.move'].create(vals)
@@ -276,7 +285,7 @@ class AccountWithholding(models.Model):
                                'debit': credit,
                                'date': today,
                                'partner_id': self.partner_id.id,
-                               'account_id': self.journal_id.retenue_account_id.id}
+                               'account_id': self.account_withholding_tax_ids.account_id.id}
                 vals['line_ids'].append([0, False, withholding])
 
             self.account_move_id = self.env['account.move'].create(vals)
@@ -285,7 +294,7 @@ class AccountWithholding(models.Model):
             for rec in self.account_invoice_ids:
                 rec.action_register_payment()
                 continue
-            self.account_move_id.post()
+            self.account_move_id.action_post()
             self.state = 'done'
 
     # def button_reset_to_draft_withholding(self):
@@ -298,9 +307,11 @@ class AccountWithholding(models.Model):
 
     def unlink(self):
         for move in self:
-            if move.name != '/' and not self._context.get('force_delete'):
-                raise UserError(_("You cannot delete an entry which has been posted once."))
-            move.account_invoice_ids.unlink()
+            if move.account_move_id:
+                move.account_move_id.button_draft()
+                move.account_move_id.button_cancel()
+                move.account_move_id.with_context(force_delete=True).unlink()
+
         return super(AccountWithholding, self).unlink()
 
     def button_cancel(self):
@@ -333,8 +344,13 @@ class AccountWithholding(models.Model):
                 values['name'] = self.env['ir.sequence'].next_by_code('account.withholding.achat')
         return values
 
+
     @api.model
     def create(self, values):
         values = self.__modify_account_withholding_name(values)
         result = super(AccountWithholding, self).create(values)
         return result
+
+
+
+

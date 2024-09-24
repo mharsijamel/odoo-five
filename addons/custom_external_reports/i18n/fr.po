@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_external_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-18 16:22+0000\n"
+"PO-Revision-Date: 2024-04-18 16:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid ""
+"<br/>\n"
+"                    Net to pay:"
+msgstr ""
+"<br/>\n"
+"Net à payer:"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<span>Adresse:</span>"
+msgstr "<span>Adresse:</span>"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<span>R. Sociale:</span>"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>Credit Note Date:</strong>"
+msgstr "<strong>Date:</strong>"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>Date:</strong>"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Date:</strong>"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>Nb. KWC.:</strong>"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>Receipt Date:</strong>"
+msgstr "<strong>Date de réception:</strong>"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>STEG Ref.:</strong>"
+msgstr "<strong>Ref. STEG:</strong>"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "<strong>Source:</strong>"
+msgstr "<strong>N° BC:</strong>"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.document_tax_totals_inherit
+msgid "<strong>Total TTC</strong>"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "Address:"
+msgstr "Adresse:"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "CIN:"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "Code Client:"
+msgstr ""
+
+#. module: custom_external_reports
+#: model:ir.model.fields,field_description:custom_external_reports.field_account_bank_statement_line__counter_id
+#: model:ir.model.fields,field_description:custom_external_reports.field_account_move__counter_id
+#: model:ir.model.fields,field_description:custom_external_reports.field_account_payment__counter_id
+msgid "Counter Reference"
+msgstr "N° Compteur"
+
+#. module: custom_external_reports
+#: model:ir.model,name:custom_external_reports.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "KWC"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.external_layout_inherit
+msgid "Logo"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "M.F."
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "Mobile:"
+msgstr ""
+
+#. module: custom_external_reports
+#: model:ir.model.fields,field_description:custom_external_reports.field_account_bank_statement_line__power_level
+#: model:ir.model.fields,field_description:custom_external_reports.field_account_move__power_level
+#: model:ir.model.fields,field_description:custom_external_reports.field_account_payment__power_level
+msgid "Nb. KWC"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "N° Tél:"
+msgstr ""
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "N° Éxonoration:"
+msgstr "N° Éxonération:"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.external_layout_inherit
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: custom_external_reports
+#: model:ir.model,name:custom_external_reports.model_sale_order
+msgid "Sale Order"
+msgstr "Bon de commande"
+
+#. module: custom_external_reports
+#: model_terms:ir.ui.view,arch_db:custom_external_reports.report_invoice_document
+msgid "Valide Jusqu'à au"
+msgstr ""

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="group_delivered_quotation_notification" model="res.groups">
+        <field name="name">Notification pour les bons de commande livrés</field>
+        <field name="comment">Notification pour les bons de commande livrés.</field>
+    </record>
+</odoo>

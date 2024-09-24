@@ -541,9 +541,9 @@ class AccountReport(models.AbstractModel):
     @api.model
     def _get_options_all_entries_domain(self, options):
         if not options.get('all_entries'):
-            return [('move_id.state', '=', 'posted')]
+            return ['&', ('move_id', '!=', False), ('move_id.state', '=', 'posted')]
         else:
-            return [('move_id.state', '!=', 'cancel')]
+            return ['&', ('move_id', '!=', False), ('move_id.state', '!=', 'cancel')]
 
     ####################################################
     # OPTIONS: order column
@@ -818,7 +818,6 @@ class AccountReport(models.AbstractModel):
             ('display_type', 'not in', ('line_section', 'line_note')),
             ('move_id.state', '!=', 'cancel'),
             ('company_id', 'in', self.get_report_company_ids(options)),
-            ('account_id.internal_type', '!=', 'liquidity'),
         ]
         domain += self._get_options_journals_domain(options)
         domain += self._get_options_date_domain(options)
@@ -1067,8 +1066,8 @@ class AccountReport(models.AbstractModel):
         assert isinstance(domain, (list, tuple))
         domain += [('date', '>=', options.get('date').get('date_from')),
                    ('date', '<=', options.get('date').get('date_to'))]
-        if not options.get('all_entries'):
-            domain += [('move_id.state', '=', 'posted')]
+        #if not options.get('all_entries'):
+        #    domain += [('move_id.state', '=', 'posted')]
 
         ctx = self.env.context.copy()
         ctx.update({'search_default_account': 1, 'search_default_groupby_date': 1})

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="mail_activity_sale_order_data_updated" model="mail.activity.type">
+            <field name="name">Sale Order Data Has been Updated</field>
+            <field name="icon">fa-file-text-o</field>
+            <field name="res_model">sale.order</field>
+            <field name="delay_count">1</field>
+        </record>
+    </data>
+</odoo>

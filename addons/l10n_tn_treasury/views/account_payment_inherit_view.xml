@@ -25,7 +25,12 @@
             <xpath expr="//field[@name='checkbook_id']" position="replace">
                 <field name="incash_check" invisible="1"/>
                 <field name="incash_treaty" invisible="1"/>
-                <field name="checkbook_id" string="Check Number" force_save="1" attrs="{'invisible':  [('show_checkbook', '=', False), '&amp;', ('incash_check', '!=', True), '&amp;', ('payment_type', '!=', 'outbound')],'required': [('incash_check', '=', True), ('payment_type', '=', 'outbound')], 'readonly': [('state', '!=', 'draft')]  }"   />
+                <field name="checkbook_id" string="Check Number"
+       force_save="1"
+       attrs="{'invisible':  [('show_checkbook', '=', False), '&amp;', ('incash_check', '!=', True), '&amp;', ('payment_type', '!=', 'outbound')],'required': [('incash_check', '=', True), ('payment_type', '=', 'outbound')], 'readonly': [('state', '!=', 'draft')]  }"  domain="[ ('state', '=', 'available'), ('bank_id', '=', bank_origin)]" />
+
+
+
             </xpath>
             <xpath expr="//field[@name='cheque_payment_date']" position="replace">
                 <field name="cheque_payment_date" invisible="1" />

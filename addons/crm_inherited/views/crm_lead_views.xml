@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_crm_lead_power_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath  expr="//label[@for='probability']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath  expr="//label[@for='probability']"  position="after">
+                <label for="power_level"/>
+            </xpath>
+            <xpath  expr="//div[@id='probability']"  position="replace">
+                <div id="power" class="o_row d-flex">
+                    <field name="is_automated_probability" invisible="1"/>
+                    <field name="probability" invisible="1" widget="float" class="oe_inline"/>
+                    <field name="power_level" widget="float" class="oe_inline"/>
+                    <span class="oe_grey"> KW</span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

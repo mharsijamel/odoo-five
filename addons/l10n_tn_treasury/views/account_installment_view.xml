@@ -30,7 +30,7 @@
                         </group>
                         <notebook colspan="4">
                             <page string="Treasury">
-                                <field name="treasury_ids" colspan="4" nolabel="1" domain="[('state', '!=', 'valid')]" options="{'no_create': True}">
+                                <field name="treasury_ids" colspan="4" nolabel="1" domain="[('state', '=', 'in_cash')]" options="{'no_create': True}">
                                     <tree create="false" edit="false" delete="true" editable="bottom">
         <!--                                <field name="document_id"/>-->
         <!--                                <field name="partner_id"/>-->

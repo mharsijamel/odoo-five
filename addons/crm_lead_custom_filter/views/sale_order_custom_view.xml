@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_order_view_search_inh" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.sale</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='campaign_id']" position="after">
+                <field name="power_level"/>
+                <field name="installation_type"/>
+                <field name="city"/>
+                <field name="partner_state"/>
+                <separator/>
+                <filter string="Ville" name="city" context="{'group_by': 'city'}"/>
+                <filter string="État" name="partner_state" context="{'group_by': 'partner_state'}"/>
+                <filter string="Nb Kilos" name="power_level" context="{'group_by': 'power_level'}"/>
+                <filter string="Type d'usage" name="installation_type" context="{'group_by': 'installation_type'}"/>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="view_sale_order_form_inherit_devie54" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='order_date']" position="after">
+                <field name="city"/>
+                <field name="partner_state"/>
+                 <field name="power_level"/>
+                <field name="installation_type"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

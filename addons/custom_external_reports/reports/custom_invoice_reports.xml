@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <t t-set="address" >
+                    <div t-if="not o.partner_id.parent_id" style="border: 1px solid black; padding: 10px;border-radius: 5px;width: 100%;">
+                        <div t-if="o.partner_id.ref"><span>Code Client: <span t-field="o.partner_id.ref"/></span></div>
+                        <span>R. Sociale:</span> <span t-field="o.partner_id.name"/>
+                        <div><span t-if="o.partner_id.phone">N° Tél:  <span t-field="o.partner_id.phone"/> </span> <span t-if="o.partner_id.phone and o.partner_id.mobile"> -- </span> <span t-if="o.partner_id.mobile">Mobile: <span t-field="o.partner_id.mobile"/></span></div>
+
+                        <div>Address: <span t-esc="o.partner_id and (o.partner_id.street or '') + ', ' + (o.partner_id.street2 or '') + ', ' + (o.partner_id.city or '') + ', ' + (o.partner_id.state_id.name or '') + ', ' + (o.partner_id.country_id.name or '') or ''"/>        </div>
+                        <div t-if="o.partner_id.vat">
+                            <t t-if="o.company_id.account_fiscal_country_id.vat_label" t-esc="o.company_id.account_fiscal_country_id.vat_label" id="inv_tax_id_label"/>
+                            <t t-else="">M.F.</t>: <span t-field="o.partner_id.vat"/></div>
+                        <div t-if="o.partner_id.nci">
+                            CIN: <span t-field="o.partner_id.nci"/></div>
+                        <div t-if="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True)">
+                            N° Éxonoration: <span t-esc="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).name"/> <span t-if="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).start_date"> la validité de l’attestation du <span t-esc="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).start_date" t-options="{'widget': 'date', 'format': 'dd-MM-yyyy'}"/></span> <span t-if="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).end_date">au <span t-esc="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).end_date" t-options="{'widget': 'date', 'format': 'dd-MM-yyyy'}"/></span></div>
+                    </div>
+                    <div t-if="o.partner_id.parent_id" style="border: 1px solid black; padding: 10px;border-radius: 5px;width: 100%;">
+                        <div t-if="o.partner_id.parent_id.ref"><span>Code Client: <span t-field="o.partner_id.ref"/></span></div>
+                        <span>R. Sociale:</span> <span t-field="o.partner_id.parent_id.name"/>
+                        <span t-if="o.partner_id.parent_id.phone">N° Tél:  <span t-field="o.partner_id.parent_id.phone"/> </span> <span t-if="o.partner_id.parent_id.phone and o.partner_id.parent_id.mobile"> -- </span> <span t-if="o.partner_id.parent_id.mobile">Mobile: <span t-field="o.partner_id.parent_id.mobile"/></span>
+                        <div><span>Adresse:</span><span t-esc="o.partner_id and (o.partner_id.street or '') + ', ' + (o.partner_id.street2 or '') + ', ' + (o.partner_id.city or '') + ', ' + (o.partner_id.state_id.name or '') + ', ' + (o.partner_id.country_id.name or '') or ''"/>        </div>
+                        <div t-if="o.partner_id.parent_id.vat">
+                            <t t-if="o.company_id.account_fiscal_country_id.vat_label" t-esc="o.company_id.account_fiscal_country_id.vat_label" id="inv_tax_id_label"/>
+                            <t t-else="">M.F.</t>: <span t-field="o.partner_id.parent_id.vat"/></div>
+                        <div t-if="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True)">
+                            N° Éxonoration: <span t-esc="o.partner_id.parent_id.exemption_certificate_ids.filtered(lambda l: l.active == True).name"/> <span t-if="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).end_date">Valide Jusqu'à au <span t-esc="o.partner_id.exemption_certificate_ids.filtered(lambda l: l.active == True).end_date"/></span></div>
+                    </div>
+                </t>
+            </xpath>
+            <xpath expr="//div[@class='page']" position="attributes">
+                <attribute name="style">margin-top: -40px;</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='line.product_uom_id']" position="replace">
+            </xpath>
+            <xpath expr="//p[@name='payment_communication']" position="replace">
+                <p t-if="o.move_type in ('out_invoice')" name="payment_communication" class="text-right pt2">
+                    <br/>
+                    Net to pay: <b><span t-field="o.net_to_pay"/></b>
+                </p>
+            </xpath>
+            <xpath expr="//td[@class='text-right o_price_total']" position="replace">
+                <td class="text-right o_price_total">
+                    <span class="text-nowrap" t-esc="str('%.3f' % line.price_subtotal).replace('DT', '')" groups="account.group_show_line_subtotals_tax_excluded"/>
+                    <span class="text-nowrap" t-esc="str('%.3f' % line.price_total).replace('DT', '')" groups="account.group_show_line_subtotals_tax_included"/>
+                </td>
+            </xpath>
+            <xpath expr="//div[@id='informations']" position="replace">
+                <div id="informations" class="row mt-4 mb-4">
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.invoice_date" name="invoice_date">
+                        <t t-if="o.move_type == 'out_invoice'"><strong>Invoice Date:</strong></t>
+                        <t t-elif="o.move_type == 'out_refund'"><strong>Credit Note Date:</strong></t>
+                        <t t-elif="o.move_type == 'out_receipt'"><strong>Receipt Date:</strong></t>
+                        <t t-else=""><strong>Date:</strong></t>
+                        <p class="m-0" t-field="o.invoice_date"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.invoice_origin" name="origin">
+                        <strong>Source:</strong>
+                        <p class="m-0" t-field="o.invoice_origin"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.counter_id.name" name="customer_code">
+                        <strong>STEG Ref.:</strong>
+                        <p class="m-0" t-field="o.counter_id.name"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.power_level" name="customer_code">
+                        <strong>Nb. KWC.:</strong>
+                        <p><span class="m-0" t-field="o.power_level"/> KWC</p>
+                    </div>
+                </div>
+            </xpath>
+
+        </template>
+
+        <template id="document_tax_totals_inherit" inherit_id="account.document_tax_totals">
+
+            <xpath expr="//tr[@class='border-black o_total']" position="replace">
+                <!--Total amount with all taxes-->
+                <tr class="border-black o_total">
+                    <td><strong>Total TTC</strong></td>
+                    <td class="text-right">
+                        <span t-esc="str(tax_totals['formatted_amount_total']).replace('DT', '')"/>
+                    </td>
+                </tr>
+            </xpath>
+            <xpath expr="//span[@t-att-class='oe_subtotal_footer_separator']" position="replace">
+                <!--Total amount with all taxes-->
+                <span
+                    t-att-class="oe_subtotal_footer_separator"
+                    t-esc="str(subtotal['formatted_amount']).replace('DT', '')"
+                />
+            </xpath>
+        </template>
+
+        <template id="tax_groups_totals" inherit_id="account.tax_groups_totals">
+            <!--
+                Generic template to display a list of tax groups with the related amounts.
+
+                ARGUMENTS:
+                - tax_totals: dict in the form generated by account.move's _get_tax_totals.
+                - subtotal_to_show: The subtotal we need to render the groups from
+            -->
+            <xpath expr="//t" position="replace">
+                <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                    <tr>
+                        <t t-if="len(tax_totals['groups_by_subtotal'][subtotal_to_show]) > 1 or (tax_totals['amount_untaxed'] != amount_by_group['tax_group_base_amount'])">
+                            <td>
+                                <span t-esc="amount_by_group['tax_group_name']"/>
+                                <span class="text-nowrap"> on
+                                    <t t-esc="str(amount_by_group['formatted_tax_group_base_amount']).replace('DT', '')"/>
+                                </span>
+                            </td>
+                            <td class="text-right o_price_total">
+                                <span class="text-nowrap" t-esc="str(amount_by_group['formatted_tax_group_amount']).replace('DT', '')"/>
+                            </td>
+                        </t>
+                        <t t-else="">
+                            <td><span class="text-nowrap" t-esc="amount_by_group['tax_group_name']"/></td>
+                            <td class="text-right o_price_total">
+                                <span class="text-nowrap" t-esc="str(amount_by_group['formatted_tax_group_amount']).replace('DT', '')" />
+                            </td>
+                        </t>
+                    </tr>
+                </t>
+            </xpath>
+
+        </template>
+
+    </data>
+</odoo>

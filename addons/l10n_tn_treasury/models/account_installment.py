@@ -3,6 +3,10 @@ import time
 from datetime import datetime
 from odoo.exceptions import UserError
 from .amount_to_text_fr import amount_to_text_fr
+import logging
+from odoo.tools.translate import _
+
+_logger = logging.getLogger(__name__)
 
 
 class AccountInstallment(models.Model):
@@ -19,7 +23,8 @@ class AccountInstallment(models.Model):
     date_to = fields.Date(string='End Date', default=datetime.now().strftime('%Y-%m-%d'),
                           readonly=True, states={'draft': [('readonly', False)]})
     bank_target = fields.Many2one('res.partner.bank', 'Target Bank', readonly=True,
-                                  states={'draft': [('readonly', False)]}, domain=[('company_id', '<>', False)])
+                                  states={'draft': [('readonly', False)]},
+                                  domain=[('company_id', '<>', False)])
     journal_id = fields.Many2one('account.journal', 'Journal', readonly=True, states={'draft': [('readonly', False)]},
                                  domain=[('type', '=', 'bank')])
     treasury_ids = fields.Many2many('account.treasury', 'account_vesement_treasury_rel', 'vesement_id', 'treasury_id',
@@ -68,10 +73,10 @@ class AccountInstallment(models.Model):
                 debit = {
                     'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
                         line.maturity_date) or '/',
-                    'partner_id': line.partner_id.id,
+                    'partner_id': line.holder.id,
                     'debit': line.amount,
                     'credit': 0,
-                    'account_id': vesement.journal_id.default_account_id.id,
+                    'account_id': vesement.journal_id.suspense_account_id.id,
                     'date': vesement.date_vesement,
                 }
                 move['line_ids'].append([0, False, debit])
@@ -82,20 +87,30 @@ class AccountInstallment(models.Model):
                         line.maturity_date) or '/',
                     'debit': 0,
                     'credit': line.amount,
-                    'partner_id': line.partner_id.id,
-                    'account_id': line.payment_id.journal_id.default_account_id.id,
+                    'partner_id': line.holder.id,
+                    'account_id': line.journal_id.suspense_account_id.id,
                     'date': vesement.date_vesement,
                 }
                 move['line_ids'].append([0, False, credit])
 
             self.move_id = self.env['account.move'].create(move)
             self.move_id.action_post()
-            # account_move_lines_to_reconcile = self.env['account.move.line']
-            # for treas in vesement.treasury_ids:
-            #     account_move_lines_to_reconcile |= treas.payment_id.line_ids.filtered(
-            #         lambda line: line.account_id.user_type_id.type == 'liquidity')
-            # account_move_lines_to_reconcile |= self.move_id.line_ids.filtered(lambda line: line.credit > 0)
-            # account_move_lines_to_reconcile.reconcile()
+            for line in vesement.treasury_ids:
+                _logger.info('move id %s', self.move_id.id)
+                move_line = self.move_id.line_ids.filtered(
+                    lambda l: (l.debit == line.amount)  # Only credit lines
+                              and l.partner_id.id == line.holder.id
+                )
+                if len(move_line) > 1:
+                    _logger.warning(
+                        f"Multiple matching move lines found for amount: {line.amount}, partner: {line.holder.id}")
+                    # Select the correct move line based on additional criteria
+                    move_line = move_line[0]
+                if move_line:
+                    line.move_line_id = move_line.id
+                else:
+                    _logger.warning(f"No matching move line found for amount: {line.amount}, partner: {line.holder.id}")
+
 
     def button_validate(self):
         if len(self.treasury_ids) == 0:
@@ -105,18 +120,96 @@ class AccountInstallment(models.Model):
                 raise UserError(_('Document number %s for %s is not in cash !') % (
                     treasury.name, treasury.holder.name))
             treasury.state = 'versed'
+            treasury.bank_target = self.bank_target.id
+            _logger.info('Bank target for treasury %s', self.bank_target.id)
         self.amount_in_word = amount_to_text_fr(self.amount, currency='Dinars')
         self.state = 'valid'
-        # self.action_move_line_create()
+        self.action_move_line_create()
+        #self._create_bank_statement()
+    
+    # def _create_bank_statement(self):
+    #     for vesement in self:
+    #         # Create the bank statement
+    #         statement = {
+    #             'journal_id': vesement.journal_id.id,
+    #             'date': vesement.date_vesement,
+    #             'name': _('Bank Statement %s') % vesement.name,
+    #             'line_ids': [],
+    #         }
+    #
+    #         # Calculate the starting balance
+    #         account_move_lines = self.env['account.move.line'].search([
+    #             ('account_id', '=', vesement.journal_id.default_account_id.id),
+    #             ('date', '<', vesement.date_vesement),
+    #         ])
+    #
+    #         # Calculate the starting balance
+    #         last_statement = self.env['account.bank.statement'].search([
+    #             ('journal_id', '=', vesement.journal_id.id),
+    #             ('state', '=', 'posted'),
+    #         ], order='date DESC', limit=1)
+    #
+    #         # Set starting balance based on the last bank statement or 0 if none exists
+    #         balance_start = last_statement.balance_end if last_statement else 0.0
+    #         balance_end = balance_start
+    #
+    #         for line in vesement.treasury_ids:
+    #             # Determine transaction type based on amount sign
+    #             if line.amount > 0:
+    #                 transaction_type = 'debit'
+    #             elif line.amount < 0:
+    #                 transaction_type = 'credit'
+    #             else:
+    #                 transaction_type = 'other'
+    #
+    #             bank_statement_line = {
+    #                 'move_id': False,  # Set as needed
+    #                 'statement_id': False,  # Will be set after creating the statement
+    #                 'sequence': False,  # Set as needed
+    #                 'account_number': vesement.journal_id.default_account_id.name,
+    #                 'partner_name': line.holder.name if line.holder else '',
+    #                 'transaction_type': transaction_type,
+    #                 'payment_ref': line.name or '',
+    #                 'amount': line.amount,
+    #                 'partner_id': line.holder.id if line.holder else False,
+    #                 'is_reconciled': False,
+    #             }
+    #
+    #             statement['line_ids'].append([0, False, bank_statement_line])
+    #             balance_end += line.amount
+    #
+    #         # Create the statement
+    #         created_statement = self.env['account.bank.statement'].create(statement)
+    #         # Update the statement lines with the correct statement_id
+    #         for line in created_statement.line_ids:
+    #             line.write({'statement_id': created_statement.id})
+    #         created_statement.write({'balance_start': balance_start})
+
 
     def button_cancel(self):
-        for treasury in self.treasury_ids:
-            if treasury.state != 'versed':
-                raise UserError(_('Document number %s for %s is not versed !') % (
-                    treasury.name, treasury.holder.name))
-            treasury.state = 'in_cash'
-            treasury.bank_target = False
-        self.state = 'cancel'
+        for vesement in self:
+            # Check if all related treasury lines are in the 'versed' state
+            for treasury in vesement.treasury_ids:
+                if treasury.state != 'versed':
+                    raise UserError(_('Document number %s for %s is not versed!') % (
+                        treasury.name, treasury.holder.name))
+                # Reset the state of the treasury lines to 'in_cash'
+                treasury.state = 'in_cash'
+                treasury.bank_target = False  # Clear the bank target
+
+            # Change state to cancel
+            vesement.state = 'cancel'
+            
+            # Delete the associated bank statement
+            if vesement.move_id:
+                vesement.move_id.button_cancel()
+                vesement.move_id.unlink()
+            
+            # Find and delete the associated bank statement
+            statement = self.env['account.bank.statement'].search([
+                ('journal_id', '=', vesement.journal_id.id),
+                ('name', '=', _('Bank Statement %s') % vesement.name)
+            ])
 
     @api.model
     def create(self, vals):

@@ -21,6 +21,7 @@
     'support': 'odoomates@gmail.com',
     'depends': [
         'accounting_pdf_reports',
+        # 'om_account_asset',
         'om_account_budget',
         'om_fiscal_year',
         'om_recurring_payments',

@@ -131,7 +131,7 @@ class AccountTreasuryInstallment(models.Model):
             return True
         else:
             raise UserError(_('Le Montant de versement doit être supérieur à Zéro'))
-
+    
     def button_cancel(self):
         self.move_id.button_cancel()
         self.move_id.unlink()

@@ -10,6 +10,7 @@ from . import account_withdrawal_cash
 from . import account_installment
 from . import account_installment_trait
 from . import account_move
+from . import account_move_line
 
 
 
