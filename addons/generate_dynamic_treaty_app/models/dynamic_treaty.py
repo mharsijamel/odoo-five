@@ -115,3 +115,5 @@ class DynamicTreaty(models.Model):
     bank_left_margin = fields.Float(string='Left Margin')
     bank_width = fields.Float(string="Width")
     bank_font_size = fields.Float(string="Font Size")
+    full_left_margin = fields.Float(string='Marge Gauche du Traite', default=0.0)
+    full_top_margin = fields.Float(string='Marge Supérieur du Traite', default=0.0)

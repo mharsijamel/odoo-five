@@ -98,6 +98,41 @@
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="account_treasury_search">
+            <field name="name">account.treasury.search</field>
+            <field name="model">account.treasury</field>
+            <field name="arch" type="xml">
+                <search string="Search Treasury Documents">
+                    <!-- Search by name and amount -->
+                    <field name="name" string="Nom"/>
+                    <field name="amount" string="Amount"/>
+                    <field name="state" string="statut"/>
+                    <separator/>
+                    <!-- Filters for payment_type and state -->
+                    <filter name="payment_type_filter" string="Encaissement" domain="[('payment_type', '=', 'inbound')]"/>
+                    <filter name="payment_type_filter" string="Décaissement" domain="[('payment_type', '=', 'outbound')]"/>
+                    <separator/>
+                    <filter name="state_incash" string="En Caisse" domain="[('state', '=', 'in_cash')]"/>
+                    <filter name="state_versed" string="Encours" domain="[('state', '=', 'versed')]"/>             
+                    <filter name="state_paid" string="Versé" domain="[('state', '=', 'paid')]"/>
+                    <filter name="state_notice" string="Notice" domain="[('state', '=', 'notice')]"/>
+                    <separator/>
+                    <!-- Group by fields -->
+                    <group expand="0" string="Group By">
+                        <filter string="State" name="group_by_state" context="{'group_by':'state'}"/>
+                        <filter string="Payment Type" name="group_by_payment_type" context="{'group_by':'payment_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_account_treasury" model="ir.actions.act_window">
+            <field name="name">Treasury</field>
+            <field name="res_model">account.treasury</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="account_treasury_search"/>
+        </record>
+        
 
     </data>
 

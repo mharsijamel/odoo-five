@@ -1,5 +1,7 @@
 from odoo import models, fields, api
+import logging
 
+_logger = logging.getLogger(__name__)
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
@@ -14,8 +16,11 @@ class AccountMoveLine(models.Model):
         store=True
     )
 
+    @api.depends('name')
     def _compute_treasury_state(self):
-        for line in self:
+        _logger.info('treasurytreasury ')
+        all_move_lines = self.search([])
+        for line in all_move_lines:
             treasury = self.env['account.treasury'].search([('move_line_id', '=', line.id)], limit=1)
             if treasury:
                 line.treasury_state = treasury.state

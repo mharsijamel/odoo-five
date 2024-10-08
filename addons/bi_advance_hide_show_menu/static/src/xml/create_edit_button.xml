@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+
+
+    <t t-extend="FormView.buttons">
+        <t t-jquery="button.o_form_button_create" t-operation="replace">
+            <t t-if="!(widget and widget.has_create_group)">
+                <button t-if="widget.is_action_enabled('create')" type="button" class="btn btn-secondary o_form_button_create" accesskey="c">
+                    Create
+                </button>
+            </t>
+        </t>
+        <t t-jquery="button.o_form_button_edit" t-operation="replace">
+            <t t-debug="pdb"/>
+            <t t-if="!(widget and widget.has_edit_group)">
+                <button t-if="widget.is_action_enabled('edit')" type="button" class="btn btn-primary o_form_button_edit" accesskey="a">
+                    Edit
+                </button>
+            </t>
+        </t>
+    </t>
+
+
+    <t t-extend="KanbanView.buttons">
+        <t t-jquery="button" t-operation="replace">
+            <t t-if="!(widget and widget.has_create_group)">
+                <button type="button" t-attf-class="btn #{btnClass} o-kanban-button-new" accesskey="c">
+                    <t t-esc="create_text || _t('Create')"/>
+                </button>
+            </t>
+        </t>
+    </t>
+
+</template>

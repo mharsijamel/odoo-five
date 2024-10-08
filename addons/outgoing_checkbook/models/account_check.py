@@ -1,6 +1,9 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+import logging
+from odoo.tools.translate import _
 
+_logger = logging.getLogger(__name__)
 
 class AccountCheck(models.Model):
     _name = 'account.check'
@@ -46,6 +49,9 @@ class AccountCheck(models.Model):
                     for inv in rec.payment_ids[0].reconciled_invoice_ids:
                         libelle = libelle + ", " + inv.name
                     rec.libelle = libelle
+                if not  rec.libelle:
+                    rec.libelle = "avance"
+
             elif rec.state == 'used' and rec.motif == False:
                 rec.state = 'available'
                 rec.payment_id = False

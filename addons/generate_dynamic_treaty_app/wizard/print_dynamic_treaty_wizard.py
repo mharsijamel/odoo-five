@@ -86,7 +86,7 @@ class PrinttreatyWizard(models.TransientModel):
         margin_right = 0
         dpi = 90
         header_spacing = 0
-        orientation = 'Portrait'
+        orientation = 'Landscape'
         self._cr.execute(""" DELETE FROM report_paperformat WHERE custom_report_treaty=TRUE""")
         paperformat_id = self.env['report.paperformat'].sudo().create({
             'name': 'Custom Treaty Report',

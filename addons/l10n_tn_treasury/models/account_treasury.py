@@ -1,8 +1,9 @@
 
 from odoo import api, fields, models, _, Command
 from odoo.exceptions import UserError, ValidationError
+import logging
 
-
+_logger = logging.getLogger(__name__)
 class AccountTreasury(models.Model):
 
     _name = 'account.treasury'
@@ -19,7 +20,7 @@ class AccountTreasury(models.Model):
     move_line_id = fields.Many2one('account.move.line', 'Move Line', readonly=True)
     payment_date = fields.Date(string='Payment Date', required=True, readonly=True, )
 
-    payment_id = fields.Many2one('account.payment', string='Payment ref', readonly=True, )
+    payment_id = fields.Many2one('account.payment', string='Payment ref', readonly=True,ondelete="cascade", )
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, readonly=True, )
 
     invoice_ids = fields.Many2many('account.move', string='Invoice ref', readonly=True, )
@@ -50,8 +51,12 @@ class AccountTreasury(models.Model):
         for record in self:
             if record.move_line_id and record.move_line_id.reconciled:
                 record.state = 'paid'
-            elif record.move_line_id and not record.move_line_id.reconciled:
+            elif record.move_line_id and not record.move_line_id.reconciled and record.payment_type == 'inbound':
                 record.state="versed"
+            elif record.move_line_id and not record.move_line_id.reconciled and record.payment_type == 'outbound':
+                record.state="notice"
+            else:
+                record.state = 'in_cash'
 
     bank_origin = fields.Many2one('res.bank', string='Bank Origin', readonly=True, )
     bank_target = fields.Many2one('res.partner.bank', string='Bank Target', readonly=True, )
@@ -89,7 +94,7 @@ class AccountTreasury(models.Model):
     def check_paid(self):
         view_id = self.env.ref('l10n_tn_treasury.document_treasury_paid_wizard').id
         action = {
-                'name': "Payé",
+                'name': "Versé",
                 'type': 'ir.actions.act_window',
                 'view_mode': 'form',
                 'res_model': 'document.treasury.paid',
@@ -109,4 +114,23 @@ class AccountTreasury(models.Model):
         return self.write({
             'state': 'paid',
         })
+    def unlink(self):
+        _logger.info('recording 1')
+        for record in self:
+            if record.state in ['versed', 'paid']:
+                raise UserError(_("Vous ne pouvez pas supprimer un enregistrement de trésorerie qui est à l'état « Encours » ou « Payé »."))
+            # Store references before any operation
+            move = record.payment_id.move_id    
+            _logger.info('recording 2')
+            # Handle move deletion
+            if move and move.exists():
+                try:
+                    move.button_cancel()
+                    move.with_context(force_delete=True).unlink()
+                except Exception as e:
+                    _logger.warning(f"Failed to delete move {move.id}: {str(e)}")
+        _logger.info('recording 3')  
+        return super(AccountTreasury, self).unlink()
+
+
 

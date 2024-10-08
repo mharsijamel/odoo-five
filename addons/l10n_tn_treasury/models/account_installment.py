@@ -71,7 +71,7 @@ class AccountInstallment(models.Model):
             }
             for line in vesement.treasury_ids:
                 debit = {
-                    'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
+                    'name': "Traite[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
                         line.maturity_date) or '/',
                     'partner_id': line.holder.id,
                     'debit': line.amount,
@@ -83,12 +83,12 @@ class AccountInstallment(models.Model):
 
             for line in vesement.treasury_ids:
                 credit = {
-                    'name': "Cheque[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
+                    'name': "Traite[" + line.holder.name + "]N:[" + line.name + "]DV:" + str(
                         line.maturity_date) or '/',
                     'debit': 0,
                     'credit': line.amount,
                     'partner_id': line.holder.id,
-                    'account_id': line.journal_id.suspense_account_id.id,
+                    'account_id': line.payment_id.journal_id.suspense_account_id.id,
                     'date': vesement.date_vesement,
                 }
                 move['line_ids'].append([0, False, credit])
@@ -97,10 +97,53 @@ class AccountInstallment(models.Model):
             self.move_id.action_post()
             for line in vesement.treasury_ids:
                 _logger.info('move id %s', self.move_id.id)
-                move_line = self.move_id.line_ids.filtered(
-                    lambda l: (l.debit == line.amount)  # Only credit lines
-                              and l.partner_id.id == line.holder.id
-                )
+                
+                if line.payment_type == 'inbound':
+                    move_line = self.move_id.line_ids.filtered(
+                        lambda l: (l.debit == line.amount) 
+                                and l.partner_id.id == line.holder.id
+                    )
+                    move_line2 = self.move_id.line_ids.filtered(
+                        lambda l: (l.credit == line.amount) 
+                                and l.partner_id.id == line.holder.id
+                    )
+                elif line.payment_type == 'outbound':
+                    move_line = self.move_id.line_ids.filtered(
+                        lambda l: (l.credit == line.amount) 
+                                and l.partner_id.id == line.holder.id
+                    )
+                    move_line2 = self.move_id.line_ids.filtered(
+                        lambda l: (l.debit == line.amount) 
+                                and l.partner_id.id == line.holder.id
+                    )
+                
+                _logger.info('payment_id %s', line.payment_id)
+                if line.payment_id:
+                    payment = self.env['account.payment'].browse(line.payment_id.id)
+                    if payment:
+                        _logger.info('payment %s', payment)
+                        # Find move lines to reconcile
+                        lines_to_reconcile = payment.move_id.line_ids.filtered(
+                            lambda l: l.account_id == payment.outstanding_account_id and not l.reconciled
+                        )
+
+                        _logger.info('lines_to_reconcile1 %s', lines_to_reconcile)
+                        lines_to_reconcile |= move_line2  # Add the current move line
+
+                        _logger.info('lines_to_reconcile1 %s', lines_to_reconcile)
+
+                        # Perform reconciliation
+                        lines_to_reconcile.reconcile()
+                        payment.write({
+                            'is_reconciled': True,
+                            'is_matched': True,
+                        })
+
+                        _logger.info('reconciled ok ')
+
+                    else:
+                        _logger.warning(f"No matching payment found for payment ID: {line.payment_id.id}")
+ 
                 if len(move_line) > 1:
                     _logger.warning(
                         f"Multiple matching move lines found for amount: {line.amount}, partner: {line.holder.id}")
@@ -108,6 +151,7 @@ class AccountInstallment(models.Model):
                     move_line = move_line[0]
                 if move_line:
                     line.move_line_id = move_line.id
+                    
                 else:
                     _logger.warning(f"No matching move line found for amount: {line.amount}, partner: {line.holder.id}")
 
@@ -187,29 +231,48 @@ class AccountInstallment(models.Model):
 
 
     def button_cancel(self):
-        for vesement in self:
-            # Check if all related treasury lines are in the 'versed' state
-            for treasury in vesement.treasury_ids:
-                if treasury.state != 'versed':
-                    raise UserError(_('Document number %s for %s is not versed!') % (
-                        treasury.name, treasury.holder.name))
-                # Reset the state of the treasury lines to 'in_cash'
-                treasury.state = 'in_cash'
-                treasury.bank_target = False  # Clear the bank target
+        for treasury in self.treasury_ids:
+            if treasury.state != 'versed':
+                raise UserError(_('Document number %s is not versed !') % (
+                    treasury.name))
+            _logger.info('treasury 1')    
+            # Restore payment state if exists
+            if treasury.payment_id:
+                payment = self.env['account.payment'].browse(treasury.payment_id.id)
+                if payment:
+                    # Find reconciled move lines
+                    reconciled_lines = payment.move_id.line_ids.filtered(
+                        lambda l: l.account_id == payment.outstanding_account_id and l.reconciled
+                    )
+                    
+                    # Remove reconciliation
+                    if reconciled_lines:
+                        reconciled_lines.remove_move_reconcile()
+                    
+                    # Reset payment state
+                    payment.write({
+                        'is_reconciled': False,
+                        'is_matched': False,
+                    })
+            _logger.info('treasury 2')            
+            # Reset treasury state
+            treasury.state = 'in_cash'
+            treasury.bank_target = False
+            _logger.info('treasury 3')    
+            # Clear move_line reference if exists
+            if treasury.move_line_id:
+                treasury.move_line_id = False
+            _logger.info('treasury 4')    
+        # Cancel and delete the move
+        if self.move_id:
+            self.move_id.button_draft()  # First set to draft before canceling
+            self.move_id.button_cancel()
+            self.move_id.with_context(force_delete=True).unlink()
+        _logger.info('treasury 5')        
+        self.move_id = False
+        self.state = 'cancel'
 
-            # Change state to cancel
-            vesement.state = 'cancel'
-            
-            # Delete the associated bank statement
-            if vesement.move_id:
-                vesement.move_id.button_cancel()
-                vesement.move_id.unlink()
-            
-            # Find and delete the associated bank statement
-            statement = self.env['account.bank.statement'].search([
-                ('journal_id', '=', vesement.journal_id.id),
-                ('name', '=', _('Bank Statement %s') % vesement.name)
-            ])
+
 
     @api.model
     def create(self, vals):

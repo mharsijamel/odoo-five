@@ -81,6 +81,12 @@ class AccountPaymentRegister(models.TransientModel):
         treasury_id = 0
         payments = self._create_payments()
         invoices = self.env['account.move'].browse(self.env.context.get('active_ids', []))
+        _logger.info('payments.move_id %s', payments.move_id)
+        _logger.info('payments.move_id.line_ids %s', payments.move_id.line_ids)
+        # Access the move lines instead of account.move directly
+        debit_line = payments.move_id.line_ids.filtered(lambda line: line.debit > 0)
+        credit_line = payments.move_id.line_ids.filtered(lambda line: line.credit > 0)
+        move_line_id = debit_line.id if self.payment_type == 'inbound' else credit_line.id
         if self.payment_type == 'inbound':
             if self.incash_check and self.payment_type == 'inbound':
                 values = {
@@ -155,6 +161,7 @@ class AccountPaymentRegister(models.TransientModel):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
+                    'move_line_id': move_line_id,
                 }
                 already_exist = self.env['account.treasury'].sudo().search([('name', '=', '0000000'), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
                 if already_exist:
@@ -180,6 +187,7 @@ class AccountPaymentRegister(models.TransientModel):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
+                    'move_line_id': move_line_id,
                 }
                 already_exist = self.env['account.treasury'].sudo().search([('name', '=', False), ('holder', '=', self.partner_id.id), ('payment_id', '=', payments.id)])
                 if already_exist:

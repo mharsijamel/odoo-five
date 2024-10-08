@@ -35,4 +35,6 @@ class DynamicCheque(models.Model):
     words_in_sc_line = fields.Integer(string='No. of Word in Second Line')
     sc_font_size = fields.Float(string='Font Size')
     journal_id = fields.Many2one('account.journal', string='Journal')
+    full_left_margin = fields.Float(string='Marge Gauche du Chèque', default=418)
+    full_top_margin = fields.Float(string='Marge Top du Chèque', default=228)
 

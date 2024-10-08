@@ -29,9 +29,9 @@ class DynamicChequeGenerate(models.AbstractModel):
 		first_line = (amount_word[0:cheque_format.words_in_fl_line])
 		s1 = cheque_format.words_in_fl_line
 		s2 = cheque_format.words_in_fl_line + cheque_format.words_in_sc_line
-		second_line = (amount_word[s1:s2])
+		second_line = amount_word
 		localdict = {
-			'first_line': first_line,
+			'first_line': '',
 			'second_line': second_line
 		}
 		return localdict

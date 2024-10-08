@@ -17,6 +17,7 @@
         "data/report_paperformat_parameter.xml",
         "views/report_check_dlt103.xml",
         "views/report_check_zitouna.xml",
+        "views/report_check_wifak.xml",
         "report/account_check_writing_report.xml",
     ],
     "installable": True,

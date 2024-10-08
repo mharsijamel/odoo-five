@@ -1,0 +1,26 @@
+<odoo>
+    <!-- Define the new action for opening journal items filtered by bank balance -->
+    <record id="action_open_journal_items_with_bank_balance" model="ir.actions.act_window">
+        <field name="name">Bank Journal Items</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="account.view_move_line_tree"/>
+        <field name="domain">[('display_type', 'not in', ('line_section', 'line_note'))]</field>
+        <field name="context">{'search_default_posted':1}</field>
+    </record>
+
+    <!-- Inherit the existing dashboard view to add "Balance in GL" link -->
+    <record model="ir.ui.view" id="custom_account_journal_dashboard_kanban_view">
+        <field name="name">account.journal.dashboard.kanban.reports.custom</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
+        <field name="arch" type="xml">
+            <!-- Adding a link to 'Balance in GL' under bank journal -->
+            <xpath expr="//div[@id='dashboard_bank_cash_right']" position="inside">
+                <div class="col overflow-hidden text-left">
+                    <a type="object" name="action_outstanding_payments">Balance in Defaut</a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

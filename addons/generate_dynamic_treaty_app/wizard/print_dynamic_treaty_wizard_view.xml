@@ -8,7 +8,7 @@
 			<field name="arch" type="xml">
 				 <form string="Print treaty">
                     <group>
-                        <field name="treaty_format" placeholder="Select treaty Format" style="color:#898687"/>
+                        <field name="treaty_format" placeholder="Select treaty Format" style="color:#898687" widget="selection"/>
                         <field name="payment_id" invisible='1' readonly='1' />
                     </group>
                     <footer>

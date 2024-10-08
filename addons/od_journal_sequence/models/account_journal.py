@@ -141,6 +141,19 @@ class AccountJournal(models.Model):
                     }
                     journal.refund_sequence_id = self.sudo()._create_sequence(journal_vals, refund=True).id
         return super(AccountJournal, self).write(vals)
+    
+    def delete_sequences(self):
+        for journal in self:
+            # Check if journal entries exist before deleting the sequences
+            if self.env['account.move'].search([('journal_id', '=', journal.id)], limit=1):
+                raise UserError(_('Cannot delete sequences for a journal that already has entries.'))
 
+            # Dissocier et supprimer la séquence normale si elle existe
+            if journal.sequence_id:
+                journal.write({'sequence_id': False})  # Dissocier la séquence
+                journal.sequence_id.sudo().unlink()
 
-
+            # Dissocier et supprimer la séquence de remboursement si elle existe
+            if journal.refund_sequence_id:
+                journal.write({'refund_sequence_id': False})  # Dissocier la séquence de remboursement
+                journal.refund_sequence_id.sudo().unlink()

@@ -26,6 +26,9 @@
                     />
                     <field name="target_move" widget="radio" />
                     <field name="invoice" />
+                    <field name="document" />
+                    <field name="debit" />
+                    <field name="credit" />
                     <field name="allow_blocked" />
                     <label
                         for="populate"
@@ -35,7 +38,7 @@
                     <button name="populate" type="object" string="Add All Move Lines" />
                 </group>
                 <group name="move_lines" string="Selected Move Lines to Create Lines">
-                    <field name="move_line_ids" nolabel="1">
+                    <field name="move_line_ids" nolabel="1" domain="[('reconciled', '=', False)]">
                         <tree>
                             <field name="date" />
                             <field name="move_id" required="0" />
@@ -47,9 +50,10 @@
                             <field name="credit" />
                             <field name="amount_residual" sum="Total Residual" />
                             <field name="amount_currency" />
+                            <field name="name" />
+                            <field name="ref" />
                             <field name="amount_residual_currency" />
                             <field name="company_currency_id" invisible="1" />
-                            <field name="treasury_state" />
                         </tree>
                     </field>
                 </group>

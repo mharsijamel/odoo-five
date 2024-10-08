@@ -19,6 +19,10 @@
                             <field name="refund_sequence_id" required="0" attrs="{'readonly': 1}"/>
                         </group>
                     </group>
+                    <group>
+                        <button name="delete_sequences" string="Delete Sequences" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('sequence_id','=',False),('refund_sequence_id','=',False)]}"/>
+                    </group>
                 </page>
             </xpath>
         </field>

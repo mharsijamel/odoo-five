@@ -8,6 +8,7 @@
         <tree string="Journal Items">
             <!-- Add the treasury_state field here -->
             <field name="treasury_state"/>
+            <field name="ref"/>
             <!-- Existing fields -->
             <field name="name"/>
             <field name="debit"/>

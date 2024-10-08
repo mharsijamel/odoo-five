@@ -29,9 +29,9 @@ class DynamictreatyGenerate(models.AbstractModel):
 		first_line = (amount_word[0:treaty_format.words_in_fl_line])
 		s1 = treaty_format.words_in_fl_line
 		s2 = treaty_format.words_in_fl_line + treaty_format.words_in_sc_line
-		second_line = (amount_word[s1:s2])
+		second_line = amount_word
 		localdict = {
-			'first_line': first_line,
+			'first_line': '',
 			'second_line': second_line
 		}
 		return localdict

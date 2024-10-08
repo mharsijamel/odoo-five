@@ -16,9 +16,20 @@ class ResCompany(models.Model):
                 "account_check_printing_report_dlt103.action_report_check_zitouna",
                 "ZITOUNA",
             )
+            ,
+            (
+                "account_check_printing_report_dlt103.action_report_check_wifak",
+                "wifak",
+            ),
+            (
+                "account_check_printing_report_dlt103.action_report_check_baraka",
+                "BARAKA",
+            )
         ],
         ondelete={
             "account_check_printing_report_dlt103.action_report_check_dlt103": "cascade",
-            "account_check_printing_report_dlt103.action_report_check_zitouna": "cascade"
+            "account_check_printing_report_dlt103.action_report_check_zitouna": "cascade",
+            "account_check_printing_report_dlt103.action_report_check_zitouna": "cascade",
+            "account_check_printing_report_dlt103.action_report_check_baraka": "cascade"
         },
     )

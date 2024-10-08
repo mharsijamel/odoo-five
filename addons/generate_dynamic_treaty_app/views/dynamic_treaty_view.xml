@@ -21,6 +21,12 @@
 							<group >
 								<field name="treaty_width"/>
 							</group>
+							<group >
+								<field name="full_left_margin"/>
+							</group>
+							<group >
+								<field name="full_top_margin"/>
+							</group>
 						</group>
 						<group col="3">
 							<group string="A/c Pay" colspan="1" col="2">

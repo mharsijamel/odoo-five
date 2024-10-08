@@ -1,0 +1,275 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bi_advance_hide_show_menu
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-18 10:57+0000\n"
+"PO-Revision-Date: 2024-09-18 10:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Archive"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Are you sure that you want to archive all the selected records?"
+msgstr "Êtes-vous sûr de vouloir archiver tous les enregistrements sélectionnés ?"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Are you sure that you want to archive this record?"
+msgstr "Etes-vous sûr de vouloir archiver cet enregistrement ?"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/xml/create_edit_button.xml:0
+#, python-format
+msgid "Create"
+msgstr "Créer"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Delete"
+msgstr "Supprimer"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Duplicate"
+msgstr "Dupliquer"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/xml/create_edit_button.xml:0
+#, python-format
+msgid "Edit"
+msgstr "Modifier"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Export"
+msgstr "Exporter"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__fields_id
+msgid "Field"
+msgstr "Champ"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_ir_model__field_config_id
+msgid "Field Config"
+msgstr "Configuration du champ"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_field_config
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_ir_model_fields_hide
+msgid "Field Configuration"
+msgstr "Configuration du champ"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__config_fields_id
+msgid "Fields"
+msgstr "Champs"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__group_ids
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_ir_actions_report__group_ids
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_res_groups__menu_ids
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_res_groups__report_ids
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_res_users__menu_access_ids
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_res_users__report_access_ids
+msgid "Groups"
+msgstr "Groupes"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_hide_action_btn
+msgid "Hide Action Button"
+msgstr "Masquer le bouton d'action"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_create_btn_access
+msgid "Hide Create Button"
+msgstr "Masquer le bouton Créer"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_hide_delete_action
+msgid "Hide Delete Action"
+msgstr "Masquer l'action de suppression"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_hide_duplicate_action
+msgid "Hide Duplicate Action"
+msgstr "Masquer l'action en double"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_edit_form_btn_access
+msgid "Hide Edit Button "
+msgstr "Masquer le bouton Modifier"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_hide_export_action
+msgid "Hide Export Action"
+msgstr "Masquer l'action d'exportation"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_export_btn_access
+msgid "Hide Export All Button"
+msgstr "Masquer le bouton Exporter tout"
+
+#. module: bi_advance_hide_show_menu
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_ir_action_report_hide
+msgid "Hide From Group"
+msgstr "Masquer du groupe"
+
+#. module: bi_advance_hide_show_menu
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_ir_action_report_hide
+msgid "Hide From User"
+msgstr "Masquer de l'utilisateur"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_import_btn_access
+msgid "Hide Import Button"
+msgstr "Masquer le bouton d'importation"
+
+#. module: bi_advance_hide_show_menu
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_notify_user
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_res_group_page
+msgid "Hide Menu"
+msgstr "Masquer le menu"
+
+#. module: bi_advance_hide_show_menu
+#: model:res.groups,name:bi_advance_hide_show_menu.group_hide_print_btn
+msgid "Hide Print Button"
+msgstr "Masquer le bouton d'impression"
+
+#. module: bi_advance_hide_show_menu
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_notify_user
+#: model_terms:ir.ui.view,arch_db:bi_advance_hide_show_menu.view_res_group_page
+msgid "Hide Report"
+msgstr "Masquer le rapport"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__id
+msgid "ID"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__invisible
+msgid "Invisible"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_ir_actions_report
+msgid "Ir Action Report"
+msgstr "Rapport d'action Ir"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_ir_model
+msgid "Ir Model"
+msgstr "Modèle Ir"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_ir_ui_menu
+msgid "Ir Ui Menu"
+msgstr "Menu de l'interface utilisateur"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_ir_module_module
+msgid "Module"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__readonly
+msgid "Readonly"
+msgstr "Lecture seule"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_res_groups
+msgid "Res Groups"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_res_users
+msgid "Res Users"
+msgstr ""
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_field_config__name
+msgid "Technical Name"
+msgstr "Nom technique"
+
+#. module: bi_advance_hide_show_menu
+#. openerp-web
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#: code:addons/bi_advance_hide_show_menu/static/src/js/hide_create_edit_button.js:0
+#, python-format
+msgid "Unarchive"
+msgstr "Désarchiver"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_ir_actions_report__users_ids
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model,name:bi_advance_hide_show_menu.model_ir_ui_view
+msgid "View"
+msgstr "Vue"
+
+#. module: bi_advance_hide_show_menu
+#: model:ir.model.fields,field_description:bi_advance_hide_show_menu.field_ir_ui_menu__is_write
+msgid "Write"
+msgstr "Écrire"

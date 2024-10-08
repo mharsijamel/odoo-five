@@ -1,4 +1,8 @@
 from odoo import _, api, fields, models
+import logging
+
+# Define the logger
+_logger = logging.getLogger(__name__)
 
 class AccountStatementLineCreate(models.TransientModel):
     _name = "account.statement.line.create"
@@ -22,6 +26,11 @@ class AccountStatementLineCreate(models.TransientModel):
         string="Type of Date Filter",
         required=True,
     )
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company.id)
+    currency_id = fields.Many2one('res.currency', string='Currency', related='company_id.currency_id')
+    debit=fields.Monetary(string="Débit", currency_field='currency_id')
+    credit=fields.Monetary(string="Crédit", currency_field='currency_id')
+    document = fields.Char(string="N° Pièce")
     due_date = fields.Date(default=fields.Date.context_today)
     move_date = fields.Date(default=fields.Date.context_today)
     move_line_ids = fields.Many2many("account.move.line", string="Move Lines")
@@ -41,9 +50,9 @@ class AccountStatementLineCreate(models.TransientModel):
                     {
                         "target_move": "posted",
                         "date_type": "due",
-                        "invoice": True,
+                        "invoice": False,
                         "statement_id": statement.id,
-                    }
+                        "journal_ids": [(6, 0, [statement.journal_id.id])],                     }
                 )
         return res
 
@@ -51,14 +60,21 @@ class AccountStatementLineCreate(models.TransientModel):
         self.ensure_one()
         domain = [
             ("reconciled", "=", False),
-            #("account_id.internal_type", "in", ("payable", "receivable")),
             ("company_id", "=", self.env.company.id),
         ]
         if self.journal_ids:
-            domain += [("journal_id", "in", self.journal_ids.ids)]
+            domain += [
+                    ("journal_id", "in", self.journal_ids.ids)]
+            suspense_account_ids = self.journal_ids.mapped('suspense_account_id.id')
+            if suspense_account_ids:
+                domain += [("account_id", "in", suspense_account_ids)]
+            
         else:
             journals = self.env["account.journal"].search([])
             domain += [("journal_id", "in", journals.ids)]
+            suspense_account_ids = journals.mapped('suspense_account_id.id')
+            if suspense_account_ids:
+                domain += [("account_id", "in", suspense_account_ids)]
         if self.partner_id:
             domain += [("partner_id", "=", self.partner_id.id)]
         if self.target_move == "posted":
@@ -75,15 +91,22 @@ class AccountStatementLineCreate(models.TransientModel):
             domain.append(("date", "<=", self.move_date))
         if self.invoice:
             domain.append(("move_id", "!=", False))
+        if self.document:
+            domain.append(("ref", "ilike", self.document))
+        
+        if self.debit:
+            domain.append(("debit", "=", self.debit))
+        if self.credit:
+            domain.append(("credit", "=", self.credit))
         paylines = self.env["account.payment"].search(
             [
                 ("state", "in", ("draft", "posted", "sent")),
                 ("line_ids", "!=", False),
             ]
         )
-        if paylines:
-            move_in_payment_ids = paylines.mapped("line_ids.id")
-            domain += [("id", "not in", move_in_payment_ids)]
+        #if paylines:
+         #   move_in_payment_ids = paylines.mapped("line_ids.id")
+        #    domain += [("id", "not in", move_in_payment_ids)]
         return domain
 
     def populate(self):
@@ -111,11 +134,16 @@ class AccountStatementLineCreate(models.TransientModel):
         "target_move",
         "allow_blocked",
         "partner_id",
+        "document",
+        "debit",
+        "credit",
     )
     def move_line_filters_change(self):
         domain = self._prepare_move_line_domain()
-        res = {"domain": {"move_line_ids": domain}}
-        return res
+        lines = self.env["account.move.line"].search(domain)
+        self.move_line_ids = False
+        self.move_line_ids = lines
+        
 
     def create_statement_lines(self):
         for rec in self:

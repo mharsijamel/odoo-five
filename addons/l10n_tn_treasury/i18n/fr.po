@@ -340,7 +340,7 @@ msgstr ""
 
 #. module: l10n_tn_treasury
 #: model_terms:ir.ui.view,arch_db:l10n_tn_treasury.account_treasury_form
-msgid "Chèque/Traite Versé"
+msgid "Chèque/Traite encours"
 msgstr ""
 
 #. module: l10n_tn_treasury
@@ -960,7 +960,7 @@ msgstr "Ouvert"
 #. module: l10n_tn_treasury
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__paid
 msgid "Paid"
-msgstr "Payé"
+msgstr "Versé"
 
 #. module: l10n_tn_treasury
 #: model:ir.model,name:l10n_tn_treasury.model_document_treasury_paid
@@ -1245,7 +1245,7 @@ msgstr "Valider"
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_exchange_document__document_state__versed
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__versed
 msgid "Versed"
-msgstr "Versé"
+msgstr "encours"
 
 #. module: l10n_tn_treasury
 #: model:ir.actions.report,name:l10n_tn_treasury.action_report_treaty_vesement

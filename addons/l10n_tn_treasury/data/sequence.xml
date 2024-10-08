@@ -8,6 +8,13 @@
             <field name="padding">6</field>
             <field name="company_id" eval="False"/>
         </record>
+        <record id="seq_vesement_trait" model="ir.sequence">
+            <field name="name">Vesement Traite</field>
+            <field name="code">account.installment.trait</field>
+            <field name="prefix">VTRAIT</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
 
          <record id="seq_vesement_cash" model="ir.sequence">
             <field name="name">Account Treasury Installment</field>

@@ -20,7 +20,7 @@ class AccountPayment(models.Model):
 
     bank_origin = fields.Many2one('res.bank', string='Bank Origin')
 
-    treasury_id = fields.Many2one('account.treasury', string='Treasury ID', ondelete='cascade')
+    treasury_id = fields.Many2one('account.treasury', string='Treasury ID',ondelete="cascade")
 
     @api.depends('partner_type', 'journal_id', 'payment_type', 'payment_method_line_id', 'incash_check')
     def compute_show_checkbook(self):
@@ -109,6 +109,10 @@ class AccountPayment(models.Model):
                 rec.sudo().write({
                     'date_maturity': self.maturity_date,
                 })
+        bank_move_line = self.move_id.line_ids.filtered(lambda line: line.account_id.internal_type == 'bank')
+        credit_line = self.move_id.line_ids.filtered(lambda line: line.credit > 0)
+        move_line_id = credit_line.id
+        _logger.info('target %s', bank_move_line.id)
         if self.payment_type == 'inbound':
             if self.incash_check and not self.treasury_id:
                 values = {
@@ -194,6 +198,8 @@ class AccountPayment(models.Model):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
+                    'move_line_id': move_line_id ,
+
                 }
                 check_id = self.env['account.treasury'].sudo().create(values)
                 self.checkbook_id.compute_treasury()
@@ -213,6 +219,8 @@ class AccountPayment(models.Model):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
+                    'move_line_id': move_line_id ,
+
                 }
                 treaty_id = self.env['account.treasury'].sudo().create(values)
 
@@ -232,6 +240,7 @@ class AccountPayment(models.Model):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
+                    'move_line_id': move_line_id ,
                 }
                 self.treasury_id.sudo().update(values)
                 self.checkbook_id.compute_treasury()
@@ -249,6 +258,7 @@ class AccountPayment(models.Model):
                     'holder': self.partner_id.id,
                     'state': 'in_cash',
                     'bank_origin': self.journal_id.bank_id.id,
+                    'move_line_id': move_line_id ,
                 }
                 self.treasury_id.sudo().update(values)
 
@@ -265,3 +275,22 @@ class AccountPayment(models.Model):
                 else:
                     raise UserError(
                         _('You cannot delete this document because treasury document is not valid or cancel!'))
+                
+    def unlink(self):
+
+        for record in self:
+            _logger.info('record 1')
+            if record.treasury_id and record.treasury_id.state in ['versed', 'paid']:
+                raise UserError(_("Vous ne pouvez pas supprimer un enregistrement de trésorerie qui est à l'état « Encours » ou « Payé »."))
+            move = record.move_id
+            # Handle move deletion
+            if move and move.exists():
+                _logger.info('record 2')
+                try:
+                    move.button_cancel()
+                    move.with_context(force_delete=True).unlink()
+                except Exception as e:
+                    _logger.warning(f"Failed to delete move {move.id}: {str(e)}")
+                    
+            _logger.info('record 3')
+        #return super(AccountPayment, self).unlink()
