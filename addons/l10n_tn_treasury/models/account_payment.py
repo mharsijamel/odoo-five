@@ -22,6 +22,7 @@ class AccountPayment(models.Model):
 
     treasury_id = fields.Many2one('account.treasury', string='Treasury ID',ondelete="cascade")
 
+    #to show check numbers (already created) only for supplier outbound check payments
     @api.depends('partner_type', 'journal_id', 'payment_type', 'payment_method_line_id', 'incash_check')
     def compute_show_checkbook(self):
         for rec in self:
@@ -69,12 +70,17 @@ class AccountPayment(models.Model):
                                     'libelle': libelle + ", " + bill.name
                                 })
         return res
-
+    
+    #to show num_traite ou num_cheque ou ne pas les afficher
     @api.depends('journal_id', 'payment_method_line_id')
     def compute_incash_checks_treaty(self):
         for payment in self:
             if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank':
+                _logger.info('payment.incash_check %s', payment.incash_check)
+                _logger.info('payment.incash_treaty %s', payment.incash_treaty)
+                _logger.info('payment.payment_method_line_id.code %s', payment.payment_method_line_id.code)
                 if payment.payment_method_line_id.code == 'check_printing':
+                    
                     payment.incash_check = True
                     payment.incash_treaty = False
                 elif payment.payment_method_line_id.code == 'treaty':
@@ -101,7 +107,6 @@ class AccountPayment(models.Model):
                 payment.incash_treaty = False
 
     def action_post(self):
-        _logger.info('partner target %s', self.partner_id.id)
         ''' draft -> posted '''
         res = super(AccountPayment, self).action_post()
         for rec in self.move_id.line_ids:
@@ -280,7 +285,7 @@ class AccountPayment(models.Model):
 
         for record in self:
             _logger.info('record 1')
-            if record.treasury_id and record.treasury_id.state in ['versed', 'paid']:
+            if record.treasury_id and record.treasury_id.state in ['versed', 'paid','cancel','notice']:
                 raise UserError(_("Vous ne pouvez pas supprimer un enregistrement de trésorerie qui est à l'état « Encours » ou « Payé »."))
             move = record.move_id
             # Handle move deletion
@@ -294,3 +299,11 @@ class AccountPayment(models.Model):
                     
             _logger.info('record 3')
         #return super(AccountPayment, self).unlink()
+    
+    def action_draft(self):
+        for record in self:
+            if record.treasury_id.state not in ['cancel','notice']:
+                raise UserError(_("Vous ne pouvez pas remettre en brouillon un paiement lié à un document de trésorerie, vous pouvez juste le supprimer."))
+        
+        # Call the parent method to handle the usual action_draft logic
+        return super(AccountPayment, self).action_draft()

@@ -62,8 +62,8 @@
             <field name="model">account.check</field>
             <field name="arch" type="xml">
                 <search string="Account Checks">
-<!--                    <field name="number"/>-->
-<!--                    <field name="bank_id"/>-->
+                   <field name="number"/>
+                   <field name="bank_id"/>
                     <separator/>
                     <filter name="available" string="Disponibles" domain="[('state', '=', 'available')]"/>
                     <filter name="used" string="Utilisés" domain="[('state', '=', 'used')]"/>

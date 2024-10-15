@@ -97,7 +97,7 @@ class AccountWithdrawalCash(models.Model):
         }
         vals['line_ids'].append([0, False, move_line2])
         self.move_id = self.env['account.move'].create(vals)
-        self.move_id.post()
+        self.move_id.action_post()
 
     def button_validate(self):
         if self.amount > 0.0:

@@ -117,7 +117,6 @@ class AccountInstallment(models.Model):
                                 and l.partner_id.id == line.holder.id
                     )
                 
-                _logger.info('payment_id %s', line.payment_id)
                 if line.payment_id:
                     payment = self.env['account.payment'].browse(line.payment_id.id)
                     if payment:
@@ -127,20 +126,13 @@ class AccountInstallment(models.Model):
                             lambda l: l.account_id == payment.outstanding_account_id and not l.reconciled
                         )
 
-                        _logger.info('lines_to_reconcile1 %s', lines_to_reconcile)
                         lines_to_reconcile |= move_line2  # Add the current move line
-
-                        _logger.info('lines_to_reconcile1 %s', lines_to_reconcile)
-
                         # Perform reconciliation
-                        lines_to_reconcile.reconcile()
-                        payment.write({
-                            'is_reconciled': True,
-                            'is_matched': True,
+                        #lines_to_reconcile.reconcile()
+                        #make them to true to not get amount in outstanding payments of temporary bank account(traite ou chèque) and not reconcile because reconcile make invoice paid whith versment
+                        lines_to_reconcile.write({
+                            'reconciled': True,
                         })
-
-                        _logger.info('reconciled ok ')
-
                     else:
                         _logger.warning(f"No matching payment found for payment ID: {line.payment_id.id}")
  
@@ -165,9 +157,9 @@ class AccountInstallment(models.Model):
                     treasury.name, treasury.holder.name))
             treasury.state = 'versed'
             treasury.bank_target = self.bank_target.id
-            _logger.info('Bank target for treasury %s', self.bank_target.id)
         self.amount_in_word = amount_to_text_fr(self.amount, currency='Dinars')
         self.state = 'valid'
+        #make move line from temporary journal to payment journal
         self.action_move_line_create()
         #self._create_bank_statement()
     
@@ -250,11 +242,9 @@ class AccountInstallment(models.Model):
                         reconciled_lines.remove_move_reconcile()
                     
                     # Reset payment state
-                    payment.write({
-                        'is_reconciled': False,
-                        'is_matched': False,
+                    reconciled_lines.write({
+                        'reconciled': False,
                     })
-            _logger.info('treasury 2')            
             # Reset treasury state
             treasury.state = 'in_cash'
             treasury.bank_target = False
@@ -262,13 +252,11 @@ class AccountInstallment(models.Model):
             # Clear move_line reference if exists
             if treasury.move_line_id:
                 treasury.move_line_id = False
-            _logger.info('treasury 4')    
         # Cancel and delete the move
         if self.move_id:
             self.move_id.button_draft()  # First set to draft before canceling
             self.move_id.button_cancel()
             self.move_id.with_context(force_delete=True).unlink()
-        _logger.info('treasury 5')        
         self.move_id = False
         self.state = 'cancel'
 

@@ -9,8 +9,8 @@
           <field name="arch" type="xml">
             <xpath expr="//field[@name='journal_id']" position="after">
                 <field name="partner_id" />
-                <field name="incash_check" invisible="1"/>
-                <field name="incash_treaty" invisible="1"/>
+                <field name="incash_check" invisible="0"/>
+                <field name="incash_treaty" invisible="0"/>
 
                 <field name="maturity_date" attrs="{'invisible': [('incash_check', '=', False), ('incash_treaty', '=', False), '|', ('payment_type', '!=', 'inbound')], 'required': ['|',('incash_check', '=', True), ('incash_treaty', '=', True)] }"/>
                 <field name="num_cheque" attrs="{'invisible': ['|', ('incash_check', '=', False), ('payment_type', '!=', 'inbound')] ,'required': [('incash_check', '=', True), ('payment_type', '=', 'inbound')]  }" />

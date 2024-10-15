@@ -17,6 +17,7 @@ class AccountTreasury(models.Model):
     amount = fields.Float(string='Total', digits='Product Price', required=True, readonly=True, )
 
     maturity_date = fields.Date(string='Maturity Date', readonly=True, )
+    #move line to track document treasury state
     move_line_id = fields.Many2one('account.move.line', 'Move Line', readonly=True)
     payment_date = fields.Date(string='Payment Date', required=True, readonly=True, )
 
@@ -30,6 +31,9 @@ class AccountTreasury(models.Model):
 
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True,
                                  default=lambda self: self.env.company)
+    #move lines of payment (caisse en attente traite ou chèque) to be reconciled if treasury document state becomes paid to make invoice from in payment to paid
+    reconciled_move_line_ids = fields.Many2many('account.move.line', string='Reconciled Move Lines')
+    installment_move_line_id = fields.Many2one('account.move.line', string='Installment Move Line')
 
     payment_method_line_id = fields.Many2one('account.payment.method.line', string='Payment Method', related='payment_id.payment_method_line_id', store=True, index=True)
     # document_type = fields.Many2one('account.document.type', string='Document Type', required=True, readonly=True,)
@@ -51,10 +55,30 @@ class AccountTreasury(models.Model):
         for record in self:
             if record.move_line_id and record.move_line_id.reconciled:
                 record.state = 'paid'
+                # to econcile the move lines, you must make reconciled=false to not get error when reconcile
+                #reconcile to get state linked invoice from in payment to paid
+                if record.reconciled_move_line_ids and record.installment_move_line_id:                  
+                    record.reconciled_move_line_ids.write({
+                            'reconciled': False,
+                        })
+                    record.installment_move_line_id.write({
+                        'reconciled': False,
+                    })
+                    (record.reconciled_move_line_ids + record.installment_move_line_id).reconcile()
+                
             elif record.move_line_id and not record.move_line_id.reconciled and record.payment_type == 'inbound':
                 record.state="versed"
+                #intercept the case when a bank statement is canceled so cancel reconciled move lines and just make them to true to not get amount in outstanding payments of temporary bank account(traite ou chèque)
+                if record.reconciled_move_line_ids and record.installment_move_line_id:
+                    (record.reconciled_move_line_ids + record.installment_move_line_id).remove_move_reconcile()
+                    record.reconciled_move_line_ids.write({
+                            'reconciled': True,
+                        })
+                    record.installment_move_line_id.write({
+                        'reconciled': True,
+                    })
             elif record.move_line_id and not record.move_line_id.reconciled and record.payment_type == 'outbound':
-                record.state="notice"
+                record.state="versed"
             else:
                 record.state = 'in_cash'
 

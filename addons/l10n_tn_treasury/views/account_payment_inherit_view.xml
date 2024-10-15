@@ -7,8 +7,8 @@
           <field name="inherit_id" ref="account.view_account_payment_form"/>
           <field name="arch" type="xml">
             <xpath expr="//field[@name='journal_id']" position="after">
-                <field name="incash_check" invisible="1"/>
-                <field name="incash_treaty" invisible="1"/>
+                <field name="incash_check" invisible="0"/>
+                <field name="incash_treaty" invisible="0"/>
                 <field name="maturity_date" attrs="{'invisible': [('incash_check', '=', False), ('incash_treaty', '=', False), '|', ('payment_type', '!=', 'inbound')], 'required': ['|',('incash_check', '=', True), ('incash_treaty', '=', True)], 'readonly': [('state', '!=', 'draft')] }"/>
                 <field name="num_cheque" attrs="{'invisible': ['|', ('incash_check', '=', False), ('payment_type', '!=', 'inbound')] ,'required': [('incash_check', '=', True), ('payment_type', '=', 'inbound')], 'readonly': [('state', '!=', 'draft')]  }" />
                 <field name="num_treaty" attrs="{'invisible': [('incash_treaty', '=', False)], 'required': [('incash_treaty', '=', True)] }" />
@@ -40,4 +40,3 @@
     </data>
 
 </odoo>
-

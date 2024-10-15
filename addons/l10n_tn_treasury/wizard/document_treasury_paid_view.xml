@@ -10,11 +10,13 @@
                         <field name="date" readonly="0"/>
                         <field name="check_id" readonly="1"/>
                         <field name="partner_id" readonly="1"/>
-                        <field name="journal_target" readonly="0"/>
-                        <field name="journal_type" readonly="1"/>
-                        <field name="payment_ref" readonly="0" attrs="{'required': [('journal_type', '=', 'bank')], 'invisible': [('journal_type', '!=', 'bank')]}"/>
+                        <field name="journal_target" readonly="0"
+                           attrs="{'required': [('action', '!=', 'cancel')], 'invisible': [('action', '=', 'cancel')]}"/>
+                        <field name="journal_type" readonly="1" attrs="{'invisible': [('action', '=', 'cancel')]}"/>
+                        <field name="payment_ref" readonly="0" attrs="{'required': [('journal_type', '=', 'bank'), ('action', '!=', 'cancel')], 'invisible': [('journal_type', '!=', 'bank')]}"/>
                         <field name="amount" readonly="1"/>
                         <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                        <field name="action" widget="radio"/>
                 </group>
                 <footer>
                     <button name="button_confirm" string="confirm" type="object" class="btn-primary"/>

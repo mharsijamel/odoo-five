@@ -9,7 +9,6 @@ from odoo.tools.translate import _
 _logger = logging.getLogger(__name__)
 
 
-
 class AccountInstallmentTrait(models.Model):
     _name = 'account.installment.trait'
     _description = 'Vesement traite'
@@ -45,6 +44,7 @@ class AccountInstallmentTrait(models.Model):
         ('valid', 'Validate'),
         ('cancel', 'Cancel'),
     ], 'State', required=True, readonly=True, select=1, default='draft', track_visibility='onchange')
+    
 
     @api.depends('treasury_ids')
     def _compute_treasury_number(self):
@@ -118,29 +118,23 @@ class AccountInstallmentTrait(models.Model):
                                 and l.partner_id.id == line.holder.id
                     )
                 
-                _logger.info('payment_id %s', line.payment_id)
                 if line.payment_id:
                     payment = self.env['account.payment'].browse(line.payment_id.id)
                     if payment:
-                        _logger.info('payment %s', payment)
                         # Find move lines to reconcile
                         lines_to_reconcile = payment.move_id.line_ids.filtered(
                             lambda l: l.account_id == payment.outstanding_account_id and not l.reconciled
                         )
-
-                        _logger.info('lines_to_reconcile1 %s', lines_to_reconcile)
-                        lines_to_reconcile |= move_line2  # Add the current move line
-
-                        _logger.info('lines_to_reconcile1 %s', lines_to_reconcile)
-
-                        # Perform reconciliation
-                        lines_to_reconcile.reconcile()
-                        payment.write({
-                            'is_reconciled': True,
-                            'is_matched': True,
+                        line.write({
+                            'reconciled_move_line_ids': [(6, 0, lines_to_reconcile.ids)],
+                            'installment_move_line_id': move_line2.id,
                         })
-
-                        _logger.info('reconciled ok ')
+                        # Perform reconciliation
+                        #lines_to_reconcile.reconcile()
+                        #make them to true to not get amount in outstanding payments of temporary bank account(traite ou chèque) and not reconcile because reconcile make invoice paid whith versment
+                        lines_to_reconcile.write({
+                            'reconciled': True,
+                        })
 
                     else:
                         _logger.warning(f"No matching payment found for payment ID: {line.payment_id.id}")
@@ -175,7 +169,6 @@ class AccountInstallmentTrait(models.Model):
             if treasury.state != 'versed':
                 raise UserError(_('Document number %s is not versed !') % (
                     treasury.name))
-            _logger.info('treasury 1')    
             # Restore payment state if exists
             if treasury.payment_id:
                 payment = self.env['account.payment'].browse(treasury.payment_id.id)
@@ -188,27 +181,21 @@ class AccountInstallmentTrait(models.Model):
                     # Remove reconciliation
                     if reconciled_lines:
                         reconciled_lines.remove_move_reconcile()
-                    
                     # Reset payment state
-                    payment.write({
-                        'is_reconciled': False,
-                        'is_matched': False,
+                    reconciled_lines.write({
+                        'reconciled': False,
                     })
-            _logger.info('treasury 2')            
             # Reset treasury state
             treasury.state = 'in_cash'
             treasury.bank_target = False
-            _logger.info('treasury 3')    
             # Clear move_line reference if exists
             if treasury.move_line_id:
                 treasury.move_line_id = False
-            _logger.info('treasury 4')    
         # Cancel and delete the move
         if self.move_id:
             self.move_id.button_draft()  # First set to draft before canceling
             self.move_id.button_cancel()
             self.move_id.with_context(force_delete=True).unlink()
-        _logger.info('treasury 5')        
         self.move_id = False
         self.state = 'cancel'
 

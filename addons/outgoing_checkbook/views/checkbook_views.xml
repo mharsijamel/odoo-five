@@ -5,7 +5,7 @@
             <field name="model">account.check.book</field>
             <field name="priority" eval="99"/>
             <field name="arch" type="xml">
-                <form create="false" edit="false" delete="false">
+                <form create="false" edit="false">
 <!--                    <header>-->
 <!--                        <button name="to_dir" type="object" string="Retourner à la direction" attrs="{'invisible':[('emplacement','=','dir')]}" />-->
 <!--                        <button name="to_fin" type="object" string="Emplacement Finance" attrs="{'invisible':[('emplacement','=','fin')]}" />-->
@@ -56,7 +56,7 @@
             <field name="name">account.checkbook.form</field>
             <field name="model">account.check.book</field>
             <field name="arch" type="xml">
-                <form create="false" edit="false" delete="false">
+                <form create="false" edit="false">
                     <header>
                         <button name="to_dir" type="object" string="Retourner à la direction" attrs="{'invisible':[('emplacement','=','dir')]}" />
                         <button name="to_fin" type="object" string="Emplacement Finance" attrs="{'invisible':[('emplacement','=','fin')]}" />
@@ -106,7 +106,7 @@
             <field name="arch" type="xml">
                 <tree string="Carnets de chèques"
                     decoration-muted="state == 'used'"
-                    decoration-bf ="state == 'new'"  create="false" edit="false" delete="false" >
+                    decoration-bf ="state == 'new'"  create="false" edit="false"  >
                     <field name="composed_name" string="Libellé"/>
                     <field name="bank_id"/>
                     <field name="emplacement"/>

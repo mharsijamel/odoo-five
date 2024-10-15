@@ -16,9 +16,9 @@ class AccountMoveLine(models.Model):
         store=True
     )
 
-    @api.depends('name')
+    @api.depends('matching_number','name')
     def _compute_treasury_state(self):
-        _logger.info('treasurytreasury ')
+        
         all_move_lines = self.search([])
         for line in all_move_lines:
             treasury = self.env['account.treasury'].search([('move_line_id', '=', line.id)], limit=1)

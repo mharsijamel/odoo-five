@@ -4,7 +4,9 @@ import time
 from datetime import datetime
 from odoo.exceptions import UserError
 from .amount_to_text_fr import amount_to_text_fr
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class AccountTreasuryInstallment(models.Model):
 
@@ -66,6 +68,16 @@ class AccountTreasuryInstallment(models.Model):
         self.state = 'draft'
 
     def action_move_line_create(self):
+        AccountMoveLine = self.env['account.move.line']
+        _logger.info("move line %s", AccountMoveLine)
+        domain = [
+            ('account_id', '=', self.journal_source.default_account_id.id),
+            ('date', '<=', self.date_vesement),
+        ]
+        balance = sum(AccountMoveLine.search(domain).mapped('balance'))
+        _logger.info("balance %s", balance)
+        if balance < self.amount:
+            raise UserError(_('Insufficient balance in the source journal. Available balance: %s') % balance)
         vals = {
             'ref': self.name,
             'journal_id': self.journal_target.id,
@@ -121,7 +133,7 @@ class AccountTreasuryInstallment(models.Model):
 
 
         self.move_id = self.env['account.move'].create(vals)
-        self.move_id.post()
+        self.move_id.action_post()
 
     def button_validate(self):
         if self.amount > 0.0:

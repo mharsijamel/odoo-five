@@ -235,7 +235,7 @@ class AccountWithholding(models.Model):
             for rec in self.account_invoice_ids:
                 rec.action_register_payment()
                 continue
-            self.account_move_id.post()
+            self.account_move_id.action_post()
             self.state = 'done'
 
         else:

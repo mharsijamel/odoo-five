@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <field name="amount_company_currency_signed" position="after">
                 <field name="invoice_refs" string="Invoice References"/>
+                <field name="is_matched" />
+                <field name="is_reconciled"/>
             </field>
         </field>
     </record>      

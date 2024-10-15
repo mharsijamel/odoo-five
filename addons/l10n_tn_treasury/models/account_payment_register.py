@@ -49,9 +49,11 @@ class AccountPaymentRegister(models.TransientModel):
     @api.depends('journal_id',  'payment_method_line_id')
     def compute_incash_checks_treaty(self):
         for payment in self:
-            if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank' and not payment.journal_id.temporary_bank_journal:
+            _logger.info('payment.payment_method_line_id.code %s', payment.payment_method_line_id.code)
+            if payment.payment_type == 'inbound' and payment.journal_id.type == 'bank':
                 if payment.payment_method_line_id.code == 'check_printing':
                     payment.incash_check = True
+                    _logger.info('payment.incash_check %s', payment.incash_check)
                     payment.incash_treaty = False
                 elif payment.payment_method_line_id.code == 'treaty':
                     payment.incash_check = False
@@ -59,7 +61,7 @@ class AccountPaymentRegister(models.TransientModel):
                 else:
                     payment.incash_check = False
                     payment.incash_treaty = False
-            elif payment.payment_type == 'outbound' and payment.journal_id.type == 'bank' and not payment.journal_id.temporary_bank_journal:
+            elif payment.payment_type == 'outbound' and payment.journal_id.type == 'bank':
                 payment.sudo().update({
                     'bank_origin': self.journal_id.bank_id.id,
                 })
@@ -81,8 +83,6 @@ class AccountPaymentRegister(models.TransientModel):
         treasury_id = 0
         payments = self._create_payments()
         invoices = self.env['account.move'].browse(self.env.context.get('active_ids', []))
-        _logger.info('payments.move_id %s', payments.move_id)
-        _logger.info('payments.move_id.line_ids %s', payments.move_id.line_ids)
         # Access the move lines instead of account.move directly
         debit_line = payments.move_id.line_ids.filtered(lambda line: line.debit > 0)
         credit_line = payments.move_id.line_ids.filtered(lambda line: line.credit > 0)

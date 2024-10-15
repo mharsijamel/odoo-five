@@ -55,4 +55,11 @@ class AccountCheckBook(models.Model):
 
     def to_compta(self):
         self.emplacement = 'compta'
+    
+    def unlink(self):
+        for record in self:
+            if any(check.state != 'available' for check in record.check_ids):
+                raise UserError(_("Impossible de supprimer ce chéquier. Tous les chèques associés doivent être à l'état « disponible »."))
+            record.check_ids.unlink()
+        return super(AccountCheckBook, self).unlink()
 

@@ -491,7 +491,7 @@ msgstr "Le numéro de document %s pour %s n'est pas en espèces !"
 #: code:addons/l10n_tn_treasury/models/account_installment_trait.py:0
 #, python-format
 msgid "Document number %s for %s is not versed !"
-msgstr "Le numéro de document %s pour %s n'est pas versé !"
+msgstr "Le numéro de document %s pour %s n'est pas encours!"
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__date_to
@@ -887,7 +887,7 @@ msgstr ""
 #. module: l10n_tn_treasury
 #: model:ir.model.fields.selection,name:l10n_tn_treasury.selection__account_treasury__state__notice
 msgid "Notice"
-msgstr "Avis"
+msgstr "Impayé"
 
 #. module: l10n_tn_treasury
 #: model:ir.model.fields,field_description:l10n_tn_treasury.field_account_installment__number
